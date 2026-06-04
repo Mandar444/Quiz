@@ -33,9 +33,7 @@ export const AdminPanel: React.FC = () => {
   const [showClearConfirm, setShowClearConfirm] = useState(false);
 
   // Authorization states
-  const [isAuthorized, setIsAuthorized] = useState(() => {
-    return sessionStorage.getItem('admin_authorized') === 'true';
-  });
+  const [isAuthorized, setIsAuthorized] = useState(false);
   const [passwordInput, setPasswordInput] = useState('');
   const [authError, setAuthError] = useState('');
 
@@ -44,7 +42,6 @@ export const AdminPanel: React.FC = () => {
     if (passwordInput === 'admin') {
       setIsAuthorized(true);
       setAuthError('');
-      sessionStorage.setItem('admin_authorized', 'true');
     } else {
       setAuthError('Incorrect password. Please try again.');
     }
