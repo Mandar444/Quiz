@@ -55,9 +55,6 @@ const getConfusingDistractors = (correctFrame: Frame, allFrames: Frame[]): strin
       score += 3;
     }
     
-    // Add small random noise so distractors vary slightly on different attempts
-    score += Math.random() * 2;
-    
     return { name: f.name, score };
   });
 
@@ -68,7 +65,7 @@ const getConfusingDistractors = (correctFrame: Frame, allFrames: Frame[]): strin
   return ranked.slice(0, 3).map(r => r.name);
 };
 
-// Generates unique distracting colors to test colorway recognition
+// Generates unique distracting colors to test colorway recognition with categories
 const getColorDistractors = (correctColor: string, frame: Frame, allFrames: Frame[]): string[] => {
   const distractors = new Set<string>();
   
@@ -79,7 +76,27 @@ const getColorDistractors = (correctColor: string, frame: Frame, allFrames: Fram
     }
   });
 
-  // 2. Add colors from other frames if we need more
+  // 2. Add colors from other frames that share the same finish type (Metallic vs Acetate)
+  const metallicTerms = ['gold', 'silver', 'gunmetal', 'rose gold', 'anthracite', 'bronze', 'matte silver', 'matte gunmetal', 'matte gold'];
+  const isCorrectColorMetal = metallicTerms.some(term => correctColor.toLowerCase().includes(term));
+
+  if (distractors.size < 3) {
+    const matchingOtherColors = allFrames
+      .flatMap(f => f.colors.map(c => c.name))
+      .filter(name => {
+        if (name.toLowerCase() === correctColor.toLowerCase()) return false;
+        const isMetal = metallicTerms.some(term => name.toLowerCase().includes(term));
+        return isMetal === isCorrectColorMetal;
+      });
+
+    const shuffled = [...matchingOtherColors].sort(() => 0.5 - Math.random());
+    for (const name of shuffled) {
+      distractors.add(name);
+      if (distractors.size >= 3) break;
+    }
+  }
+
+  // 3. Fallback: Add any other color if still need more
   if (distractors.size < 3) {
     const allOtherColors = allFrames
       .flatMap(f => f.colors.map(c => c.name))

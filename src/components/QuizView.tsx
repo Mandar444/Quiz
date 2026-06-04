@@ -27,7 +27,35 @@ export const QuizView: React.FC = () => {
   const [userName, setUserName] = React.useState(localStorage.getItem('unscene_user_name') || '');
   const [hasConfirmedName, setHasConfirmedName] = React.useState(false);
 
+  // 10-second countdown timer state
+  const [timeLeft, setTimeLeft] = React.useState(10);
+  const [isTimeout, setIsTimeout] = React.useState(false);
+
   const currentQuestion = quizQuestions[activeQuestionIndex];
+
+  // Timer countdown hook
+  React.useEffect(() => {
+    if (view !== 'quiz' || !hasConfirmedName || isAnswered) {
+      return;
+    }
+
+    setTimeLeft(10);
+    setIsTimeout(false);
+
+    const interval = setInterval(() => {
+      setTimeLeft(prev => {
+        if (prev <= 1) {
+          clearInterval(interval);
+          setIsTimeout(true);
+          submitAnswer(''); // Auto-submit wrong answer on timeout
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [activeQuestionIndex, isAnswered, view, hasConfirmedName]);
 
   // Intercept view to prompt for name before quiz starts
   if (view === 'quiz' && !hasConfirmedName) {
@@ -175,9 +203,22 @@ export const QuizView: React.FC = () => {
           <span className="uppercase tracking-widest text-zinc-500">
             {isMixedQuiz ? 'Mixed Eyewear Quiz' : `Practice Quiz: ${questionFrame?.name}`}
           </span>
-          <span>
-            Question {activeQuestionIndex + 1} of {quizQuestions.length}
-          </span>
+          <div className="flex items-center gap-2.5">
+            {!isAnswered && (
+              <span className={`px-2 py-0.5 rounded font-black text-xs transition-colors duration-300 ${
+                timeLeft > 5 
+                  ? 'bg-emerald-50 border border-emerald-200 text-emerald-600' 
+                  : timeLeft > 2 
+                  ? 'bg-yellow-50 border border-yellow-200 text-yellow-600' 
+                  : 'bg-red-50 border border-red-200 text-red-600 animate-pulse'
+              }`}>
+                ⏳ {timeLeft}s
+              </span>
+            )}
+            <span>
+              Question {activeQuestionIndex + 1} of {quizQuestions.length}
+            </span>
+          </div>
         </div>
         
         {/* Progress bar */}
@@ -324,11 +365,13 @@ export const QuizView: React.FC = () => {
               )}
               <div>
                 <h4 className={`text-sm font-extrabold ${isCorrect ? 'text-emerald-950' : 'text-red-950'}`}>
-                  {isCorrect ? 'Correct!' : 'Incorrect'}
+                  {isCorrect ? 'Correct!' : isTimeout ? "Time's Up!" : 'Incorrect'}
                 </h4>
                 <p className="text-xs mt-0.5 font-semibold">
                   {isCorrect 
                     ? 'Well done! Click continue' 
+                    : isTimeout
+                    ? 'You ran out of time. Click Try Again to retry!'
                     : 'Incorrect. Try another option!'
                   }
                 </p>
