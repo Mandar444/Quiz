@@ -198,8 +198,8 @@ export const QuizView: React.FC = () => {
             {currentQuestion.questionText}
           </h3>
 
-          {/* SVG Frame Rendering (if not mixup visual challenge) */}
-          {questionFrame && currentQuestion.type !== 'mixup_challenge' && (
+          {/* SVG Frame Rendering */}
+          {questionFrame && (
             <div className="flex justify-center items-center py-6 flex-1 select-none">
               <div className="w-full max-w-2xl h-56 md:h-72 flex items-center justify-center relative">
                 <FrameSilhouette 
@@ -218,85 +218,44 @@ export const QuizView: React.FC = () => {
             </div>
           )}
 
-          {/* Visual Choices for Mixup Challenge */}
-          {currentQuestion.type === 'mixup_challenge' && (
-            <div className="grid grid-cols-2 gap-4 py-4 flex-1">
-              {currentQuestion.options.map((optionName) => {
-                const matchingFrame = FRAMES.find(f => f.name === optionName);
-                if (!matchingFrame) return null;
-                
-                const isWrong = incorrectSelections.includes(optionName);
-                const isChosen = selectedOption === optionName;
-
-                return (
-                  <div 
-                    key={optionName}
-                    onClick={() => submitAnswer(optionName)}
-                    className={`border rounded-2xl p-4 flex flex-col items-center justify-center cursor-pointer transition-all duration-200 min-h-[180px] md:min-h-[220px] select-none ${
-                      isChosen
-                        ? isCorrect 
-                          ? 'border-emerald-500 bg-emerald-50 text-emerald-700 shadow-md font-bold' 
-                          : 'border-red-500 bg-red-50 text-red-700 shadow-md font-bold'
-                        : isWrong
-                        ? 'opacity-30 border-transparent bg-transparent pointer-events-none'
-                        : 'border-zinc-200 bg-zinc-50/50 hover:bg-zinc-100 hover:border-zinc-300 text-zinc-700 shadow-sm'
-                    }`}
-                  >
-                    <FrameSilhouette 
-                      shape={matchingFrame.shape} 
-                      colorName={matchingFrame.colors[0].name}
-                      viewMode="full"
-                      isSun={matchingFrame.type === 'Sun' || matchingFrame.type === 'Both'}
-                      className="w-full h-24 md:h-32"
-                      frameId={matchingFrame.id}
-                    />
-                    <span className="text-[11px] font-extrabold mt-3 text-zinc-500">{matchingFrame.name}</span>
-                  </div>
-                );
-              })}
-            </div>
-          )}
-
           {/* Choice list for text options */}
-          {currentQuestion.type !== 'mixup_challenge' && (
-            <div className="space-y-2.5 mt-6">
-              {currentQuestion.options.map((option, idx) => {
-                const isWrong = incorrectSelections.includes(option);
-                const isChosen = selectedOption === option;
-                const labelLetter = String.fromCharCode(65 + idx);
+          <div className="space-y-2.5 mt-6">
+            {currentQuestion.options.map((option, idx) => {
+              const isWrong = incorrectSelections.includes(option);
+              const isChosen = selectedOption === option;
+              const labelLetter = String.fromCharCode(65 + idx);
 
-                return (
-                  <button
-                    key={option}
-                    disabled={isAnswered && !isChosen}
-                    onClick={() => submitAnswer(option)}
-                    className={`w-full text-left p-3.5 rounded-xl border flex items-center justify-between transition-all duration-200 ${
+              return (
+                <button
+                  key={option}
+                  disabled={isAnswered && !isChosen}
+                  onClick={() => submitAnswer(option)}
+                  className={`w-full text-left p-3.5 rounded-xl border flex items-center justify-between transition-all duration-200 ${
+                    isChosen
+                      ? isCorrect 
+                        ? 'border-emerald-500 bg-emerald-50 text-emerald-700 font-bold' 
+                        : 'border-red-500 bg-red-50 text-red-700 font-bold'
+                      : isWrong
+                      ? 'opacity-35 border-transparent pointer-events-none line-through'
+                      : 'border-zinc-200 bg-zinc-50/50 hover:bg-zinc-100 hover:border-zinc-300 text-zinc-700'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <span className={`w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold border ${
                       isChosen
-                        ? isCorrect 
-                          ? 'border-emerald-500 bg-emerald-50 text-emerald-700 font-bold' 
-                          : 'border-red-500 bg-red-50 text-red-700 font-bold'
-                        : isWrong
-                        ? 'opacity-35 border-transparent pointer-events-none line-through'
-                        : 'border-zinc-200 bg-zinc-50/50 hover:bg-zinc-100 hover:border-zinc-300 text-zinc-700'
-                    }`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className={`w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold border ${
-                        isChosen
-                          ? isCorrect
-                            ? 'bg-emerald-500/20 border-emerald-500 text-emerald-600'
-                            : 'bg-red-500/20 border-red-500 text-red-600'
-                          : 'bg-white border-zinc-250 text-zinc-400'
-                      }`}>
-                        {labelLetter}
-                      </span>
-                      <span className="text-xs md:text-sm font-semibold">{option}</span>
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-          )}
+                        ? isCorrect
+                          ? 'bg-emerald-500/20 border-emerald-500 text-emerald-600'
+                          : 'bg-red-500/20 border-red-500 text-red-600'
+                        : 'bg-white border-zinc-250 text-zinc-400'
+                    }`}>
+                      {labelLetter}
+                    </span>
+                    <span className="text-xs md:text-sm font-semibold">{option}</span>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* Dynamic bottom banner banner */}

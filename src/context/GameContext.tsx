@@ -94,43 +94,21 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const frame = FRAMES.find(f => f.id === activeFrameId);
     if (!frame) return;
 
-    // Define 5 distinct question formats (2x Standard MCQ, 2x Visual Grid, 1x Silhouette)
-    const questionTypes = shuffleArray([
-      'name_the_frame',    // Standard MCQ
-      'name_the_frame',    // Standard MCQ
-      'silhouette_mode',   // SVG outline silhouette
-      'mixup_challenge',    // Visual grid click
-      'mixup_challenge'    // Visual grid click
-    ]);
-
     // Generate exactly 5 product identification questions using frame colors
     const questions: QuizQuestion[] = Array.from({ length: 5 }).map((_, idx) => {
       const color = frame.colors[idx % frame.colors.length];
       const distractorNames = getConfusingDistractors(frame, FRAMES);
       const options = shuffleArray([frame.name, ...distractorNames]);
-      
-      const qType = questionTypes[idx];
-      let finalType = qType;
-      let silhouetteOnly = false;
-      let questionText = 'Identify this Unscene frame model.';
-
-      if (qType === 'silhouette_mode') {
-        finalType = 'name_the_frame';
-        silhouetteOnly = true;
-        questionText = 'Identify this frame model purely by its shape silhouette.';
-      } else if (qType === 'mixup_challenge') {
-        questionText = `Which of these frames is the ${frame.name}?`;
-      }
 
       return {
         id: `${frame.id}_ident_${idx}`,
-        type: finalType as any,
-        questionText,
+        type: 'name_the_frame',
+        questionText: 'Identify this Unscene frame model.',
         options,
         correctAnswer: frame.name,
         frameId: frame.id,
         colorName: color.name,
-        silhouetteOnly
+        silhouetteOnly: false
       };
     });
 
@@ -150,40 +128,20 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const shuffledFrames = [...FRAMES].sort(() => 0.5 - Math.random());
     const selectedFrames = shuffledFrames.slice(0, 10);
 
-    // Shuffle 10 questions of different types (4x MCQ, 4x Visual Grid, 2x Silhouette)
-    const questionTypes = shuffleArray([
-      'name_the_frame', 'name_the_frame', 'name_the_frame', 'name_the_frame',
-      'mixup_challenge', 'mixup_challenge', 'mixup_challenge', 'mixup_challenge',
-      'silhouette_mode', 'silhouette_mode'
-    ]);
-
     const questions: QuizQuestion[] = selectedFrames.map((frame, idx) => {
       const color = frame.colors[Math.floor(Math.random() * frame.colors.length)];
       const distractorNames = getConfusingDistractors(frame, FRAMES);
       const options = shuffleArray([frame.name, ...distractorNames]);
 
-      const qType = questionTypes[idx % questionTypes.length];
-      let finalType = qType;
-      let silhouetteOnly = false;
-      let questionText = 'Identify this Unscene frame model.';
-
-      if (qType === 'silhouette_mode') {
-        finalType = 'name_the_frame';
-        silhouetteOnly = true;
-        questionText = 'Identify this frame model purely by its shape silhouette.';
-      } else if (qType === 'mixup_challenge') {
-        questionText = `Which of these frames is the ${frame.name}?`;
-      }
-
       return {
         id: `mixed_ident_${idx}_${frame.id}`,
-        type: finalType as any,
-        questionText,
+        type: 'name_the_frame',
+        questionText: 'Identify this Unscene frame model.',
         options,
         correctAnswer: frame.name,
         frameId: frame.id,
         colorName: color.name,
-        silhouetteOnly
+        silhouetteOnly: false
       };
     });
 
