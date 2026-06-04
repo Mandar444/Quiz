@@ -121,22 +121,43 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const frame = FRAMES.find(f => f.id === activeFrameId);
     if (!frame) return;
 
-    // Generate exactly 5 color recognition questions using frame colors
-    const questions: QuizQuestion[] = Array.from({ length: 5 }).map((_, idx) => {
-      const color = frame.colors[idx % frame.colors.length];
-      const distractorColors = getColorDistractors(color.name, frame, FRAMES);
-      const options = shuffleArray([color.name, ...distractorColors]);
+    // Mix of 3 color recognition questions and 2 visual choice questions
+    const questionTypes = shuffleArray([
+      'colour_recognition', 'colour_recognition', 'colour_recognition',
+      'visual_choice', 'visual_choice'
+    ]);
 
-      return {
-        id: `${frame.id}_color_${idx}`,
-        type: 'colour_recognition',
-        questionText: `What colorway of the ${frame.name} is shown here?`,
-        options,
-        correctAnswer: color.name,
-        frameId: frame.id,
-        colorName: color.name,
-        silhouetteOnly: false
-      };
+    const questions: QuizQuestion[] = Array.from({ length: 5 }).map((_, idx) => {
+      const qType = questionTypes[idx];
+      const color = frame.colors[idx % frame.colors.length];
+
+      if (qType === 'visual_choice') {
+        const distractorNames = getConfusingDistractors(frame, FRAMES);
+        const options = shuffleArray([frame.name, ...distractorNames]);
+        return {
+          id: `${frame.id}_visual_choice_${idx}`,
+          type: 'visual_choice',
+          questionText: `Which of these frames is the ${frame.name}?`,
+          options,
+          correctAnswer: frame.name,
+          frameId: frame.id,
+          colorName: color.name,
+          silhouetteOnly: false
+        };
+      } else {
+        const distractorColors = getColorDistractors(color.name, frame, FRAMES);
+        const options = shuffleArray([color.name, ...distractorColors]);
+        return {
+          id: `${frame.id}_color_${idx}`,
+          type: 'colour_recognition',
+          questionText: `What colorway of the ${frame.name} is shown here?`,
+          options,
+          correctAnswer: color.name,
+          frameId: frame.id,
+          colorName: color.name,
+          silhouetteOnly: false
+        };
+      }
     });
 
     setQuizQuestions(questions);
