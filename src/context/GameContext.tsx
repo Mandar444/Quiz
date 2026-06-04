@@ -115,39 +115,47 @@ const getColorDistractors = (correctColor: string, frame: Frame, allFrames: Fram
 // Generates logically rigorous Assertion-Reason questions in standard JEE format
 const generateAssertionReasonQuestion = (frame: Frame, idx: number): QuizQuestion => {
   const templates = [
-    // Template 1: Both True, R is correct explanation
+    // Template 1: Material-specific logic (Both True, R is correct explanation)
     () => {
-      const face = frame.bestFor[0] || 'Oval';
-      return {
-        assertion: `The ${frame.name} frame is recommended for people with ${face} face shapes.`,
-        reason: `Its ${frame.shape} shape design provides a flattering contrast to ${face} facial structures.`,
-        correct: `Both (A) and (R) are true and (R) is the correct explanation of (A)`
-      };
+      if (frame.material === 'Titanium') {
+        return {
+          assertion: `The titanium frame ${frame.name} offers a significantly lighter and more minimalist profile compared to bold acetate frames.`,
+          reason: `Premium Japanese titanium has an exceptionally high strength-to-weight ratio, enabling ultra-fine wireframe geometries that acetate cannot support structurally.`,
+          correct: `Both (A) and (R) are true and (R) is the correct explanation of (A)`
+        };
+      } else {
+        return {
+          assertion: `The acetate frame ${frame.name} presents a bolder, chunkier aesthetic than slim titanium wireframes.`,
+          reason: `Cellulose acetate must be machined into thicker, solid rims to achieve structural integrity, which naturally accommodates rich translucent pigments and tortoise shell patterns.`,
+          correct: `Both (A) and (R) are true and (R) is the correct explanation of (A)`
+        };
+      }
     },
-    // Template 2: Both True, R is NOT correct explanation
+    // Template 2: Material properties comparison (Both True, R is NOT correct explanation)
     () => {
-      const color = frame.colors[0].name;
       return {
-        assertion: `The ${frame.name} frame features a ${frame.shape} shape.`,
-        reason: `It is available in the ${color} colorway and is made of ${frame.material} material.`,
+        assertion: `The ${frame.name} frame is crafted with a ${frame.shape} shape profile in ${frame.material}.`,
+        reason: `Mazzucchelli acetate frames are plant-based plastics formed from cotton fibers, whereas titanium frames are made from highly durable, corrosion-resistant metallic alloys.`,
         correct: `Both (A) and (R) are true but (R) is NOT the correct explanation of (A)`
       };
     },
     // Template 3: A is True, R is False
     () => {
-      const wrongMaterial = frame.material === 'Acetate' ? 'Titanium' : 'Acetate';
+      const wrongMaterialInfo = frame.material === 'Acetate' 
+        ? 'Acetate is a heavy, cold metallic mineral mined from the earth' 
+        : 'Titanium is a lightweight organic plant fiber harvested from cotton crop fields';
       return {
-        assertion: `The ${frame.name} is made of ${frame.material} material.`,
-        reason: `All ${frame.shape} shape frames in the Unscene collection are crafted from ${wrongMaterial}.`,
+        assertion: `The ${frame.name} frame is composed of ${frame.material} material.`,
+        reason: `By definition, ${wrongMaterialInfo}.`,
         correct: `(A) is true but (R) is false`
       };
     },
     // Template 4: A is False, R is True
     () => {
-      const wrongShape = frame.shape === 'Round' ? 'Rectangle' : 'Round';
+      const oppositeMaterial = frame.material === 'Acetate' ? 'Titanium' : 'Acetate';
       return {
-        assertion: `The ${frame.name} frame features a ${wrongShape} shape.`,
-        reason: `It is recommended for ${frame.bestFor[0] || 'Oval'} facial structures.`,
+        assertion: `The ${frame.name} frame is crafted from ${oppositeMaterial} to achieve its signature style.`,
+        reason: `Acetate is preferred for thick, vintage-inspired frames while titanium is selected for lightweight, minimalist wireframes.`,
         correct: `(A) is false but (R) is true`
       };
     }
