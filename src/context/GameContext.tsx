@@ -94,12 +94,12 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const frame = FRAMES.find(f => f.id === activeFrameId);
     if (!frame) return;
 
-    // Define 5 distinct question formats to test different skills
+    // Define 5 distinct question formats (2x Standard MCQ, 2x Visual Grid, 1x Silhouette)
     const questionTypes = shuffleArray([
       'name_the_frame',    // Standard MCQ
-      'zoom_challenge',    // Cropped zoom match
-      'free_response',     // Write-in
+      'name_the_frame',    // Standard MCQ
       'silhouette_mode',   // SVG outline silhouette
+      'mixup_challenge',    // Visual grid click
       'mixup_challenge'    // Visual grid click
     ]);
 
@@ -114,11 +114,7 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
       let silhouetteOnly = false;
       let questionText = 'Identify this Unscene frame model.';
 
-      if (qType === 'zoom_challenge') {
-        questionText = 'Identify this model from its bridge and endpiece details.';
-      } else if (qType === 'free_response') {
-        questionText = 'Identify this Unscene frame model. Type its name:';
-      } else if (qType === 'silhouette_mode') {
+      if (qType === 'silhouette_mode') {
         finalType = 'name_the_frame';
         silhouetteOnly = true;
         questionText = 'Identify this frame model purely by its shape silhouette.';
@@ -154,13 +150,11 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const shuffledFrames = [...FRAMES].sort(() => 0.5 - Math.random());
     const selectedFrames = shuffledFrames.slice(0, 10);
 
-    // Shuffle 10 questions of different types
+    // Shuffle 10 questions of different types (4x MCQ, 4x Visual Grid, 2x Silhouette)
     const questionTypes = shuffleArray([
-      'name_the_frame', 'name_the_frame',
-      'zoom_challenge', 'zoom_challenge',
-      'free_response', 'free_response',
-      'silhouette_mode', 'silhouette_mode',
-      'mixup_challenge', 'mixup_challenge'
+      'name_the_frame', 'name_the_frame', 'name_the_frame', 'name_the_frame',
+      'mixup_challenge', 'mixup_challenge', 'mixup_challenge', 'mixup_challenge',
+      'silhouette_mode', 'silhouette_mode'
     ]);
 
     const questions: QuizQuestion[] = selectedFrames.map((frame, idx) => {
@@ -173,11 +167,7 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
       let silhouetteOnly = false;
       let questionText = 'Identify this Unscene frame model.';
 
-      if (qType === 'zoom_challenge') {
-        questionText = 'Identify this model from its bridge and endpiece details.';
-      } else if (qType === 'free_response') {
-        questionText = 'Identify this Unscene frame model. Type its name:';
-      } else if (qType === 'silhouette_mode') {
+      if (qType === 'silhouette_mode') {
         finalType = 'name_the_frame';
         silhouetteOnly = true;
         questionText = 'Identify this frame model purely by its shape silhouette.';

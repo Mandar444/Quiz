@@ -26,13 +26,8 @@ export const QuizView: React.FC = () => {
 
   const [userName, setUserName] = React.useState(localStorage.getItem('unscene_user_name') || '');
   const [hasConfirmedName, setHasConfirmedName] = React.useState(false);
-  const [typedAnswer, setTypedAnswer] = React.useState('');
 
   const currentQuestion = quizQuestions[activeQuestionIndex];
-
-  React.useEffect(() => {
-    setTypedAnswer('');
-  }, [activeQuestionIndex]);
 
   // Intercept view to prompt for name before quiz starts
   if (view === 'quiz' && !hasConfirmedName) {
@@ -206,9 +201,7 @@ export const QuizView: React.FC = () => {
           {/* SVG Frame Rendering (if not mixup visual challenge) */}
           {questionFrame && currentQuestion.type !== 'mixup_challenge' && (
             <div className="flex justify-center items-center py-6 flex-1 select-none">
-              <div className={`w-full max-w-2xl h-56 md:h-72 flex items-center justify-center relative ${
-                currentQuestion.type === 'zoom_challenge' ? 'overflow-hidden border border-zinc-250 rounded-2xl bg-zinc-50/20' : ''
-              }`}>
+              <div className="w-full max-w-2xl h-56 md:h-72 flex items-center justify-center relative">
                 <FrameSilhouette 
                   shape={questionFrame.shape} 
                   colorName={
@@ -219,17 +212,8 @@ export const QuizView: React.FC = () => {
                   viewMode={currentQuestion.silhouetteOnly ? 'silhouette' : 'full'}
                   isSun={questionFrame.type === 'Sun' || questionFrame.type === 'Both'}
                   frameId={questionFrame.id}
-                  className={`w-full h-full ${
-                    currentQuestion.type === 'zoom_challenge' 
-                      ? 'scale-[2.4] translate-y-2 hover:scale-[1.6] transition-all duration-500 cursor-zoom-out' 
-                      : ''
-                  }`}
+                  className="w-full h-full"
                 />
-                {currentQuestion.type === 'zoom_challenge' && (
-                  <span className="absolute bottom-2.5 right-3.5 text-[9px] font-extrabold uppercase tracking-wider text-zinc-400 bg-white/90 border border-zinc-200 px-2.5 py-1 rounded-md select-none pointer-events-none">
-                    Zoom Mode (Hover to Zoom Out)
-                  </span>
-                )}
               </div>
             </div>
           )}
@@ -274,7 +258,7 @@ export const QuizView: React.FC = () => {
           )}
 
           {/* Choice list for text options */}
-          {currentQuestion.type !== 'mixup_challenge' && currentQuestion.type !== 'free_response' && (
+          {currentQuestion.type !== 'mixup_challenge' && (
             <div className="space-y-2.5 mt-6">
               {currentQuestion.options.map((option, idx) => {
                 const isWrong = incorrectSelections.includes(option);
@@ -312,53 +296,6 @@ export const QuizView: React.FC = () => {
                 );
               })}
             </div>
-          )}
-
-          {/* Free Response Input form */}
-          {currentQuestion.type === 'free_response' && (
-            <form 
-              onSubmit={(e) => {
-                e.preventDefault();
-                if (!typedAnswer.trim()) return;
-                submitAnswer(typedAnswer.trim());
-              }}
-              className="space-y-4 mt-6 w-full max-w-md mx-auto"
-            >
-              <div className="space-y-1.5">
-                <label htmlFor="free-answer" className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest block">
-                  Model Name
-                </label>
-                <input
-                  id="free-answer"
-                  type="text"
-                  disabled={isAnswered}
-                  value={typedAnswer}
-                  onChange={(e) => setTypedAnswer(e.target.value)}
-                  placeholder="Type the frame name..."
-                  className={`w-full bg-white border rounded-xl px-4 py-3.5 text-sm text-zinc-900 placeholder-zinc-350 focus:outline-none transition-colors ${
-                    isAnswered
-                      ? isCorrect
-                        ? 'border-emerald-500 bg-emerald-50/30 text-emerald-800 font-bold'
-                        : 'border-red-500 bg-red-50/30 text-red-800 font-bold line-through'
-                      : 'border-zinc-200 focus:border-yellow-500'
-                  }`}
-                  autoFocus
-                  autoComplete="off"
-                  autoCorrect="off"
-                  autoCapitalize="off"
-                />
-              </div>
-
-              {!isAnswered && (
-                <button
-                  type="submit"
-                  disabled={!typedAnswer.trim()}
-                  className="w-full bg-zinc-900 hover:bg-zinc-800 disabled:opacity-50 disabled:pointer-events-none text-white font-extrabold py-3.5 rounded-xl shadow-md transition-colors text-xs"
-                >
-                  Submit Answer
-                </button>
-              )}
-            </form>
           )}
         </div>
 
