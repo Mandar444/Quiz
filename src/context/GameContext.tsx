@@ -94,20 +94,47 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const frame = FRAMES.find(f => f.id === activeFrameId);
     if (!frame) return;
 
+    // Define 5 distinct question formats to test different skills
+    const questionTypes = shuffleArray([
+      'name_the_frame',    // Standard MCQ
+      'zoom_challenge',    // Cropped zoom match
+      'free_response',     // Write-in
+      'silhouette_mode',   // SVG outline silhouette
+      'mixup_challenge'    // Visual grid click
+    ]);
+
     // Generate exactly 5 product identification questions using frame colors
     const questions: QuizQuestion[] = Array.from({ length: 5 }).map((_, idx) => {
       const color = frame.colors[idx % frame.colors.length];
       const distractorNames = getConfusingDistractors(frame, FRAMES);
       const options = shuffleArray([frame.name, ...distractorNames]);
+      
+      const qType = questionTypes[idx];
+      let finalType = qType;
+      let silhouetteOnly = false;
+      let questionText = 'Identify this Unscene frame model.';
+
+      if (qType === 'zoom_challenge') {
+        questionText = 'Identify this model from its bridge and endpiece details.';
+      } else if (qType === 'free_response') {
+        questionText = 'Identify this Unscene frame model. Type its name:';
+      } else if (qType === 'silhouette_mode') {
+        finalType = 'name_the_frame';
+        silhouetteOnly = true;
+        questionText = 'Identify this frame model purely by its shape silhouette.';
+      } else if (qType === 'mixup_challenge') {
+        questionText = `Which of these frames is the ${frame.name}?`;
+      }
 
       return {
         id: `${frame.id}_ident_${idx}`,
-        type: 'name_the_frame',
-        questionText: `Identify this Unscene frame model.`,
+        type: finalType as any,
+        questionText,
         options,
         correctAnswer: frame.name,
         frameId: frame.id,
-        colorName: color.name
+        colorName: color.name,
+        silhouetteOnly
       };
     });
 
@@ -127,19 +154,46 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const shuffledFrames = [...FRAMES].sort(() => 0.5 - Math.random());
     const selectedFrames = shuffledFrames.slice(0, 10);
 
+    // Shuffle 10 questions of different types
+    const questionTypes = shuffleArray([
+      'name_the_frame', 'name_the_frame',
+      'zoom_challenge', 'zoom_challenge',
+      'free_response', 'free_response',
+      'silhouette_mode', 'silhouette_mode',
+      'mixup_challenge', 'mixup_challenge'
+    ]);
+
     const questions: QuizQuestion[] = selectedFrames.map((frame, idx) => {
       const color = frame.colors[Math.floor(Math.random() * frame.colors.length)];
       const distractorNames = getConfusingDistractors(frame, FRAMES);
       const options = shuffleArray([frame.name, ...distractorNames]);
 
+      const qType = questionTypes[idx % questionTypes.length];
+      let finalType = qType;
+      let silhouetteOnly = false;
+      let questionText = 'Identify this Unscene frame model.';
+
+      if (qType === 'zoom_challenge') {
+        questionText = 'Identify this model from its bridge and endpiece details.';
+      } else if (qType === 'free_response') {
+        questionText = 'Identify this Unscene frame model. Type its name:';
+      } else if (qType === 'silhouette_mode') {
+        finalType = 'name_the_frame';
+        silhouetteOnly = true;
+        questionText = 'Identify this frame model purely by its shape silhouette.';
+      } else if (qType === 'mixup_challenge') {
+        questionText = `Which of these frames is the ${frame.name}?`;
+      }
+
       return {
         id: `mixed_ident_${idx}_${frame.id}`,
-        type: 'name_the_frame',
-        questionText: `Identify this Unscene frame model.`,
+        type: finalType as any,
+        questionText,
         options,
         correctAnswer: frame.name,
         frameId: frame.id,
-        colorName: color.name
+        colorName: color.name,
+        silhouetteOnly
       };
     });
 
@@ -161,9 +215,9 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const question = quizQuestions[activeQuestionIndex];
     if (!question) return;
 
-    const correct = option === question.correctAnswer;
+    const correct = option.trim().toLowerCase() === question.correctAnswer.toLowerCase();
 
-    setSelectedOption(option);
+    setSelectedOption(correct ? question.correctAnswer : option);
     setIsCorrect(correct);
     setIsAnswered(true);
 
