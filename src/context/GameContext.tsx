@@ -112,77 +112,6 @@ const getColorDistractors = (correctColor: string, frame: Frame, allFrames: Fram
   return Array.from(distractors).slice(0, 3);
 };
 
-// Generates logically rigorous Assertion-Reason questions in standard JEE format
-const generateAssertionReasonQuestion = (frame: Frame, idx: number): QuizQuestion => {
-  const templates = [
-    // Template 1: Material-specific logic (Both True, R is correct explanation)
-    () => {
-      if (frame.material === 'Titanium') {
-        return {
-          assertion: `The titanium frame ${frame.name} offers a significantly lighter and more minimalist profile compared to bold acetate frames.`,
-          reason: `Premium Japanese titanium has an exceptionally high strength-to-weight ratio, enabling ultra-fine wireframe geometries that acetate cannot support structurally.`,
-          correct: `Both (A) and (R) are true and (R) is the correct explanation of (A)`
-        };
-      } else {
-        return {
-          assertion: `The acetate frame ${frame.name} presents a bolder, chunkier aesthetic than slim titanium wireframes.`,
-          reason: `Cellulose acetate must be machined into thicker, solid rims to achieve structural integrity, which naturally accommodates rich translucent pigments and tortoise shell patterns.`,
-          correct: `Both (A) and (R) are true and (R) is the correct explanation of (A)`
-        };
-      }
-    },
-    // Template 2: Material properties comparison (Both True, R is NOT correct explanation)
-    () => {
-      return {
-        assertion: `The ${frame.name} frame is crafted with a ${frame.shape} shape profile in ${frame.material}.`,
-        reason: `Mazzucchelli acetate frames are plant-based plastics formed from cotton fibers, whereas titanium frames are made from highly durable, corrosion-resistant metallic alloys.`,
-        correct: `Both (A) and (R) are true but (R) is NOT the correct explanation of (A)`
-      };
-    },
-    // Template 3: A is True, R is False
-    () => {
-      const wrongMaterialInfo = frame.material === 'Acetate' 
-        ? 'Acetate is a heavy, cold metallic mineral mined from the earth' 
-        : 'Titanium is a lightweight organic plant fiber harvested from cotton crop fields';
-      return {
-        assertion: `The ${frame.name} frame is composed of ${frame.material} material.`,
-        reason: `By definition, ${wrongMaterialInfo}.`,
-        correct: `(A) is true but (R) is false`
-      };
-    },
-    // Template 4: A is False, R is True
-    () => {
-      const oppositeMaterial = frame.material === 'Acetate' ? 'Titanium' : 'Acetate';
-      return {
-        assertion: `The ${frame.name} frame is crafted from ${oppositeMaterial} to achieve its signature style.`,
-        reason: `Acetate is preferred for thick, vintage-inspired frames while titanium is selected for lightweight, minimalist wireframes.`,
-        correct: `(A) is false but (R) is true`
-      };
-    }
-  ];
-
-  const selectedTemplate = templates[idx % templates.length]();
-  
-  const questionText = `[ASSERTION-REASON TYPE]\n\nAssertion (A): ${selectedTemplate.assertion}\nReason (R): ${selectedTemplate.reason}`;
-
-  const options = [
-    `Both (A) and (R) are true and (R) is the correct explanation of (A)`,
-    `Both (A) and (R) are true but (R) is NOT the correct explanation of (A)`,
-    `(A) is true but (R) is false`,
-    `(A) is false but (R) is true`
-  ];
-
-  return {
-    id: `${frame.id}_jee_${idx}`,
-    type: 'assertion_reason',
-    questionText,
-    options,
-    correctAnswer: selectedTemplate.correct,
-    frameId: frame.id,
-    silhouetteOnly: false
-  };
-};
-
 export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [view, setView] = useState<ViewState>('gallery');
   const [activeFrameId, setActiveFrameId] = useState<string | null>(null);
@@ -209,20 +138,17 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const frame = FRAMES.find(f => f.id === activeFrameId);
     if (!frame) return;
 
-    // Mix of 2 color recognition questions, 2 visual choice questions, and 1 assertion reasoning question
+    // Mix of 2 color recognition questions and 3 visual choice questions
     const questionTypes = shuffleArray([
       'colour_recognition', 'colour_recognition',
-      'visual_choice', 'visual_choice',
-      'assertion_reason'
+      'visual_choice', 'visual_choice', 'visual_choice'
     ]);
 
     const questions: QuizQuestion[] = Array.from({ length: 5 }).map((_, idx) => {
       const qType = questionTypes[idx];
       const color = frame.colors[idx % frame.colors.length];
 
-      if (qType === 'assertion_reason') {
-        return generateAssertionReasonQuestion(frame, idx);
-      } else if (qType === 'visual_choice') {
+      if (qType === 'visual_choice') {
         const distractorNames = getConfusingDistractors(frame, FRAMES);
         const options = shuffleArray([frame.name, ...distractorNames]);
         return {
@@ -267,11 +193,11 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const shuffledFrames = [...FRAMES].sort(() => 0.5 - Math.random());
     const selectedFrames = shuffledFrames.slice(0, 10);
 
-    // Shuffle 10 questions of different types: 4x name_the_frame, 3x visual_choice, 3x assertion_reason
+    // Shuffle 10 questions of different types: 4x name_the_frame, 3x colour_recognition, 3x visual_choice
     const questionTypes = shuffleArray([
       'name_the_frame', 'name_the_frame', 'name_the_frame', 'name_the_frame',
-      'visual_choice', 'visual_choice', 'visual_choice',
-      'assertion_reason', 'assertion_reason', 'assertion_reason'
+      'colour_recognition', 'colour_recognition', 'colour_recognition',
+      'visual_choice', 'visual_choice', 'visual_choice'
     ]);
 
     const questions: QuizQuestion[] = selectedFrames.map((frame, idx) => {
@@ -280,8 +206,19 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const distractorNames = getConfusingDistractors(frame, FRAMES);
       const options = shuffleArray([frame.name, ...distractorNames]);
 
-      if (qType === 'assertion_reason') {
-        return generateAssertionReasonQuestion(frame, idx);
+      if (qType === 'colour_recognition') {
+        const distractorColors = getColorDistractors(color.name, frame, FRAMES);
+        const colorOptions = shuffleArray([color.name, ...distractorColors]);
+        return {
+          id: `mixed_color_${idx}_${frame.id}`,
+          type: 'colour_recognition',
+          questionText: `What colorway of the ${frame.name} is shown here?`,
+          options: colorOptions,
+          correctAnswer: color.name,
+          frameId: frame.id,
+          colorName: color.name,
+          silhouetteOnly: false
+        };
       } else {
         return {
           id: `mixed_${qType}_${idx}_${frame.id}`,

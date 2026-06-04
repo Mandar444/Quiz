@@ -29,8 +29,7 @@ export type QuestionType =
   | 'colour_recognition' 
   | 'collection_recall' 
   | 'mixup_challenge'
-  | 'visual_choice'
-  | 'assertion_reason';
+  | 'visual_choice';
 
 export interface QuizQuestion {
   id: string;

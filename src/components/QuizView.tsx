@@ -27,8 +27,8 @@ export const QuizView: React.FC = () => {
   const [userName, setUserName] = React.useState(localStorage.getItem('unscene_user_name') || '');
   const [hasConfirmedName, setHasConfirmedName] = React.useState(false);
 
-  // 10-second countdown timer state
-  const [timeLeft, setTimeLeft] = React.useState(10);
+  // 8-second countdown timer state
+  const [timeLeft, setTimeLeft] = React.useState(8);
   const [isTimeout, setIsTimeout] = React.useState(false);
 
   const currentQuestion = quizQuestions[activeQuestionIndex];
@@ -39,7 +39,7 @@ export const QuizView: React.FC = () => {
       return;
     }
 
-    setTimeLeft(10);
+    setTimeLeft(8);
     setIsTimeout(false);
 
     const interval = setInterval(() => {
@@ -371,17 +371,21 @@ export const QuizView: React.FC = () => {
                   {isCorrect 
                     ? 'Well done! Click continue' 
                     : isTimeout
-                    ? 'You ran out of time. Click Try Again to retry!'
+                    ? 'You ran out of time. Click continue to proceed.'
                     : 'Incorrect. Try another option!'
                   }
                 </p>
               </div>
             </div>
 
-            {isCorrect ? (
+            {isCorrect || isTimeout ? (
               <button
                 onClick={nextQuestion}
-                className="bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold px-5 py-2.5 rounded-xl flex items-center gap-1 shadow-lg shadow-emerald-600/10 transition-colors text-sm"
+                className={`font-extrabold px-5 py-2.5 rounded-xl flex items-center gap-1 shadow-lg transition-colors text-sm ${
+                  isCorrect 
+                    ? 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-600/10' 
+                    : 'bg-red-600 hover:bg-red-500 text-white shadow-red-600/10'
+                }`}
               >
                 Continue
                 <ArrowRight className="w-4 h-4 stroke-[3]" />
