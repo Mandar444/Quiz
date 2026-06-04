@@ -112,6 +112,69 @@ const getColorDistractors = (correctColor: string, frame: Frame, allFrames: Fram
   return Array.from(distractors).slice(0, 3);
 };
 
+// Generates logically rigorous Assertion-Reason questions in standard JEE format
+const generateAssertionReasonQuestion = (frame: Frame, idx: number): QuizQuestion => {
+  const templates = [
+    // Template 1: Both True, R is correct explanation
+    () => {
+      const face = frame.bestFor[0] || 'Oval';
+      return {
+        assertion: `The ${frame.name} frame is recommended for people with ${face} face shapes.`,
+        reason: `Its ${frame.shape} shape design provides a flattering contrast to ${face} facial structures.`,
+        correct: `Both (A) and (R) are true and (R) is the correct explanation of (A)`
+      };
+    },
+    // Template 2: Both True, R is NOT correct explanation
+    () => {
+      const color = frame.colors[0].name;
+      return {
+        assertion: `The ${frame.name} frame features a ${frame.shape} shape.`,
+        reason: `It is available in the ${color} colorway and is made of ${frame.material} material.`,
+        correct: `Both (A) and (R) are true but (R) is NOT the correct explanation of (A)`
+      };
+    },
+    // Template 3: A is True, R is False
+    () => {
+      const wrongMaterial = frame.material === 'Acetate' ? 'Titanium' : 'Acetate';
+      return {
+        assertion: `The ${frame.name} is made of ${frame.material} material.`,
+        reason: `All ${frame.shape} shape frames in the Unscene collection are crafted from ${wrongMaterial}.`,
+        correct: `(A) is true but (R) is false`
+      };
+    },
+    // Template 4: A is False, R is True
+    () => {
+      const wrongShape = frame.shape === 'Round' ? 'Rectangle' : 'Round';
+      return {
+        assertion: `The ${frame.name} frame features a ${wrongShape} shape.`,
+        reason: `It is recommended for ${frame.bestFor[0] || 'Oval'} facial structures.`,
+        correct: `(A) is false but (R) is true`
+      };
+    }
+  ];
+
+  const selectedTemplate = templates[idx % templates.length]();
+  
+  const questionText = `[ASSERTION-REASON TYPE]\n\nAssertion (A): ${selectedTemplate.assertion}\nReason (R): ${selectedTemplate.reason}`;
+
+  const options = [
+    `Both (A) and (R) are true and (R) is the correct explanation of (A)`,
+    `Both (A) and (R) are true but (R) is NOT the correct explanation of (A)`,
+    `(A) is true but (R) is false`,
+    `(A) is false but (R) is true`
+  ];
+
+  return {
+    id: `${frame.id}_jee_${idx}`,
+    type: 'assertion_reason',
+    questionText,
+    options,
+    correctAnswer: selectedTemplate.correct,
+    frameId: frame.id,
+    silhouetteOnly: false
+  };
+};
+
 export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [view, setView] = useState<ViewState>('gallery');
   const [activeFrameId, setActiveFrameId] = useState<string | null>(null);
@@ -138,17 +201,20 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const frame = FRAMES.find(f => f.id === activeFrameId);
     if (!frame) return;
 
-    // Mix of 3 color recognition questions and 2 visual choice questions
+    // Mix of 2 color recognition questions, 2 visual choice questions, and 1 assertion reasoning question
     const questionTypes = shuffleArray([
-      'colour_recognition', 'colour_recognition', 'colour_recognition',
-      'visual_choice', 'visual_choice'
+      'colour_recognition', 'colour_recognition',
+      'visual_choice', 'visual_choice',
+      'assertion_reason'
     ]);
 
     const questions: QuizQuestion[] = Array.from({ length: 5 }).map((_, idx) => {
       const qType = questionTypes[idx];
       const color = frame.colors[idx % frame.colors.length];
 
-      if (qType === 'visual_choice') {
+      if (qType === 'assertion_reason') {
+        return generateAssertionReasonQuestion(frame, idx);
+      } else if (qType === 'visual_choice') {
         const distractorNames = getConfusingDistractors(frame, FRAMES);
         const options = shuffleArray([frame.name, ...distractorNames]);
         return {
@@ -193,10 +259,11 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const shuffledFrames = [...FRAMES].sort(() => 0.5 - Math.random());
     const selectedFrames = shuffledFrames.slice(0, 10);
 
-    // Shuffle 10 questions of different types: 5x name_the_frame, 5x visual_choice
+    // Shuffle 10 questions of different types: 4x name_the_frame, 3x visual_choice, 3x assertion_reason
     const questionTypes = shuffleArray([
-      'name_the_frame', 'name_the_frame', 'name_the_frame', 'name_the_frame', 'name_the_frame',
-      'visual_choice', 'visual_choice', 'visual_choice', 'visual_choice', 'visual_choice'
+      'name_the_frame', 'name_the_frame', 'name_the_frame', 'name_the_frame',
+      'visual_choice', 'visual_choice', 'visual_choice',
+      'assertion_reason', 'assertion_reason', 'assertion_reason'
     ]);
 
     const questions: QuizQuestion[] = selectedFrames.map((frame, idx) => {
@@ -205,18 +272,22 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const distractorNames = getConfusingDistractors(frame, FRAMES);
       const options = shuffleArray([frame.name, ...distractorNames]);
 
-      return {
-        id: `mixed_${qType}_${idx}_${frame.id}`,
-        type: qType as any,
-        questionText: qType === 'visual_choice' 
-          ? `Which of these frames is the ${frame.name}?` 
-          : 'Identify this Unscene frame model.',
-        options,
-        correctAnswer: frame.name,
-        frameId: frame.id,
-        colorName: color.name,
-        silhouetteOnly: false
-      };
+      if (qType === 'assertion_reason') {
+        return generateAssertionReasonQuestion(frame, idx);
+      } else {
+        return {
+          id: `mixed_${qType}_${idx}_${frame.id}`,
+          type: qType as any,
+          questionText: qType === 'visual_choice' 
+            ? `Which of these frames is the ${frame.name}?` 
+            : 'Identify this Unscene frame model.',
+          options,
+          correctAnswer: frame.name,
+          frameId: frame.id,
+          colorName: color.name,
+          silhouetteOnly: false
+        };
+      }
     });
 
     setQuizQuestions(questions);

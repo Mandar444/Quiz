@@ -235,7 +235,7 @@ export const QuizView: React.FC = () => {
         
         <div className="p-6 md:p-8 flex-1 flex flex-col">
           {/* Question text */}
-          <h3 className="text-lg md:text-xl font-bold text-zinc-900 leading-snug mt-2">
+          <h3 className="text-lg md:text-xl font-bold text-zinc-900 leading-snug mt-2 whitespace-pre-wrap">
             {currentQuestion.questionText}
           </h3>
 
