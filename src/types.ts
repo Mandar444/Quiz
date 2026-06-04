@@ -28,7 +28,8 @@ export type QuestionType =
   | 'material_match' 
   | 'colour_recognition' 
   | 'collection_recall' 
-  | 'mixup_challenge';
+  | 'mixup_challenge'
+  | 'visual_choice';
 
 export interface QuizQuestion {
   id: string;

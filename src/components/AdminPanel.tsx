@@ -47,9 +47,10 @@ export const AdminPanel: React.FC = () => {
     }
   };
 
-  // Load attempts from Supabase or localStorage fallback
+  // Load attempts from Supabase and localStorage, merging them chronologically
   useEffect(() => {
     const loadAttempts = async () => {
+      let dbAttempts: QuizAttempt[] = [];
       if (supabase) {
         try {
           const { data, error } = await supabase
@@ -61,7 +62,7 @@ export const AdminPanel: React.FC = () => {
 
           if (data) {
             // Map db schema to component interface fields
-            const mapped: QuizAttempt[] = data.map((item: any) => ({
+            dbAttempts = data.map((item: any) => ({
               id: item.id,
               name: item.name,
               quizType: item.quiz_type,
@@ -71,19 +72,38 @@ export const AdminPanel: React.FC = () => {
               attemptNumber: item.attempt_number,
               timestamp: item.timestamp
             }));
-            setAttempts(mapped);
-            return;
           }
         } catch (err) {
-          console.error('Failed to load attempts from Supabase, falling back to local storage:', err);
+          console.error('Failed to load attempts from Supabase:', err);
         }
       }
 
-      // Fallback load
+      // Load local storage attempts
       const raw = localStorage.getItem('unscene_quiz_attempts');
-      if (raw) {
-        setAttempts(JSON.parse(raw));
-      }
+      const localAttempts: QuizAttempt[] = raw ? JSON.parse(raw) : [];
+
+      // Merge both datasets by attempt id
+      const mergedMap = new Map<string, QuizAttempt>();
+      localAttempts.forEach(a => {
+        if (a && a.id) mergedMap.set(a.id, a);
+      });
+      dbAttempts.forEach(a => {
+        if (a && a.id) mergedMap.set(a.id, a);
+      });
+
+      const merged = Array.from(mergedMap.values());
+      
+      // Sort: newest first
+      merged.sort((a, b) => {
+        const timeA = new Date(a.timestamp).getTime();
+        const timeB = new Date(b.timestamp).getTime();
+        if (isNaN(timeA) || isNaN(timeB)) {
+          return 0;
+        }
+        return timeB - timeA;
+      });
+
+      setAttempts(merged);
     };
 
     loadAttempts();

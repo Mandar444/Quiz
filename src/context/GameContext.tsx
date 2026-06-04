@@ -68,6 +68,33 @@ const getConfusingDistractors = (correctFrame: Frame, allFrames: Frame[]): strin
   return ranked.slice(0, 3).map(r => r.name);
 };
 
+// Generates unique distracting colors to test colorway recognition
+const getColorDistractors = (correctColor: string, frame: Frame, allFrames: Frame[]): string[] => {
+  const distractors = new Set<string>();
+  
+  // 1. Add other colors of the same frame
+  frame.colors.forEach(c => {
+    if (c.name.toLowerCase() !== correctColor.toLowerCase()) {
+      distractors.add(c.name);
+    }
+  });
+
+  // 2. Add colors from other frames if we need more
+  if (distractors.size < 3) {
+    const allOtherColors = allFrames
+      .flatMap(f => f.colors.map(c => c.name))
+      .filter(name => name.toLowerCase() !== correctColor.toLowerCase());
+    
+    const shuffled = [...allOtherColors].sort(() => 0.5 - Math.random());
+    for (const name of shuffled) {
+      distractors.add(name);
+      if (distractors.size >= 3) break;
+    }
+  }
+
+  return Array.from(distractors).slice(0, 3);
+};
+
 export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [view, setView] = useState<ViewState>('gallery');
   const [activeFrameId, setActiveFrameId] = useState<string | null>(null);
@@ -94,18 +121,18 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const frame = FRAMES.find(f => f.id === activeFrameId);
     if (!frame) return;
 
-    // Generate exactly 5 product identification questions using frame colors
+    // Generate exactly 5 color recognition questions using frame colors
     const questions: QuizQuestion[] = Array.from({ length: 5 }).map((_, idx) => {
       const color = frame.colors[idx % frame.colors.length];
-      const distractorNames = getConfusingDistractors(frame, FRAMES);
-      const options = shuffleArray([frame.name, ...distractorNames]);
+      const distractorColors = getColorDistractors(color.name, frame, FRAMES);
+      const options = shuffleArray([color.name, ...distractorColors]);
 
       return {
-        id: `${frame.id}_ident_${idx}`,
-        type: 'name_the_frame',
-        questionText: 'Identify this Unscene frame model.',
+        id: `${frame.id}_color_${idx}`,
+        type: 'colour_recognition',
+        questionText: `What colorway of the ${frame.name} is shown here?`,
         options,
-        correctAnswer: frame.name,
+        correctAnswer: color.name,
         frameId: frame.id,
         colorName: color.name,
         silhouetteOnly: false
@@ -128,15 +155,24 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const shuffledFrames = [...FRAMES].sort(() => 0.5 - Math.random());
     const selectedFrames = shuffledFrames.slice(0, 10);
 
+    // Shuffle 10 questions of different types: 5x name_the_frame, 5x visual_choice
+    const questionTypes = shuffleArray([
+      'name_the_frame', 'name_the_frame', 'name_the_frame', 'name_the_frame', 'name_the_frame',
+      'visual_choice', 'visual_choice', 'visual_choice', 'visual_choice', 'visual_choice'
+    ]);
+
     const questions: QuizQuestion[] = selectedFrames.map((frame, idx) => {
+      const qType = questionTypes[idx];
       const color = frame.colors[Math.floor(Math.random() * frame.colors.length)];
       const distractorNames = getConfusingDistractors(frame, FRAMES);
       const options = shuffleArray([frame.name, ...distractorNames]);
 
       return {
-        id: `mixed_ident_${idx}_${frame.id}`,
-        type: 'name_the_frame',
-        questionText: 'Identify this Unscene frame model.',
+        id: `mixed_${qType}_${idx}_${frame.id}`,
+        type: qType as any,
+        questionText: qType === 'visual_choice' 
+          ? `Which of these frames is the ${frame.name}?` 
+          : 'Identify this Unscene frame model.',
         options,
         correctAnswer: frame.name,
         frameId: frame.id,
