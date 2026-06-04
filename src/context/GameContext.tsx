@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-import type { QuizQuestion } from '../types';
+import type { QuizQuestion, Frame } from '../types';
 import { FRAMES } from '../data/frames';
 import sounds from '../utils/audio';
 import { supabase } from '../lib/supabase';
@@ -38,6 +38,36 @@ const shuffleArray = <T,>(array: T[]): T[] => {
   return arr;
 };
 
+// Generates distracting choices that share similar shapes and materials to make the quiz more challenging
+const getConfusingDistractors = (correctFrame: Frame, allFrames: Frame[]): string[] => {
+  const otherFrames = allFrames.filter(f => f.id !== correctFrame.id);
+  
+  const ranked = otherFrames.map(f => {
+    let score = 0;
+    
+    // Weight heavily if it shares the exact same shape (e.g. Round vs Round)
+    if (f.shape === correctFrame.shape) {
+      score += 5;
+    }
+    
+    // Weight if it shares the exact same material (e.g. Acetate vs Acetate)
+    if (f.material === correctFrame.material) {
+      score += 3;
+    }
+    
+    // Add small random noise so distractors vary slightly on different attempts
+    score += Math.random() * 2;
+    
+    return { name: f.name, score };
+  });
+
+  // Sort descending by similarity score
+  ranked.sort((a, b) => b.score - a.score);
+  
+  // Pick the top 3 closest matches
+  return ranked.slice(0, 3).map(r => r.name);
+};
+
 export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [view, setView] = useState<ViewState>('gallery');
   const [activeFrameId, setActiveFrameId] = useState<string | null>(null);
@@ -67,11 +97,7 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     // Generate exactly 5 product identification questions using frame colors
     const questions: QuizQuestion[] = Array.from({ length: 5 }).map((_, idx) => {
       const color = frame.colors[idx % frame.colors.length];
-
-      const otherFrames = FRAMES.filter(f => f.id !== frame.id);
-      const shuffledOthers = [...otherFrames].sort(() => 0.5 - Math.random());
-      const distractorNames = shuffledOthers.slice(0, 3).map(f => f.name);
-
+      const distractorNames = getConfusingDistractors(frame, FRAMES);
       const options = shuffleArray([frame.name, ...distractorNames]);
 
       return {
@@ -103,11 +129,7 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     const questions: QuizQuestion[] = selectedFrames.map((frame, idx) => {
       const color = frame.colors[Math.floor(Math.random() * frame.colors.length)];
-
-      const otherFrames = FRAMES.filter(f => f.id !== frame.id);
-      const shuffledOthers = [...otherFrames].sort(() => 0.5 - Math.random());
-      const distractorNames = shuffledOthers.slice(0, 3).map(f => f.name);
-
+      const distractorNames = getConfusingDistractors(frame, FRAMES);
       const options = shuffleArray([frame.name, ...distractorNames]);
 
       return {
