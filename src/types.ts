@@ -21,6 +21,8 @@ export interface Frame {
   colors: FrameColor[];
   character: string;
   shopUrl: string;
+  priceSun: number;
+  priceRx?: number;
 }
 
 export type QuestionType = 
@@ -31,7 +33,8 @@ export type QuestionType =
   | 'collection_recall' 
   | 'mixup_challenge'
   | 'visual_choice'
-  | 'lens_color_match';
+  | 'lens_color_match'
+  | 'price_match';
 
 
 export interface QuizQuestion {

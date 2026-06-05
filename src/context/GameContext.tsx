@@ -129,6 +129,24 @@ const getLensColorDistractors = (correctLensColor: string, allFrames: Frame[]): 
   return Array.from(distractors).slice(0, 3);
 };
 
+// Generates unique distracting prices to test price recognition
+const getPriceDistractors = (correctPrice: string, allFrames: Frame[]): string[] => {
+  const allPrices = new Set<string>();
+  
+  allFrames.forEach(f => {
+    if (f.priceSun) {
+      allPrices.add(`₹${f.priceSun.toLocaleString('en-IN')}`);
+    }
+    if (f.priceRx) {
+      allPrices.add(`₹${f.priceRx.toLocaleString('en-IN')}`);
+    }
+  });
+
+  const distractorList = Array.from(allPrices).filter(p => p !== correctPrice);
+  const shuffled = [...distractorList].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, 3);
+};
+
 export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [view, setView] = useState<ViewState>('gallery');
   const [activeFrameId, setActiveFrameId] = useState<string | null>(null);
@@ -155,15 +173,22 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const frame = FRAMES.find(f => f.id === activeFrameId);
     if (!frame) return;
 
-    // Mix of 2 color recognition questions, 2 visual choice questions, and 1 lens color match question
-    const questionTypes = shuffleArray([
-      'colour_recognition', 'colour_recognition',
-      'visual_choice', 'visual_choice',
-      'lens_color_match'
-    ]);
+    // Mix of 1 color recognition, 1 visual choice, 1 lens color match, and 2 price match questions
+    const questionTypes = [
+      'colour_recognition',
+      'visual_choice',
+      'lens_color_match',
+      'price_match_sun',
+      'price_match_rx'
+    ];
+    // If frame has no Rx option, replace the rx question with a visual_choice
+    if (frame.priceRx === undefined) {
+      questionTypes[4] = 'visual_choice';
+    }
+    const shuffledTypes = shuffleArray(questionTypes);
 
     const questions: QuizQuestion[] = Array.from({ length: 5 }).map((_, idx) => {
-      const qType = questionTypes[idx];
+      const qType = shuffledTypes[idx];
       const color = frame.colors[idx % frame.colors.length];
 
       if (qType === 'visual_choice') {
@@ -189,6 +214,22 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
           questionText: `What lens color does the ${frame.name} in ${color.name} feature?`,
           options,
           correctAnswer: correctLens,
+          frameId: frame.id,
+          colorName: color.name,
+          silhouetteOnly: false
+        };
+      } else if (qType === 'price_match_sun' || qType === 'price_match_rx') {
+        const isSun = qType === 'price_match_sun';
+        const correctPriceVal = isSun ? frame.priceSun : frame.priceRx!;
+        const correctPrice = `₹${correctPriceVal.toLocaleString('en-IN')}`;
+        const distractors = getPriceDistractors(correctPrice, FRAMES);
+        const options = shuffleArray([correctPrice, ...distractors]);
+        return {
+          id: `${frame.id}_price_${isSun ? 'sun' : 'rx'}_${idx}`,
+          type: 'price_match',
+          questionText: `What is the price of the ${frame.name} ${isSun ? 'Sunglasses (SUN)' : 'Optical (RX)'}?`,
+          options,
+          correctAnswer: correctPrice,
           frameId: frame.id,
           colorName: color.name,
           silhouetteOnly: false
@@ -225,12 +266,13 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const shuffledFrames = [...FRAMES].sort(() => 0.5 - Math.random());
     const selectedFrames = shuffledFrames.slice(0, 10);
 
-    // Shuffle 10 questions of different types: 3x name_the_frame, 2x colour_recognition, 3x visual_choice, 2x lens_color_match
+    // Shuffle 10 questions: 2x name_the_frame, 2x colour_recognition, 2x visual_choice, 2x lens_color_match, 2x price_match
     const questionTypes = shuffleArray([
-      'name_the_frame', 'name_the_frame', 'name_the_frame',
+      'name_the_frame', 'name_the_frame',
       'colour_recognition', 'colour_recognition',
-      'visual_choice', 'visual_choice', 'visual_choice',
-      'lens_color_match', 'lens_color_match'
+      'visual_choice', 'visual_choice',
+      'lens_color_match', 'lens_color_match',
+      'price_match', 'price_match'
     ]);
 
     const questions: QuizQuestion[] = selectedFrames.map((frame, idx) => {
@@ -262,6 +304,22 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
           questionText: `What lens color does the ${frame.name} in ${color.name} feature?`,
           options: lensOptions,
           correctAnswer: correctLens,
+          frameId: frame.id,
+          colorName: color.name,
+          silhouetteOnly: false
+        };
+      } else if (qType === 'price_match') {
+        const askSun = frame.priceRx === undefined || Math.random() < 0.5;
+        const correctPriceVal = askSun ? frame.priceSun : frame.priceRx!;
+        const correctPrice = `₹${correctPriceVal.toLocaleString('en-IN')}`;
+        const distractors = getPriceDistractors(correctPrice, FRAMES);
+        const priceOptions = shuffleArray([correctPrice, ...distractors]);
+        return {
+          id: `mixed_price_${idx}_${frame.id}`,
+          type: 'price_match',
+          questionText: `What is the price of the ${frame.name} ${askSun ? 'Sunglasses (SUN)' : 'Optical (RX)'}?`,
+          options: priceOptions,
+          correctAnswer: correctPrice,
           frameId: frame.id,
           colorName: color.name,
           silhouetteOnly: false

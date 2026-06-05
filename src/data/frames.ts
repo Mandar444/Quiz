@@ -50,7 +50,9 @@ export const FRAMES: Frame[] = [
       }
     ],
     "character": "Clean wayfarer energy. Versatile enough for anything.",
-    "shopUrl": "https://unscenenow.com/products/coastline?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card"
+    "shopUrl": "https://unscenenow.com/products/coastline?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card",
+    "priceSun": 7600,
+    "priceRx": 7200
   },
   {
     "id": "vondel",
@@ -101,7 +103,9 @@ export const FRAMES: Frame[] = [
       }
     ],
     "character": "Soft panto-shaped frame with relaxed proportions, inspired by Amsterdam's Vondelpark.",
-    "shopUrl": "https://unscenenow.com/products/vondel?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card"
+    "shopUrl": "https://unscenenow.com/products/vondel?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card",
+    "priceSun": 7300,
+    "priceRx": 6900
   },
   {
     "id": "strand",
@@ -152,7 +156,9 @@ export const FRAMES: Frame[] = [
       }
     ],
     "character": "Balancing softness and structure, inspired by New York's Strand Bookstore.",
-    "shopUrl": "https://unscenenow.com/products/strand?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card"
+    "shopUrl": "https://unscenenow.com/products/strand?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card",
+    "priceSun": 7600,
+    "priceRx": 7200
   },
   {
     "id": "vapour",
@@ -202,7 +208,9 @@ export const FRAMES: Frame[] = [
       }
     ],
     "character": "A versatile frame designed to be full across the top and subtly flattened at the sides.",
-    "shopUrl": "https://unscenenow.com/products/vapour?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card"
+    "shopUrl": "https://unscenenow.com/products/vapour?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card",
+    "priceSun": 7600,
+    "priceRx": 7200
   },
   {
     "id": "split",
@@ -238,7 +246,9 @@ export const FRAMES: Frame[] = [
       }
     ],
     "character": "A ultra-lightweight Japanese titanium aviator frame featuring a striking split-bridge design.",
-    "shopUrl": "https://unscenenow.com/products/split?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card"
+    "shopUrl": "https://unscenenow.com/products/split?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card",
+    "priceSun": 8600,
+    "priceRx": 8200
   },
   {
     "id": "fulton",
@@ -288,7 +298,9 @@ export const FRAMES: Frame[] = [
       }
     ],
     "character": "Unapologetic, solid, and authoritative chunky acetate frame.",
-    "shopUrl": "https://unscenenow.com/products/fulton?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card"
+    "shopUrl": "https://unscenenow.com/products/fulton?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card",
+    "priceSun": 8000,
+    "priceRx": 7600
   },
   {
     "id": "overture",
@@ -338,7 +350,9 @@ export const FRAMES: Frame[] = [
       }
     ],
     "character": "A bold, grounded, and sturdy frame designed to provide a minimalist aesthetic with depth.",
-    "shopUrl": "https://unscenenow.com/products/overture?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card"
+    "shopUrl": "https://unscenenow.com/products/overture?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card",
+    "priceSun": 8000,
+    "priceRx": 7600
   },
   {
     "id": "downtime",
@@ -389,7 +403,9 @@ export const FRAMES: Frame[] = [
       }
     ],
     "character": "A fuller-shaped frame designed for a quiet presence and relaxed afternoon vibes.",
-    "shopUrl": "https://unscenenow.com/products/downtime?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card"
+    "shopUrl": "https://unscenenow.com/products/downtime?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card",
+    "priceSun": 8000,
+    "priceRx": 7600
   },
   {
     "id": "portola",
@@ -440,7 +456,9 @@ export const FRAMES: Frame[] = [
       }
     ],
     "character": "An oval-shaped frame made from premium Italian Mazzucchelli acetate, exuding effortless coastal style.",
-    "shopUrl": "https://unscenenow.com/products/portola?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card"
+    "shopUrl": "https://unscenenow.com/products/portola?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card",
+    "priceSun": 7600,
+    "priceRx": 7200
   },
   {
     "id": "undertone",
@@ -476,7 +494,9 @@ export const FRAMES: Frame[] = [
       }
     ],
     "character": "A seamless blend of acetate and metal featuring a balanced hexagonal-round shape.",
-    "shopUrl": "https://unscenenow.com/products/undertone?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card"
+    "shopUrl": "https://unscenenow.com/products/undertone?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card",
+    "priceSun": 9200,
+    "priceRx": 8800
   },
   {
     "id": "prysm",
@@ -526,7 +546,9 @@ export const FRAMES: Frame[] = [
       }
     ],
     "character": "A sharp, rectangular frame crafted from Italian Mazzucchelli acetate with strong geometric edges.",
-    "shopUrl": "https://unscenenow.com/products/prysm?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card"
+    "shopUrl": "https://unscenenow.com/products/prysm?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card",
+    "priceSun": 7600,
+    "priceRx": 7200
   },
   {
     "id": "highline",
@@ -562,7 +584,9 @@ export const FRAMES: Frame[] = [
       }
     ],
     "character": "Lightweight, oval-shaped Japanese titanium frame built for ultimate strength and comfort.",
-    "shopUrl": "https://unscenenow.com/products/highline?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card"
+    "shopUrl": "https://unscenenow.com/products/highline?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card",
+    "priceSun": 8200,
+    "priceRx": 7800
   },
   {
     "id": "borderline",
@@ -598,7 +622,9 @@ export const FRAMES: Frame[] = [
       }
     ],
     "character": "Minimalist rectangular metallic-rimmed titanium frame defining structural simplicity.",
-    "shopUrl": "https://unscenenow.com/products/borderline?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card"
+    "shopUrl": "https://unscenenow.com/products/borderline?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card",
+    "priceSun": 8200,
+    "priceRx": 7800
   },
   {
     "id": "crossfire",
@@ -634,7 +660,9 @@ export const FRAMES: Frame[] = [
       }
     ],
     "character": "Bold double-bridge metal aviator featuring structural reinforcement and lightweight comfort.",
-    "shopUrl": "https://unscenenow.com/products/crossfire?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card"
+    "shopUrl": "https://unscenenow.com/products/crossfire?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card",
+    "priceSun": 8900,
+    "priceRx": 8200
   },
   {
     "id": "strangelove",
@@ -670,7 +698,9 @@ export const FRAMES: Frame[] = [
       }
     ],
     "character": "Delicate oval frame suspended in Japanese titanium, projecting structural lightness.",
-    "shopUrl": "https://unscenenow.com/products/strangelove?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card"
+    "shopUrl": "https://unscenenow.com/products/strangelove?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card",
+    "priceSun": 8900,
+    "priceRx": 8200
   },
   {
     "id": "wireframe",
@@ -709,7 +739,8 @@ export const FRAMES: Frame[] = [
       }
     ],
     "character": "Uncompromised geometric expression. Minimalist hexagonal rim detailing.",
-    "shopUrl": "https://unscenenow.com/products/wireframe?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card"
+    "shopUrl": "https://unscenenow.com/products/wireframe?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card",
+    "priceSun": 8600
   },
   {
     "id": "paradox",
@@ -745,7 +776,9 @@ export const FRAMES: Frame[] = [
       }
     ],
     "character": "A balanced contradiction. Subtle geometric lines merging with flat acetate borders.",
-    "shopUrl": "https://unscenenow.com/products/paradox?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card"
+    "shopUrl": "https://unscenenow.com/products/paradox?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card",
+    "priceSun": 8900,
+    "priceRx": 8500
   },
   {
     "id": "runway",
@@ -781,7 +814,9 @@ export const FRAMES: Frame[] = [
       }
     ],
     "character": "Speedway heritage. A thin titanium frame styled with athletic curves.",
-    "shopUrl": "https://unscenenow.com/products/runway?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card"
+    "shopUrl": "https://unscenenow.com/products/runway?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card",
+    "priceSun": 8600,
+    "priceRx": 8200
   },
   {
     "id": "sheer",
@@ -817,7 +852,9 @@ export const FRAMES: Frame[] = [
       }
     ],
     "character": "A gossamer-light presence. Round wire detailing that feels completely weightless.",
-    "shopUrl": "https://unscenenow.com/products/sheer?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card"
+    "shopUrl": "https://unscenenow.com/products/sheer?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card",
+    "priceSun": 8600,
+    "priceRx": 7700
   },
   {
     "id": "slowburn",
@@ -853,7 +890,9 @@ export const FRAMES: Frame[] = [
       }
     ],
     "character": "A slow-releasing design assertion. Thin metallic rims with polished acetate details.",
-    "shopUrl": "https://unscenenow.com/products/slowburn?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card"
+    "shopUrl": "https://unscenenow.com/products/slowburn?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card",
+    "priceSun": 8900,
+    "priceRx": 8200
   },
   {
     "id": "velo",
@@ -904,7 +943,8 @@ export const FRAMES: Frame[] = [
       }
     ],
     "character": "Narrow, wrapping rectangle sunglasses built for sleek athletic style.",
-    "shopUrl": "https://unscenenow.com/products/velo?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card"
+    "shopUrl": "https://unscenenow.com/products/velo?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card",
+    "priceSun": 7300
   }
 ];
 
