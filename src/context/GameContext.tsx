@@ -3,6 +3,8 @@ import type { QuizQuestion } from '../types';
 import { FRAMES, FRAME_QUESTIONS } from '../data/frames';
 import sounds from '../utils/audio';
 import { supabase } from '../lib/supabase';
+import type { LanguageCode } from '../utils/translations';
+import { translateQuestion } from '../utils/translations';
 
 type ViewState = 'gallery' | 'details' | 'quiz' | 'results' | 'admin';
 
@@ -18,6 +20,8 @@ interface GameContextType {
   incorrectSelections: string[];
   quizQuestions: QuizQuestion[];
   isMixedQuiz: boolean;
+  language: LanguageCode;
+  setLanguage: (lang: LanguageCode) => void;
   selectFrame: (frameId: string) => void;
   startQuiz: () => void;
   startMixedQuiz: () => void;
@@ -51,6 +55,14 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [isCorrect, setIsCorrect] = useState<boolean>(false);
   const [incorrectSelections, setIncorrectSelections] = useState<string[]>([]);
   const [isMixedQuiz, setIsMixedQuiz] = useState<boolean>(false);
+  const [language, setLanguageState] = useState<LanguageCode>(
+    (localStorage.getItem('unscene_quiz_lang') as LanguageCode) || 'en'
+  );
+
+  const setLanguage = (lang: LanguageCode) => {
+    localStorage.setItem('unscene_quiz_lang', lang);
+    setLanguageState(lang);
+  };
 
   const selectFrame = (frameId: string) => {
     setActiveFrameId(frameId);
@@ -112,9 +124,10 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const question = quizQuestions[activeQuestionIndex];
     if (!question) return;
 
-    const correct = option.trim().toLowerCase() === question.correctAnswer.toLowerCase();
+    const translatedQuestion = translateQuestion(question, language);
+    const correct = option.trim().toLowerCase() === translatedQuestion.correctAnswer.toLowerCase();
 
-    setSelectedOption(correct ? question.correctAnswer : option);
+    setSelectedOption(correct ? translatedQuestion.correctAnswer : option);
     setIsCorrect(correct);
     setIsAnswered(true);
 
@@ -152,10 +165,15 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
         (a: any) => a.name.toLowerCase() === userName.toLowerCase()
       ).length;
 
+      const langLabel = language === 'hi' ? 'हिन्दी' : language === 'mr' ? 'मराठी' : language === 'gu' ? 'ગુજરાતી' : 'English';
+      const quizTypeWithLang = isMixedQuiz 
+        ? `General Mixed Quiz (${langLabel})` 
+        : `Practice: ${questionFrame?.name || 'Frame'} (${langLabel})`;
+
       const newAttempt = {
         id: Math.random().toString(36).substring(2, 9),
         name: userName,
-        quizType: isMixedQuiz ? 'General Mixed Quiz' : `Practice: ${questionFrame?.name || 'Frame'}`,
+        quizType: quizTypeWithLang,
         score: score,
         totalQuestions: quizQuestions.length,
         accuracy: Math.round((score / quizQuestions.length) * 100),
@@ -212,6 +230,8 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
       incorrectSelections,
       quizQuestions,
       isMixedQuiz,
+      language,
+      setLanguage,
       selectFrame,
       startQuiz,
       startMixedQuiz,

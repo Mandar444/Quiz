@@ -3,6 +3,7 @@ import { useGame } from '../context/GameContext';
 import { FRAMES } from '../data/frames';
 import FrameSilhouette from './FrameSilhouette';
 import { CheckCircle2, XCircle, ArrowRight, RotateCcw, Award } from 'lucide-react';
+import { translateQuestion, translateUI, SUPPORTED_LANGUAGES } from '../utils/translations';
 
 export const QuizView: React.FC = () => {
   const {
@@ -16,6 +17,8 @@ export const QuizView: React.FC = () => {
     incorrectSelections,
     quizQuestions,
     isMixedQuiz,
+    language,
+    setLanguage,
     startQuiz,
     startMixedQuiz,
     submitAnswer,
@@ -31,7 +34,8 @@ export const QuizView: React.FC = () => {
   const [timeLeft, setTimeLeft] = React.useState(8);
   const [isTimeout, setIsTimeout] = React.useState(false);
 
-  const currentQuestion = quizQuestions[activeQuestionIndex];
+  const rawQuestion = quizQuestions[activeQuestionIndex];
+  const currentQuestion = rawQuestion ? translateQuestion(rawQuestion, language) : null;
 
   // Timer countdown hook
   React.useEffect(() => {
@@ -69,11 +73,13 @@ export const QuizView: React.FC = () => {
             <Award className="w-12 h-12" />
           </div>
 
-          <h2 className="text-2xl font-black text-zinc-900 text-center">Quiz Registration</h2>
+          <h2 className="text-2xl font-black text-zinc-900 text-center">
+            {translateUI('quizRegistration', language)}
+          </h2>
           <p className="text-zinc-500 text-xs text-center mt-2 mb-6">
             {isMixedQuiz 
-              ? 'Enter your name to begin the General Mixed Quiz.'
-              : `Enter your name to begin the practice quiz for ${questionFrame?.name || 'this frame'}.`
+              ? translateUI('enterNameMixedPrompt', language)
+              : translateUI('enterNamePracticePrompt', language).replace('this frame', questionFrame?.name || 'this frame')
             }
           </p>
 
@@ -88,8 +94,8 @@ export const QuizView: React.FC = () => {
             className="w-full space-y-4"
           >
             <div className="space-y-1.5">
-              <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">
-                Your Full Name
+              <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest block">
+                {translateUI('fullName', language)}
               </label>
               <input 
                 type="text"
@@ -101,19 +107,36 @@ export const QuizView: React.FC = () => {
               />
             </div>
 
+            <div className="space-y-1.5">
+              <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest block">
+                {translateUI('selectLanguage', language)}
+              </label>
+              <select
+                value={language}
+                onChange={(e) => setLanguage(e.target.value as any)}
+                className="w-full bg-white border border-zinc-200 rounded-xl px-4 py-3 text-xs text-zinc-900 focus:outline-none focus:border-yellow-500 transition-colors"
+              >
+                {SUPPORTED_LANGUAGES.map(lang => (
+                  <option key={lang.code} value={lang.code}>
+                    {lang.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
             <div className="flex gap-2.5 pt-2 w-full">
               <button
                 type="button"
                 onClick={exitToGallery}
                 className="flex-1 border border-zinc-200 hover:bg-zinc-50 text-zinc-650 font-bold py-3 rounded-xl transition-all text-xs"
               >
-                Cancel
+                {translateUI('cancel', language)}
               </button>
               <button
                 type="submit"
                 className="flex-1 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold py-3 rounded-xl flex items-center justify-center gap-2 shadow-lg transition-colors text-xs"
               >
-                Begin Quiz
+                {translateUI('startQuiz', language)}
               </button>
             </div>
           </form>
@@ -136,22 +159,28 @@ export const QuizView: React.FC = () => {
             <Award className="w-12 h-12" />
           </div>
 
-          <h2 className="text-3xl font-black text-zinc-900">Quiz Completed!</h2>
+          <h2 className="text-3xl font-black text-zinc-900">
+            {translateUI('quizCompleted', language)}
+          </h2>
           <p className="text-zinc-600 text-sm mt-3 max-w-sm leading-relaxed">
             {isMixedQuiz 
-              ? `You finished the General Mixed Quiz. You successfully recognized and recalled the properties of Unscene Eyewear frames.` 
-              : `Nice work! You practiced identifying details for the frame model.`
+              ? translateUI('resultsMixedSubtitle', language)
+              : translateUI('resultsPracticeSubtitle', language)
             }
           </p>
 
           <div className="grid grid-cols-2 gap-4 w-full max-w-xs mt-8 p-4 bg-zinc-50 border border-zinc-200 rounded-2xl">
             <div>
               <span className="block text-2xl font-black text-zinc-900">{score} / {quizQuestions.length}</span>
-              <span className="text-[10px] text-zinc-400 uppercase font-bold tracking-wider">Correct</span>
+              <span className="text-[10px] text-zinc-400 uppercase font-bold tracking-wider">
+                {translateUI('correct', language).split('!')[0]}
+              </span>
             </div>
             <div>
               <span className="block text-2xl font-black text-yellow-600">{accuracy}%</span>
-              <span className="text-[10px] text-zinc-400 uppercase font-bold tracking-wider">Accuracy</span>
+              <span className="text-[10px] text-zinc-400 uppercase font-bold tracking-wider">
+                {translateUI('accuracy', language)}
+              </span>
             </div>
           </div>
 
@@ -162,13 +191,13 @@ export const QuizView: React.FC = () => {
               className="w-full bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-lg transition-colors text-sm"
             >
               <RotateCcw className="w-4 h-4 stroke-[3]" />
-              Practice Again
+              {translateUI('practiceAgain', language)}
             </button>
             <button
               onClick={exitToGallery}
               className="w-full border border-zinc-250 hover:bg-zinc-50 text-zinc-700 font-bold py-3.5 rounded-xl transition-colors text-sm"
             >
-              Return to Gallery
+              {translateUI('exitToGallery', language)}
             </button>
           </div>
 
@@ -194,6 +223,8 @@ export const QuizView: React.FC = () => {
 
   const questionFrame = FRAMES.find(f => f.id === (currentQuestion.frameId || activeFrameId));
 
+  const langLabel = language === 'hi' ? 'हिन्दी' : language === 'mr' ? 'मराठी' : language === 'gu' ? 'ગુજરાતી' : 'English';
+
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
       
@@ -201,7 +232,10 @@ export const QuizView: React.FC = () => {
       <div className="space-y-4 mb-6">
         <div className="flex justify-between items-center text-xs font-bold text-zinc-400">
           <span className="uppercase tracking-widest text-zinc-500">
-            {isMixedQuiz ? 'Mixed Eyewear Quiz' : `Practice Quiz: ${questionFrame?.name}`}
+            {isMixedQuiz 
+              ? `Mixed Eyewear Quiz (${langLabel})` 
+              : `Practice Quiz: ${questionFrame?.name} (${langLabel})`
+            }
           </span>
           <div className="flex items-center gap-2.5">
             {!isAnswered && (
@@ -216,7 +250,7 @@ export const QuizView: React.FC = () => {
               </span>
             )}
             <span>
-              Question {activeQuestionIndex + 1} of {quizQuestions.length}
+              {translateUI('questionProgress', language)} {activeQuestionIndex + 1} {translateUI('of', language)} {quizQuestions.length}
             </span>
           </div>
         </div>
@@ -365,14 +399,19 @@ export const QuizView: React.FC = () => {
               )}
               <div>
                 <h4 className={`text-sm font-extrabold ${isCorrect ? 'text-emerald-950' : 'text-red-950'}`}>
-                  {isCorrect ? 'Correct!' : isTimeout ? "Time's Up!" : 'Incorrect'}
+                  {isCorrect 
+                    ? translateUI('correct', language).split('!')[0] + '!' 
+                    : isTimeout 
+                    ? translateUI('timesUp', language) 
+                    : translateUI('incorrect', language).split('.')[0] + '!'
+                  }
                 </h4>
                 <p className="text-xs mt-0.5 font-semibold">
                   {isCorrect 
-                    ? 'Well done! Click continue' 
+                    ? translateUI('correct', language)
                     : isTimeout
-                    ? 'You ran out of time. Click continue to proceed.'
-                    : 'Incorrect. Try another option!'
+                    ? translateUI('timesUpSub', language)
+                    : translateUI('incorrect', language)
                   }
                 </p>
               </div>
@@ -387,7 +426,7 @@ export const QuizView: React.FC = () => {
                     : 'bg-red-600 hover:bg-red-500 text-white shadow-red-600/10'
                 }`}
               >
-                Continue
+                {translateUI('continue', language)}
                 <ArrowRight className="w-4 h-4 stroke-[3]" />
               </button>
             ) : (
@@ -397,7 +436,7 @@ export const QuizView: React.FC = () => {
                 className="bg-red-600 hover:bg-red-500 text-white font-extrabold px-5 py-2.5 rounded-xl flex items-center gap-1.5 shadow-lg shadow-red-600/10 transition-colors text-sm"
               >
                 <RotateCcw className="w-4 h-4 stroke-[3]" />
-                Try Again
+                {translateUI('tryAgain', language)}
               </button>
             )}
           </div>
