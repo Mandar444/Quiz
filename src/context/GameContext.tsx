@@ -29,6 +29,8 @@ interface GameContextType {
   nextQuestion: () => void;
   exitToGallery: () => void;
   retryAnswer: () => void;
+  hasConfirmedName: boolean;
+  setHasConfirmedName: (val: boolean) => void;
 }
 
 const GameContext = createContext<GameContextType | undefined>(undefined);
@@ -43,18 +45,30 @@ const shuffleArray = <T,>(array: T[]): T[] => {
 };
 
 export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [view, setView] = useState<ViewState>('gallery');
-  const [activeFrameId, setActiveFrameId] = useState<string | null>(null);
-  const [quizQuestions, setQuizQuestions] = useState<QuizQuestion[]>([]);
-  const [activeQuestionIndex, setActiveQuestionIndex] = useState<number>(0);
-  const [score, setScore] = useState<number>(0);
+  // Load saved quiz state if present
+  const savedState = (() => {
+    const saved = localStorage.getItem('unscene_active_quiz');
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch (e) {}
+    }
+    return null;
+  })();
+
+  const [view, setView] = useState<ViewState>(savedState ? 'quiz' : 'gallery');
+  const [activeFrameId, setActiveFrameId] = useState<string | null>(savedState ? savedState.activeFrameId : null);
+  const [quizQuestions, setQuizQuestions] = useState<QuizQuestion[]>(savedState ? savedState.quizQuestions : []);
+  const [activeQuestionIndex, setActiveQuestionIndex] = useState<number>(savedState ? savedState.activeQuestionIndex : 0);
+  const [score, setScore] = useState<number>(savedState ? savedState.score : 0);
 
   // Active question state
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [isAnswered, setIsAnswered] = useState<boolean>(false);
-  const [isCorrect, setIsCorrect] = useState<boolean>(false);
-  const [incorrectSelections, setIncorrectSelections] = useState<string[]>([]);
-  const [isMixedQuiz, setIsMixedQuiz] = useState<boolean>(false);
+  const [selectedOption, setSelectedOption] = useState<string | null>(savedState ? savedState.selectedOption : null);
+  const [isAnswered, setIsAnswered] = useState<boolean>(savedState ? savedState.isAnswered : false);
+  const [isCorrect, setIsCorrect] = useState<boolean>(savedState ? savedState.isCorrect : false);
+  const [incorrectSelections, setIncorrectSelections] = useState<string[]>(savedState ? savedState.incorrectSelections : []);
+  const [isMixedQuiz, setIsMixedQuiz] = useState<boolean>(savedState ? savedState.isMixedQuiz : false);
+  const [hasConfirmedName, setHasConfirmedName] = useState<boolean>(savedState ? savedState.hasConfirmedName : false);
   const [language, setLanguageState] = useState<LanguageCode>(() => {
     const stored = localStorage.getItem('unscene_quiz_lang');
     return stored === 'hi' ? stored : 'en';
@@ -64,6 +78,39 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     localStorage.setItem('unscene_quiz_lang', lang);
     setLanguageState(lang);
   };
+
+  // Save active quiz state to localStorage
+  React.useEffect(() => {
+    if (view === 'quiz') {
+      const stateToSave = {
+        activeFrameId,
+        quizQuestions,
+        activeQuestionIndex,
+        score,
+        selectedOption,
+        isAnswered,
+        isCorrect,
+        incorrectSelections,
+        isMixedQuiz,
+        hasConfirmedName
+      };
+      localStorage.setItem('unscene_active_quiz', JSON.stringify(stateToSave));
+    } else if (view === 'results' || view === 'gallery') {
+      localStorage.removeItem('unscene_active_quiz');
+    }
+  }, [
+    view,
+    activeFrameId,
+    quizQuestions,
+    activeQuestionIndex,
+    score,
+    selectedOption,
+    isAnswered,
+    isCorrect,
+    incorrectSelections,
+    isMixedQuiz,
+    hasConfirmedName
+  ]);
 
   const selectFrame = (frameId: string) => {
     setActiveFrameId(frameId);
@@ -77,7 +124,9 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const frame = FRAMES.find(f => f.id === activeFrameId);
     if (!frame) return;
 
-    const questionsPool = (FRAME_QUESTIONS[activeFrameId] || []).filter(q => !q.silhouetteOnly);
+    const questionsPool = (FRAME_QUESTIONS[activeFrameId] || []).filter(
+      q => !q.silhouetteOnly && q.type !== 'shape_identification'
+    );
     if (questionsPool.length === 0) {
       console.warn(`No predefined questions found for frame: ${activeFrameId}`);
       return;
@@ -94,11 +143,14 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setIsCorrect(false);
     setIncorrectSelections([]);
     setIsMixedQuiz(false);
+    setHasConfirmedName(false);
     setView('quiz');
   };
 
   const startMixedQuiz = () => {
-    const allQuestions = Object.values(FRAME_QUESTIONS).flat().filter(q => !q.silhouetteOnly);
+    const allQuestions = Object.values(FRAME_QUESTIONS).flat().filter(
+      q => !q.silhouetteOnly && q.type !== 'shape_identification'
+    );
     if (allQuestions.length === 0) {
       console.warn('No predefined questions found in database.');
       return;
@@ -116,6 +168,7 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setIsCorrect(false);
     setIncorrectSelections([]);
     setIsMixedQuiz(true);
+    setHasConfirmedName(false);
     setView('quiz');
   };
 
@@ -202,6 +255,7 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
         });
       }
 
+      localStorage.removeItem('unscene_active_quiz');
       setView('results');
     }
   };
@@ -211,6 +265,8 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setQuizQuestions([]);
     setView('gallery');
     setIsMixedQuiz(false);
+    setHasConfirmedName(false);
+    localStorage.removeItem('unscene_active_quiz');
   };
 
   const retryAnswer = () => {
@@ -239,7 +295,9 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
       submitAnswer,
       nextQuestion,
       exitToGallery,
-      retryAnswer
+      retryAnswer,
+      hasConfirmedName,
+      setHasConfirmedName
     }}>
       {children}
     </GameContext.Provider>

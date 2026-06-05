@@ -24,11 +24,12 @@ export const QuizView: React.FC = () => {
     submitAnswer,
     nextQuestion,
     exitToGallery,
-    retryAnswer
+    retryAnswer,
+    hasConfirmedName,
+    setHasConfirmedName
   } = useGame();
 
   const [userName, setUserName] = React.useState(localStorage.getItem('unscene_user_name') || '');
-  const [hasConfirmedName, setHasConfirmedName] = React.useState(false);
 
   // 15-second countdown timer state
   const [timeLeft, setTimeLeft] = React.useState(15);
