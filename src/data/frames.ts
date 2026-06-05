@@ -16,32 +16,37 @@ export const FRAMES: Frame[] = [
         "name": "Black Core",
         "value": "#1e293b",
         "imageOpt": "1coastline_blackcore_o.png",
-        "imageSun": "1Coastline_BlackCore_S.png"
+        "imageSun": "1Coastline_BlackCore_S.png",
+        "lensColor": "Blue / purple tint"
       },
       {
         "name": "Black Shell",
         "value": "#222222",
         "imageOpt": "1coastline_blackshell_o.png",
-        "imageSun": "1Coastline_BlackShell_Sun.png"
+        "imageSun": "1Coastline_BlackShell_Sun.png",
+        "lensColor": "Black / dark smoke"
       },
       {
         "name": "Champagne",
         "value": "#E8DCC4",
         "imageOpt": "1coastline_champagne_o.png",
-        "imageSun": "1Coastline_Champagne_S.png"
+        "imageSun": "1Coastline_Champagne_S.png",
+        "lensColor": "Orange / peach lens"
       },
       {
         "name": "Havana",
         "value": "#A0522D",
         "imageOpt": "1coastline_havana_o.png",
         "imageSun": "1Coastline_Havana_S.png",
-        "isTortoise": true
+        "isTortoise": true,
+        "lensColor": "Blue gradient"
       },
       {
         "name": "Matte Black",
         "value": "#2D2D2D",
         "imageOpt": "1coastline_matteblack_o.png",
-        "imageSun": "1Coastline_MatteBlack_S.png"
+        "imageSun": "1Coastline_MatteBlack_S.png",
+        "lensColor": "Yellow lens"
       }
     ],
     "character": "Clean wayfarer energy. Versatile enough for anything.",
@@ -62,32 +67,37 @@ export const FRAMES: Frame[] = [
         "name": "Black",
         "value": "#111111",
         "imageOpt": "1vondel_black_o.png",
-        "imageSun": "1vondel_black_s.png"
+        "imageSun": "1vondel_black_s.png",
+        "lensColor": "Black / smoke lens"
       },
       {
         "name": "Black Shell",
         "value": "#222222",
         "imageOpt": "1vondel_blackshell_o.png",
-        "imageSun": "1vondel_blackshell_s.png"
+        "imageSun": "1vondel_blackshell_s.png",
+        "lensColor": "Orange / coral lens"
       },
       {
         "name": "Champagne",
         "value": "#E8DCC4",
         "imageOpt": "1vondel_champagne_o.png",
-        "imageSun": "1vondel_champagne_s.png"
+        "imageSun": "1vondel_champagne_s.png",
+        "lensColor": "Brown gradient"
       },
       {
         "name": "Havana",
         "value": "#A0522D",
         "imageOpt": "1vondel_havana_o.png",
         "imageSun": "1vondel_havana_s.png",
-        "isTortoise": true
+        "isTortoise": true,
+        "lensColor": "Green lens"
       },
       {
         "name": "Teal",
         "value": "#005f73",
         "imageOpt": "1vondel_teal_o.png",
-        "imageSun": "1vondel_teal_s.png"
+        "imageSun": "1vondel_teal_s.png",
+        "lensColor": "Blue lens"
       }
     ],
     "character": "Soft panto-shaped frame with relaxed proportions, inspired by Amsterdam's Vondelpark.",
@@ -108,32 +118,37 @@ export const FRAMES: Frame[] = [
         "name": "Black",
         "value": "#111111",
         "imageOpt": "1strand_black_o.png",
-        "imageSun": "1strand_black_s.png"
+        "imageSun": "1strand_black_s.png",
+        "lensColor": "Black / dark smoke lens"
       },
       {
         "name": "Blackx",
         "value": "#555555",
         "imageOpt": "1strand_blackG_o.png",
-        "imageSun": "1strand_blackG_s.png"
+        "imageSun": "1strand_blackG_s.png",
+        "lensColor": "Green lens"
       },
       {
         "name": "Havana",
         "value": "#A0522D",
         "imageOpt": "1strand_havana_o.png",
         "imageSun": "1strand_havana_s.png",
-        "isTortoise": true
+        "isTortoise": true,
+        "lensColor": "Rose / pink gradient"
       },
       {
         "name": "Olive",
         "value": "#556B2F",
         "imageOpt": "1strand_olive_o.png",
-        "imageSun": "1strand_olive_s.png"
+        "imageSun": "1strand_olive_s.png",
+        "lensColor": "Brown gradient"
       },
       {
         "name": "Wine",
         "value": "#555555",
         "imageOpt": "1strand_wine_o.png",
-        "imageSun": "1strand_wine_s.png"
+        "imageSun": "1strand_wine_s.png",
+        "lensColor": "Black / dark smoke lens"
       }
     ],
     "character": "Balancing softness and structure, inspired by New York's Strand Bookstore.",
@@ -154,31 +169,36 @@ export const FRAMES: Frame[] = [
         "name": "Black Shell",
         "value": "#222222",
         "imageOpt": "1Vapour_blackshell_o.png",
-        "imageSun": "1Vapour_blackshell_s.png"
+        "imageSun": "1Vapour_blackshell_s.png",
+        "lensColor": "Blue lens"
       },
       {
         "name": "Blackshellx",
         "value": "#555555",
         "imageOpt": "1Vapour_blackshellG_o.png",
-        "imageSun": "1Vapour_blackshellg_s.png"
+        "imageSun": "1Vapour_blackshellg_s.png",
+        "lensColor": "Black / smoke lens"
       },
       {
         "name": "Emerald",
         "value": "#0f766e",
         "imageOpt": "1Vapour_emerald_o.png",
-        "imageSun": "1Vapour_emerald_s.png"
+        "imageSun": "1Vapour_emerald_s.png",
+        "lensColor": "Yellow-green lens"
       },
       {
         "name": "Glass",
         "value": "#7b958c",
         "imageOpt": "1Vapour_glass_o.png",
-        "imageSun": "1Vapour_glass_s.png"
+        "imageSun": "1Vapour_glass_s.png",
+        "lensColor": "Green / grey lens"
       },
       {
         "name": "Rust",
         "value": "#a16207",
         "imageOpt": "1Vapour_RUST_o.png",
-        "imageSun": "1Vapour_rust_s.png"
+        "imageSun": "1Vapour_rust_s.png",
+        "lensColor": "Brown gradient"
       }
     ],
     "character": "A versatile frame designed to be full across the top and subtly flattened at the sides.",
@@ -199,19 +219,22 @@ export const FRAMES: Frame[] = [
         "name": "Gold",
         "value": "#D4AF37",
         "imageOpt": "1split_gold_o.png",
-        "imageSun": "1split_gold_s.png"
+        "imageSun": "1split_gold_s.png",
+        "lensColor": "Coral / orange lens"
       },
       {
         "name": "Matte Black",
         "value": "#2D2D2D",
         "imageOpt": "1split_matteblack_o.png",
-        "imageSun": "1split_matteblack_s.png"
+        "imageSun": "1split_matteblack_s.png",
+        "lensColor": "Yellow lens"
       },
       {
         "name": "Matte Silver",
         "value": "#B2BEB5",
         "imageOpt": "1split_mattesilver_o.png",
-        "imageSun": "1split_mattesilver_s.png"
+        "imageSun": "1split_mattesilver_s.png",
+        "lensColor": "Blue lens"
       }
     ],
     "character": "A ultra-lightweight Japanese titanium aviator frame featuring a striking split-bridge design.",
@@ -232,31 +255,36 @@ export const FRAMES: Frame[] = [
         "name": "Black",
         "value": "#111111",
         "imageOpt": "1fulton_black_o.png",
-        "imageSun": "1fulton_black_s.png"
+        "imageSun": "1fulton_black_s.png",
+        "lensColor": "Orange / brown gradient"
       },
       {
         "name": "Black Shell",
         "value": "#222222",
         "imageOpt": "1fulton_blackshell_o.png",
-        "imageSun": "1fulton_blackshell_s.png"
+        "imageSun": "1fulton_blackshell_s.png",
+        "lensColor": "Black / dark smoke"
       },
       {
         "name": "Emerald",
         "value": "#0f766e",
         "imageOpt": "1fulton_emerald_o.png",
-        "imageSun": "1fulton_emerald_s.png"
+        "imageSun": "1fulton_emerald_s.png",
+        "lensColor": "Green lens"
       },
       {
         "name": "Rust",
         "value": "#a16207",
         "imageOpt": "1fulton_rust_o.png",
-        "imageSun": "1fulton_rust_s.png"
+        "imageSun": "1fulton_rust_s.png",
+        "lensColor": "Brown gradient"
       },
       {
         "name": "Smoke",
         "value": "#6b7280",
         "imageOpt": "1fulton_smoke_o.png",
-        "imageSun": "1fulton_smoke_s.png"
+        "imageSun": "1fulton_smoke_s.png",
+        "lensColor": "Yellow / green tint"
       }
     ],
     "character": "Unapologetic, solid, and authoritative chunky acetate frame.",
@@ -277,31 +305,36 @@ export const FRAMES: Frame[] = [
         "name": "Black",
         "value": "#111111",
         "imageOpt": "1Overture_Black_O.png",
-        "imageSun": "1Overture_Black_Sun.png"
+        "imageSun": "1Overture_Black_Sun.png",
+        "lensColor": "Black / smoke lens"
       },
       {
         "name": "Black Core",
         "value": "#1e293b",
         "imageOpt": "1overture_blackcore_o.png",
-        "imageSun": "1Overture_BlackCore_Sun.png"
+        "imageSun": "1Overture_BlackCore_Sun.png",
+        "lensColor": "Green lens"
       },
       {
         "name": "Champagne",
         "value": "#E8DCC4",
         "imageOpt": "1overture_champagne_o.png",
-        "imageSun": "1Overture_Champagne_S.png"
+        "imageSun": "1Overture_Champagne_S.png",
+        "lensColor": "Brown gradient"
       },
       {
         "name": "Navy",
         "value": "#1E3A8A",
         "imageOpt": "1overture_navy_o.png",
-        "imageSun": "1Overture_Navy_S.png"
+        "imageSun": "1Overture_Navy_S.png",
+        "lensColor": "Black / smoke lens"
       },
       {
         "name": "Sage",
         "value": "#4D7C0F",
         "imageOpt": "1overture_sage_o.png",
-        "imageSun": "1Overture_Sage_S.png"
+        "imageSun": "1Overture_Sage_S.png",
+        "lensColor": "Brown / rose gradient"
       }
     ],
     "character": "A bold, grounded, and sturdy frame designed to provide a minimalist aesthetic with depth.",
@@ -322,32 +355,37 @@ export const FRAMES: Frame[] = [
         "name": "Black",
         "value": "#111111",
         "imageOpt": "1downtime_black_o.png",
-        "imageSun": "1downtime_black_s.png"
+        "imageSun": "1downtime_black_s.png",
+        "lensColor": "Blue / grey lens"
       },
       {
         "name": "Black Shell",
         "value": "#222222",
         "imageOpt": "1downtime_blackshell_o.png",
-        "imageSun": "1downtime_blackshell_s.png"
+        "imageSun": "1downtime_blackshell_s.png",
+        "lensColor": "Black / dark smoke"
       },
       {
         "name": "Havana",
         "value": "#A0522D",
         "imageOpt": "1downtime_havana_o.png",
         "imageSun": "1downtime_havana_s(1).png",
-        "isTortoise": true
+        "isTortoise": true,
+        "lensColor": "Green / grey gradient"
       },
       {
         "name": "Navy",
         "value": "#1E3A8A",
         "imageOpt": "1downtime_navy_o.png",
-        "imageSun": "1downtime_navy_s.png"
+        "imageSun": "1downtime_navy_s.png",
+        "lensColor": "Brown / orange gradient"
       },
       {
         "name": "Smoke",
         "value": "#6b7280",
         "imageOpt": "1downtime_smoke_o.png",
-        "imageSun": "1downtime_smoke_s.png"
+        "imageSun": "1downtime_smoke_s.png",
+        "lensColor": "Orange / red gradient"
       }
     ],
     "character": "A fuller-shaped frame designed for a quiet presence and relaxed afternoon vibes.",
@@ -368,32 +406,37 @@ export const FRAMES: Frame[] = [
         "name": "Black",
         "value": "#111111",
         "imageOpt": "1Portola_black_o.png",
-        "imageSun": "1Portola_black_s.png"
+        "imageSun": "1Portola_black_s.png",
+        "lensColor": "Blue / purple lens"
       },
       {
         "name": "Black Core",
         "value": "#1e293b",
         "imageOpt": "1Portola_blackcore_o.png",
-        "imageSun": "1Portola_blackcore_s.png"
+        "imageSun": "1Portola_blackcore_s.png",
+        "lensColor": "Black / smoke lens"
       },
       {
         "name": "Concrete",
         "value": "#71717A",
         "imageOpt": "1Portola_concrete_o.png",
-        "imageSun": "1Portola_concrete_s.png"
+        "imageSun": "1Portola_concrete_s.png",
+        "lensColor": "Rose / pink gradient"
       },
       {
         "name": "Havana",
         "value": "#A0522D",
         "imageOpt": "1Portola_havana_o.png",
         "imageSun": "1Portola_havana_s.png",
-        "isTortoise": true
+        "isTortoise": true,
+        "lensColor": "Brown / orange gradient"
       },
       {
         "name": "Olive",
         "value": "#556B2F",
         "imageOpt": "1Portola_olive_o.png",
-        "imageSun": "1Portola_olive_s.png"
+        "imageSun": "1Portola_olive_s.png",
+        "lensColor": "Olive / yellow-green lens"
       }
     ],
     "character": "An oval-shaped frame made from premium Italian Mazzucchelli acetate, exuding effortless coastal style.",
@@ -414,19 +457,22 @@ export const FRAMES: Frame[] = [
         "name": "Anthracite",
         "value": "#3F3F46",
         "imageOpt": "1undertone_anthracite_o.png",
-        "imageSun": "1undertone_anthracite_s.png"
+        "imageSun": "1undertone_anthracite_s.png",
+        "lensColor": "Coral / orange lens"
       },
       {
         "name": "Gold",
         "value": "#D4AF37",
         "imageOpt": "1undertone_gold_o.png",
-        "imageSun": "1undertone_gold_s.png"
+        "imageSun": "1undertone_gold_s.png",
+        "lensColor": "Purple / smoke lens"
       },
       {
         "name": "Silver",
         "value": "#C0C0C0",
         "imageOpt": "1undertone_silver_o.png",
-        "imageSun": "1undertone_silver_s.png"
+        "imageSun": "1undertone_silver_s.png",
+        "lensColor": "Green / smoke lens"
       }
     ],
     "character": "A seamless blend of acetate and metal featuring a balanced hexagonal-round shape.",
@@ -447,31 +493,36 @@ export const FRAMES: Frame[] = [
         "name": "Black Core",
         "value": "#1e293b",
         "imageOpt": "1prysm_blackcore_o.png",
-        "imageSun": "1prysm_blackcore_s.png"
+        "imageSun": "1prysm_blackcore_s.png",
+        "lensColor": "Black / smoke lens"
       },
       {
         "name": "Emerald",
         "value": "#0f766e",
         "imageOpt": "1prysm_emerald_o.png",
-        "imageSun": "1prysm_emerald_s.png"
+        "imageSun": "1prysm_emerald_s.png",
+        "lensColor": "Green lens"
       },
       {
         "name": "Matte Black",
         "value": "#2D2D2D",
         "imageOpt": "1prysm_matteblack_o.png",
-        "imageSun": "1prysm_matteblack_s.png"
+        "imageSun": "1prysm_matteblack_s.png",
+        "lensColor": "Orange lens"
       },
       {
         "name": "Mattesmoke",
         "value": "#555555",
         "imageOpt": "1prysm_mattesmoke_o.png",
-        "imageSun": "1prysm_mattesmoke_s.png"
+        "imageSun": "1prysm_mattesmoke_s.png",
+        "lensColor": "Blue / purple gradient"
       },
       {
         "name": "Rust",
         "value": "#a16207",
         "imageOpt": "1prysm_rust_o.png",
-        "imageSun": "1prysm_rust_s.png"
+        "imageSun": "1prysm_rust_s.png",
+        "lensColor": "Brown / orange gradient"
       }
     ],
     "character": "A sharp, rectangular frame crafted from Italian Mazzucchelli acetate with strong geometric edges.",
@@ -492,19 +543,22 @@ export const FRAMES: Frame[] = [
         "name": "Anthracite",
         "value": "#3F3F46",
         "imageOpt": "1highline_anthracite_s.png",
-        "imageSun": "1highline_anthracite_s(1).png"
+        "imageSun": "1highline_anthracite_s(1).png",
+        "lensColor": "Yellow lens"
       },
       {
         "name": "Gold",
         "value": "#D4AF37",
         "imageOpt": "1highline_gold_o.png",
-        "imageSun": "1highline_gold_s.png"
+        "imageSun": "1highline_gold_s.png",
+        "lensColor": "Brown / rose gradient lens"
       },
       {
         "name": "Silver",
         "value": "#C0C0C0",
         "imageOpt": "1highline_silver_o.png",
-        "imageSun": "1highline_silver_s.png"
+        "imageSun": "1highline_silver_s.png",
+        "lensColor": "Light blue / lavender lens"
       }
     ],
     "character": "Lightweight, oval-shaped Japanese titanium frame built for ultimate strength and comfort.",
@@ -525,19 +579,22 @@ export const FRAMES: Frame[] = [
         "name": "Gold",
         "value": "#D4AF37",
         "imageOpt": "1borderline_gold_o.png",
-        "imageSun": "1borderline_gold_s.png"
+        "imageSun": "1borderline_gold_s.png",
+        "lensColor": "Green / olive gradient lens"
       },
       {
         "name": "Gunmetal",
         "value": "#555555",
         "imageOpt": "1borderline_gunmetal_o.png",
-        "imageSun": "1borderline_gunmetal_s.png"
+        "imageSun": "1borderline_gunmetal_s.png",
+        "lensColor": "Blue lens"
       },
       {
         "name": "Matte Black",
         "value": "#2D2D2D",
         "imageOpt": "1borderline_matteblack_o.png",
-        "imageSun": "1borderline_matteblack_s.png"
+        "imageSun": "1borderline_matteblack_s.png",
+        "lensColor": "Purple / smoke lens"
       }
     ],
     "character": "Minimalist rectangular metallic-rimmed titanium frame defining structural simplicity.",
@@ -558,19 +615,22 @@ export const FRAMES: Frame[] = [
         "name": "Anthracite",
         "value": "#3F3F46",
         "imageOpt": "1crossfire_anthracite_o.png",
-        "imageSun": "1Crossfire_Anthracite_S.png"
+        "imageSun": "1Crossfire_Anthracite_S.png",
+        "lensColor": "Purple / smoke lens"
       },
       {
         "name": "Bronze",
         "value": "#CD7F32",
         "imageOpt": "1crossfire_bronze_o.png",
-        "imageSun": "1Crossfire_Bronze_S.png"
+        "imageSun": "1Crossfire_Bronze_S.png",
+        "lensColor": "Green gradient lens"
       },
       {
         "name": "Gold",
         "value": "#D4AF37",
         "imageOpt": "1crossfire_gold_o.png",
-        "imageSun": "1Crossfire_Gold_S.png"
+        "imageSun": "1Crossfire_Gold_S.png",
+        "lensColor": "Brown gradient lens"
       }
     ],
     "character": "Bold double-bridge metal aviator featuring structural reinforcement and lightweight comfort.",
@@ -591,19 +651,22 @@ export const FRAMES: Frame[] = [
         "name": "Anthracite",
         "value": "#3F3F46",
         "imageOpt": "1strangelove_anthracite_o.png",
-        "imageSun": "1Strangelove_Anthracite_S.png"
+        "imageSun": "1Strangelove_Anthracite_S.png",
+        "lensColor": "Orange lens"
       },
       {
         "name": "Gold",
         "value": "#D4AF37",
         "imageOpt": "1strangelove_gold_o.png",
-        "imageSun": "1Strangelove_Gold_S.png"
+        "imageSun": "1Strangelove_Gold_S.png",
+        "lensColor": "Brown / smoke lens"
       },
       {
         "name": "Silver",
         "value": "#C0C0C0",
         "imageOpt": "1strangelove_silver_o.png",
-        "imageSun": "1Strangelove_Silver_S.png"
+        "imageSun": "1Strangelove_Silver_S.png",
+        "lensColor": "Yellow lens"
       }
     ],
     "character": "Delicate oval frame suspended in Japanese titanium, projecting structural lightness.",
@@ -623,22 +686,26 @@ export const FRAMES: Frame[] = [
       {
         "name": "Bronze",
         "value": "#CD7F32",
-        "imageSun": "1Wireframe_Bronze_S.png"
+        "imageSun": "1Wireframe_Bronze_S.png",
+        "lensColor": "Blue lens"
       },
       {
         "name": "Gold",
         "value": "#D4AF37",
-        "imageSun": "1Wireframe_Gold_S.png"
+        "imageSun": "1Wireframe_Gold_S.png",
+        "lensColor": "Orange lens"
       },
       {
         "name": "Matte Black",
         "value": "#2D2D2D",
-        "imageSun": "1Wireframe_Black _S.png"
+        "imageSun": "1Wireframe_Black _S.png",
+        "lensColor": "Black / smoke lens"
       },
       {
         "name": "Silver",
         "value": "#C0C0C0",
-        "imageSun": "1Wireframe_Silver_S.png"
+        "imageSun": "1Wireframe_Silver_S.png",
+        "lensColor": "Blue / lavender lens"
       }
     ],
     "character": "Uncompromised geometric expression. Minimalist hexagonal rim detailing.",
@@ -659,19 +726,22 @@ export const FRAMES: Frame[] = [
         "name": "Gold",
         "value": "#D4AF37",
         "imageOpt": "1paradox_gold_o.png",
-        "imageSun": "1paradox_gold_s.png"
+        "imageSun": "1paradox_gold_s.png",
+        "lensColor": "Green / olive gradient lens"
       },
       {
         "name": "Matte Anthracite",
         "value": "#4b5563",
         "imageOpt": "1paradox_matteanthracite_o.png",
-        "imageSun": "1paradox_matteanthracite_s.png"
+        "imageSun": "1paradox_matteanthracite_s.png",
+        "lensColor": "Blue / lavender lens"
       },
       {
         "name": "Matte Olive",
         "value": "#6b705c",
         "imageOpt": "1paradox_matteolive_o.png",
-        "imageSun": "1paradox_matteolive_s.png"
+        "imageSun": "1paradox_matteolive_s.png",
+        "lensColor": "Brown / orange gradient lens"
       }
     ],
     "character": "A balanced contradiction. Subtle geometric lines merging with flat acetate borders.",
@@ -692,19 +762,22 @@ export const FRAMES: Frame[] = [
         "name": "Gold",
         "value": "#D4AF37",
         "imageOpt": "1runway_gold_o.png",
-        "imageSun": "1runway_gold_s.png"
+        "imageSun": "1runway_gold_s.png",
+        "lensColor": "Brown / smoke gradient lens"
       },
       {
         "name": "Matte Gunmetal",
         "value": "#4b5563",
         "imageOpt": "1runway_mattegunmetal_o.png",
-        "imageSun": "1runway_mattegunmetal_s.png"
+        "imageSun": "1runway_mattegunmetal_s.png",
+        "lensColor": "Blue lens"
       },
       {
         "name": "Olive",
         "value": "#556B2F",
         "imageOpt": "1runway_black_o.png",
-        "imageSun": "1runway_blacl_s.png"
+        "imageSun": "1runway_blacl_s.png",
+        "lensColor": "Green / smoke lens"
       }
     ],
     "character": "Speedway heritage. A thin titanium frame styled with athletic curves.",
@@ -725,19 +798,22 @@ export const FRAMES: Frame[] = [
         "name": "Gold",
         "value": "#D4AF37",
         "imageOpt": "1sheer_gold_o.png",
-        "imageSun": "1sheer_gold_s.png"
+        "imageSun": "1sheer_gold_s.png",
+        "lensColor": "Yellow lens"
       },
       {
         "name": "Matte Black",
         "value": "#2D2D2D",
         "imageOpt": "1sheer_matteblack_o.png",
-        "imageSun": "1sheer_matteblack_s.png"
+        "imageSun": "1sheer_matteblack_s.png",
+        "lensColor": "Pink / coral lens"
       },
       {
         "name": "Matte Silver",
         "value": "#B2BEB5",
         "imageOpt": "1sheer_silver_o.png",
-        "imageSun": "1sheer_silver_s.png"
+        "imageSun": "1sheer_silver_s.png",
+        "lensColor": "Purple / smoke lens"
       }
     ],
     "character": "A gossamer-light presence. Round wire detailing that feels completely weightless.",
@@ -758,19 +834,22 @@ export const FRAMES: Frame[] = [
         "name": "Gold",
         "value": "#D4AF37",
         "imageOpt": "1slowburn_gold_o.png",
-        "imageSun": "1slowburn_gold_s.png"
+        "imageSun": "1slowburn_gold_s.png",
+        "lensColor": "Brown gradient lens"
       },
       {
         "name": "Gunmetal",
         "value": "#555555",
         "imageOpt": "1slowburn_gunmetal_o.png",
-        "imageSun": "1slowburn_gunmetal_s.png"
+        "imageSun": "1slowburn_gunmetal_s.png",
+        "lensColor": "Green gradient lens"
       },
       {
         "name": "Olive",
         "value": "#556B2F",
         "imageOpt": "1slowburn_olive_o.png",
-        "imageSun": "1slowburn_olive_s.png"
+        "imageSun": "1slowburn_olive_s.png",
+        "lensColor": "Purple / smoke gradient lens"
       }
     ],
     "character": "A slow-releasing design assertion. Thin metallic rims with polished acetate details.",
@@ -790,32 +869,38 @@ export const FRAMES: Frame[] = [
       {
         "name": "Black B",
         "value": "#111111",
-        "imageSun": "1velo_blackB.png"
+        "imageSun": "1velo_blackB.png",
+        "lensColor": "Blue lens"
       },
       {
         "name": "Black P",
         "value": "#1C1C1C",
-        "imageSun": "1velo_blackP.png"
+        "imageSun": "1velo_blackP.png",
+        "lensColor": "Purple / smoke lens"
       },
       {
         "name": "Black Shell",
         "value": "#222222",
-        "imageSun": "1velo_blackshell.png"
+        "imageSun": "1velo_blackshell.png",
+        "lensColor": "Black / dark smoke lens"
       },
       {
         "name": "Cobalt",
         "value": "#0f4c81",
-        "imageSun": "1velo_cobalt.png"
+        "imageSun": "1velo_cobalt.png",
+        "lensColor": "Blue / grey lens"
       },
       {
         "name": "Ember",
         "value": "#b33939",
-        "imageSun": "1velo_ember.png"
+        "imageSun": "1velo_ember.png",
+        "lensColor": "Orange / red gradient"
       },
       {
         "name": "Matte Black",
         "value": "#2D2D2D",
-        "imageSun": "1velo_matteblack.png"
+        "imageSun": "1velo_matteblack.png",
+        "lensColor": "Black / smoke lens"
       }
     ],
     "character": "Narrow, wrapping rectangle sunglasses built for sleek athletic style.",

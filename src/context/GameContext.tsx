@@ -112,6 +112,23 @@ const getColorDistractors = (correctColor: string, frame: Frame, allFrames: Fram
   return Array.from(distractors).slice(0, 3);
 };
 
+// Generates unique distracting lens colors to test lens color recognition
+const getLensColorDistractors = (correctLensColor: string, allFrames: Frame[]): string[] => {
+  const distractors = new Set<string>();
+  
+  const allLensColors = allFrames
+    .flatMap(f => f.colors.map(c => c.lensColor))
+    .filter((lc): lc is string => !!lc && lc.trim() !== '' && lc.toLowerCase() !== correctLensColor.toLowerCase());
+
+  const shuffled = [...allLensColors].sort(() => 0.5 - Math.random());
+  for (const lc of shuffled) {
+    distractors.add(lc);
+    if (distractors.size >= 3) break;
+  }
+
+  return Array.from(distractors).slice(0, 3);
+};
+
 export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [view, setView] = useState<ViewState>('gallery');
   const [activeFrameId, setActiveFrameId] = useState<string | null>(null);
@@ -138,10 +155,11 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const frame = FRAMES.find(f => f.id === activeFrameId);
     if (!frame) return;
 
-    // Mix of 2 color recognition questions and 3 visual choice questions
+    // Mix of 2 color recognition questions, 2 visual choice questions, and 1 lens color match question
     const questionTypes = shuffleArray([
       'colour_recognition', 'colour_recognition',
-      'visual_choice', 'visual_choice', 'visual_choice'
+      'visual_choice', 'visual_choice',
+      'lens_color_match'
     ]);
 
     const questions: QuizQuestion[] = Array.from({ length: 5 }).map((_, idx) => {
@@ -157,6 +175,20 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
           questionText: `Which of these frames is the ${frame.name}?`,
           options,
           correctAnswer: frame.name,
+          frameId: frame.id,
+          colorName: color.name,
+          silhouetteOnly: false
+        };
+      } else if (qType === 'lens_color_match') {
+        const correctLens = color.lensColor || 'Clear';
+        const distractorLenses = getLensColorDistractors(correctLens, FRAMES);
+        const options = shuffleArray([correctLens, ...distractorLenses]);
+        return {
+          id: `${frame.id}_lens_${idx}`,
+          type: 'lens_color_match',
+          questionText: `What lens color does the ${frame.name} in ${color.name} feature?`,
+          options,
+          correctAnswer: correctLens,
           frameId: frame.id,
           colorName: color.name,
           silhouetteOnly: false
@@ -193,11 +225,12 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const shuffledFrames = [...FRAMES].sort(() => 0.5 - Math.random());
     const selectedFrames = shuffledFrames.slice(0, 10);
 
-    // Shuffle 10 questions of different types: 4x name_the_frame, 3x colour_recognition, 3x visual_choice
+    // Shuffle 10 questions of different types: 3x name_the_frame, 2x colour_recognition, 3x visual_choice, 2x lens_color_match
     const questionTypes = shuffleArray([
-      'name_the_frame', 'name_the_frame', 'name_the_frame', 'name_the_frame',
-      'colour_recognition', 'colour_recognition', 'colour_recognition',
-      'visual_choice', 'visual_choice', 'visual_choice'
+      'name_the_frame', 'name_the_frame', 'name_the_frame',
+      'colour_recognition', 'colour_recognition',
+      'visual_choice', 'visual_choice', 'visual_choice',
+      'lens_color_match', 'lens_color_match'
     ]);
 
     const questions: QuizQuestion[] = selectedFrames.map((frame, idx) => {
@@ -215,6 +248,20 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
           questionText: `What colorway of the ${frame.name} is shown here?`,
           options: colorOptions,
           correctAnswer: color.name,
+          frameId: frame.id,
+          colorName: color.name,
+          silhouetteOnly: false
+        };
+      } else if (qType === 'lens_color_match') {
+        const correctLens = color.lensColor || 'Clear';
+        const distractorLenses = getLensColorDistractors(correctLens, FRAMES);
+        const lensOptions = shuffleArray([correctLens, ...distractorLenses]);
+        return {
+          id: `mixed_lens_${idx}_${frame.id}`,
+          type: 'lens_color_match',
+          questionText: `What lens color does the ${frame.name} in ${color.name} feature?`,
+          options: lensOptions,
+          correctAnswer: correctLens,
           frameId: frame.id,
           colorName: color.name,
           silhouetteOnly: false

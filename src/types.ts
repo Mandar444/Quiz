@@ -4,6 +4,7 @@ export interface FrameColor {
   isTortoise?: boolean;
   imageSun?: string;
   imageOpt?: string;
+  lensColor?: string;
 }
 
 export type FrameShape = 'Wayfarer' | 'Round' | 'Oval' | 'Rectangle' | 'Aviator' | 'Hexagon';
@@ -29,7 +30,9 @@ export type QuestionType =
   | 'colour_recognition' 
   | 'collection_recall' 
   | 'mixup_challenge'
-  | 'visual_choice';
+  | 'visual_choice'
+  | 'lens_color_match';
+
 
 export interface QuizQuestion {
   id: string;
