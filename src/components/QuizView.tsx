@@ -240,7 +240,7 @@ export const QuizView: React.FC = () => {
           </h3>
 
           {/* SVG Frame Rendering */}
-          {questionFrame && currentQuestion.type !== 'visual_choice' && (
+          {questionFrame && currentQuestion.type !== 'visual_choice' && currentQuestion.type !== 'lens_color_match' && (
             <div className="flex justify-center items-center py-6 flex-1 select-none">
               <div className="w-full max-w-2xl h-56 md:h-72 flex items-center justify-center relative">
                 <FrameSilhouette 
