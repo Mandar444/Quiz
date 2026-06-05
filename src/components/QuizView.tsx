@@ -30,8 +30,8 @@ export const QuizView: React.FC = () => {
   const [userName, setUserName] = React.useState(localStorage.getItem('unscene_user_name') || '');
   const [hasConfirmedName, setHasConfirmedName] = React.useState(false);
 
-  // 8-second countdown timer state
-  const [timeLeft, setTimeLeft] = React.useState(8);
+  // 15-second countdown timer state
+  const [timeLeft, setTimeLeft] = React.useState(15);
   const [isTimeout, setIsTimeout] = React.useState(false);
 
   const rawQuestion = quizQuestions[activeQuestionIndex];
@@ -43,7 +43,7 @@ export const QuizView: React.FC = () => {
       return;
     }
 
-    setTimeLeft(8);
+    setTimeLeft(15);
     setIsTimeout(false);
 
     const interval = setInterval(() => {
