@@ -77,7 +77,7 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const frame = FRAMES.find(f => f.id === activeFrameId);
     if (!frame) return;
 
-    const questionsPool = FRAME_QUESTIONS[activeFrameId] || [];
+    const questionsPool = (FRAME_QUESTIONS[activeFrameId] || []).filter(q => !q.silhouetteOnly);
     if (questionsPool.length === 0) {
       console.warn(`No predefined questions found for frame: ${activeFrameId}`);
       return;
@@ -98,7 +98,7 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const startMixedQuiz = () => {
-    const allQuestions = Object.values(FRAME_QUESTIONS).flat();
+    const allQuestions = Object.values(FRAME_QUESTIONS).flat().filter(q => !q.silhouetteOnly);
     if (allQuestions.length === 0) {
       console.warn('No predefined questions found in database.');
       return;

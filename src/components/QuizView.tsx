@@ -61,23 +61,6 @@ export const QuizView: React.FC = () => {
     return () => clearInterval(interval);
   }, [activeQuestionIndex, isAnswered, view, hasConfirmedName]);
 
-  // Prevent refresh/navigation during an active quiz
-  React.useEffect(() => {
-    if (view !== 'quiz' || !hasConfirmedName) {
-      return;
-    }
-
-    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
-      e.preventDefault();
-      e.returnValue = ''; // Required for modern browsers
-      return '';
-    };
-
-    window.addEventListener('beforeunload', handleBeforeUnload);
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-    };
-  }, [view, hasConfirmedName]);
 
   // Intercept view to prompt for name before quiz starts
   if (view === 'quiz' && !hasConfirmedName) {
