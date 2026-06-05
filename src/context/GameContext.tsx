@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
-import type { QuizQuestion, Frame } from '../types';
-import { FRAMES } from '../data/frames';
+import type { QuizQuestion } from '../types';
+import { FRAMES, FRAME_QUESTIONS } from '../data/frames';
 import sounds from '../utils/audio';
 import { supabase } from '../lib/supabase';
 
@@ -38,115 +38,6 @@ const shuffleArray = <T,>(array: T[]): T[] => {
   return arr;
 };
 
-// Generates distracting choices that share similar shapes and materials to make the quiz more challenging
-const getConfusingDistractors = (correctFrame: Frame, allFrames: Frame[]): string[] => {
-  const otherFrames = allFrames.filter(f => f.id !== correctFrame.id);
-  
-  const ranked = otherFrames.map(f => {
-    let score = 0;
-    
-    // Weight heavily if it shares the exact same shape (e.g. Round vs Round)
-    if (f.shape === correctFrame.shape) {
-      score += 5;
-    }
-    
-    // Weight if it shares the exact same material (e.g. Acetate vs Acetate)
-    if (f.material === correctFrame.material) {
-      score += 3;
-    }
-    
-    return { name: f.name, score };
-  });
-
-  // Sort descending by similarity score
-  ranked.sort((a, b) => b.score - a.score);
-  
-  // Pick the top 3 closest matches
-  return ranked.slice(0, 3).map(r => r.name);
-};
-
-// Generates unique distracting colors to test colorway recognition with categories
-const getColorDistractors = (correctColor: string, frame: Frame, allFrames: Frame[]): string[] => {
-  const distractors = new Set<string>();
-  
-  // 1. Add other colors of the same frame
-  frame.colors.forEach(c => {
-    if (c.name.toLowerCase() !== correctColor.toLowerCase()) {
-      distractors.add(c.name);
-    }
-  });
-
-  // 2. Add colors from other frames that share the same finish type (Metallic vs Acetate)
-  const metallicTerms = ['gold', 'silver', 'gunmetal', 'rose gold', 'anthracite', 'bronze', 'matte silver', 'matte gunmetal', 'matte gold'];
-  const isCorrectColorMetal = metallicTerms.some(term => correctColor.toLowerCase().includes(term));
-
-  if (distractors.size < 3) {
-    const matchingOtherColors = allFrames
-      .flatMap(f => f.colors.map(c => c.name))
-      .filter(name => {
-        if (name.toLowerCase() === correctColor.toLowerCase()) return false;
-        const isMetal = metallicTerms.some(term => name.toLowerCase().includes(term));
-        return isMetal === isCorrectColorMetal;
-      });
-
-    const shuffled = [...matchingOtherColors].sort(() => 0.5 - Math.random());
-    for (const name of shuffled) {
-      distractors.add(name);
-      if (distractors.size >= 3) break;
-    }
-  }
-
-  // 3. Fallback: Add any other color if still need more
-  if (distractors.size < 3) {
-    const allOtherColors = allFrames
-      .flatMap(f => f.colors.map(c => c.name))
-      .filter(name => name.toLowerCase() !== correctColor.toLowerCase());
-    
-    const shuffled = [...allOtherColors].sort(() => 0.5 - Math.random());
-    for (const name of shuffled) {
-      distractors.add(name);
-      if (distractors.size >= 3) break;
-    }
-  }
-
-  return Array.from(distractors).slice(0, 3);
-};
-
-// Generates unique distracting lens colors to test lens color recognition
-const getLensColorDistractors = (correctLensColor: string, allFrames: Frame[]): string[] => {
-  const distractors = new Set<string>();
-  
-  const allLensColors = allFrames
-    .flatMap(f => f.colors.map(c => c.lensColor))
-    .filter((lc): lc is string => !!lc && lc.trim() !== '' && lc.toLowerCase() !== correctLensColor.toLowerCase());
-
-  const shuffled = [...allLensColors].sort(() => 0.5 - Math.random());
-  for (const lc of shuffled) {
-    distractors.add(lc);
-    if (distractors.size >= 3) break;
-  }
-
-  return Array.from(distractors).slice(0, 3);
-};
-
-// Generates unique distracting prices to test price recognition
-const getPriceDistractors = (correctPrice: string, allFrames: Frame[]): string[] => {
-  const allPrices = new Set<string>();
-  
-  allFrames.forEach(f => {
-    if (f.priceSun) {
-      allPrices.add(`₹${f.priceSun.toLocaleString('en-IN')}`);
-    }
-    if (f.priceRx) {
-      allPrices.add(`₹${f.priceRx.toLocaleString('en-IN')}`);
-    }
-  });
-
-  const distractorList = Array.from(allPrices).filter(p => p !== correctPrice);
-  const shuffled = [...distractorList].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, 3);
-};
-
 export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [view, setView] = useState<ViewState>('gallery');
   const [activeFrameId, setActiveFrameId] = useState<string | null>(null);
@@ -173,84 +64,16 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const frame = FRAMES.find(f => f.id === activeFrameId);
     if (!frame) return;
 
-    // Mix of 1 color recognition, 1 visual choice, 1 lens color match, and 2 price match questions
-    const questionTypes = [
-      'colour_recognition',
-      'visual_choice',
-      'lens_color_match',
-      'price_match_sun',
-      'price_match_rx'
-    ];
-    // If frame has no Rx option, replace the rx question with a visual_choice
-    if (frame.priceRx === undefined) {
-      questionTypes[4] = 'visual_choice';
+    const questionsPool = FRAME_QUESTIONS[activeFrameId] || [];
+    if (questionsPool.length === 0) {
+      console.warn(`No predefined questions found for frame: ${activeFrameId}`);
+      return;
     }
-    const shuffledTypes = shuffleArray(questionTypes);
 
-    const questions: QuizQuestion[] = Array.from({ length: 5 }).map((_, idx) => {
-      const qType = shuffledTypes[idx];
-      const color = frame.colors[idx % frame.colors.length];
+    const shuffledQuestions = shuffleArray(questionsPool);
+    const selectedQuestions = shuffledQuestions.slice(0, 5);
 
-      if (qType === 'visual_choice') {
-        const distractorNames = getConfusingDistractors(frame, FRAMES);
-        const options = shuffleArray([frame.name, ...distractorNames]);
-        return {
-          id: `${frame.id}_visual_choice_${idx}`,
-          type: 'visual_choice',
-          questionText: `Which of these frames is the ${frame.name}?`,
-          options,
-          correctAnswer: frame.name,
-          frameId: frame.id,
-          colorName: color.name,
-          silhouetteOnly: false
-        };
-      } else if (qType === 'lens_color_match') {
-        const correctLens = color.lensColor || 'Clear';
-        const distractorLenses = getLensColorDistractors(correctLens, FRAMES);
-        const options = shuffleArray([correctLens, ...distractorLenses]);
-        return {
-          id: `${frame.id}_lens_${idx}`,
-          type: 'lens_color_match',
-          questionText: `What lens color does the ${frame.name} in ${color.name} feature?`,
-          options,
-          correctAnswer: correctLens,
-          frameId: frame.id,
-          colorName: color.name,
-          silhouetteOnly: false
-        };
-      } else if (qType === 'price_match_sun' || qType === 'price_match_rx') {
-        const isSun = qType === 'price_match_sun';
-        const correctPriceVal = isSun ? frame.priceSun : frame.priceRx!;
-        const correctPrice = `₹${correctPriceVal.toLocaleString('en-IN')}`;
-        const distractors = getPriceDistractors(correctPrice, FRAMES);
-        const options = shuffleArray([correctPrice, ...distractors]);
-        return {
-          id: `${frame.id}_price_${isSun ? 'sun' : 'rx'}_${idx}`,
-          type: 'price_match',
-          questionText: `What is the price of the ${frame.name} ${isSun ? 'Sunglasses (SUN)' : 'Optical (RX)'}?`,
-          options,
-          correctAnswer: correctPrice,
-          frameId: frame.id,
-          colorName: color.name,
-          silhouetteOnly: false
-        };
-      } else {
-        const distractorColors = getColorDistractors(color.name, frame, FRAMES);
-        const options = shuffleArray([color.name, ...distractorColors]);
-        return {
-          id: `${frame.id}_color_${idx}`,
-          type: 'colour_recognition',
-          questionText: `What colorway of the ${frame.name} is shown here?`,
-          options,
-          correctAnswer: color.name,
-          frameId: frame.id,
-          colorName: color.name,
-          silhouetteOnly: false
-        };
-      }
-    });
-
-    setQuizQuestions(questions);
+    setQuizQuestions(selectedQuestions);
     setActiveQuestionIndex(0);
     setScore(0);
     setSelectedOption(null);
@@ -262,85 +85,16 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const startMixedQuiz = () => {
-    // Pick 10 random frames for identification
-    const shuffledFrames = [...FRAMES].sort(() => 0.5 - Math.random());
-    const selectedFrames = shuffledFrames.slice(0, 10);
+    const allQuestions = Object.values(FRAME_QUESTIONS).flat();
+    if (allQuestions.length === 0) {
+      console.warn('No predefined questions found in database.');
+      return;
+    }
 
-    // Shuffle 10 questions: 2x name_the_frame, 2x colour_recognition, 2x visual_choice, 2x lens_color_match, 2x price_match
-    const questionTypes = shuffleArray([
-      'name_the_frame', 'name_the_frame',
-      'colour_recognition', 'colour_recognition',
-      'visual_choice', 'visual_choice',
-      'lens_color_match', 'lens_color_match',
-      'price_match', 'price_match'
-    ]);
+    const shuffledQuestions = shuffleArray(allQuestions);
+    const selectedQuestions = shuffledQuestions.slice(0, 10);
 
-    const questions: QuizQuestion[] = selectedFrames.map((frame, idx) => {
-      const qType = questionTypes[idx];
-      const color = frame.colors[Math.floor(Math.random() * frame.colors.length)];
-      const distractorNames = getConfusingDistractors(frame, FRAMES);
-      const options = shuffleArray([frame.name, ...distractorNames]);
-
-      if (qType === 'colour_recognition') {
-        const distractorColors = getColorDistractors(color.name, frame, FRAMES);
-        const colorOptions = shuffleArray([color.name, ...distractorColors]);
-        return {
-          id: `mixed_color_${idx}_${frame.id}`,
-          type: 'colour_recognition',
-          questionText: `What colorway of the ${frame.name} is shown here?`,
-          options: colorOptions,
-          correctAnswer: color.name,
-          frameId: frame.id,
-          colorName: color.name,
-          silhouetteOnly: false
-        };
-      } else if (qType === 'lens_color_match') {
-        const correctLens = color.lensColor || 'Clear';
-        const distractorLenses = getLensColorDistractors(correctLens, FRAMES);
-        const lensOptions = shuffleArray([correctLens, ...distractorLenses]);
-        return {
-          id: `mixed_lens_${idx}_${frame.id}`,
-          type: 'lens_color_match',
-          questionText: `What lens color does the ${frame.name} in ${color.name} feature?`,
-          options: lensOptions,
-          correctAnswer: correctLens,
-          frameId: frame.id,
-          colorName: color.name,
-          silhouetteOnly: false
-        };
-      } else if (qType === 'price_match') {
-        const askSun = frame.priceRx === undefined || Math.random() < 0.5;
-        const correctPriceVal = askSun ? frame.priceSun : frame.priceRx!;
-        const correctPrice = `₹${correctPriceVal.toLocaleString('en-IN')}`;
-        const distractors = getPriceDistractors(correctPrice, FRAMES);
-        const priceOptions = shuffleArray([correctPrice, ...distractors]);
-        return {
-          id: `mixed_price_${idx}_${frame.id}`,
-          type: 'price_match',
-          questionText: `What is the price of the ${frame.name} ${askSun ? 'Sunglasses (SUN)' : 'Optical (RX)'}?`,
-          options: priceOptions,
-          correctAnswer: correctPrice,
-          frameId: frame.id,
-          colorName: color.name,
-          silhouetteOnly: false
-        };
-      } else {
-        return {
-          id: `mixed_${qType}_${idx}_${frame.id}`,
-          type: qType as any,
-          questionText: qType === 'visual_choice' 
-            ? `Which of these frames is the ${frame.name}?` 
-            : 'Identify this Unscene frame model.',
-          options,
-          correctAnswer: frame.name,
-          frameId: frame.id,
-          colorName: color.name,
-          silhouetteOnly: false
-        };
-      }
-    });
-
-    setQuizQuestions(questions);
+    setQuizQuestions(selectedQuestions);
     setActiveFrameId(null);
     setActiveQuestionIndex(0);
     setScore(0);
