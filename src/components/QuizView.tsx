@@ -223,7 +223,7 @@ export const QuizView: React.FC = () => {
 
   const questionFrame = FRAMES.find(f => f.id === (currentQuestion.frameId || activeFrameId));
 
-  const langLabel = language === 'hi' ? 'हिन्दी' : language === 'mr' ? 'मराठी' : 'English';
+  const langLabel = language === 'hi' ? 'हिन्दी' : 'English';
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
