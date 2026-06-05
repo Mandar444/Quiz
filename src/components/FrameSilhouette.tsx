@@ -36,6 +36,7 @@ export const FrameSilhouette: React.FC<FrameSilhouetteProps> = ({
             <img 
               src={`/productimages/${imgName}`} 
               alt={`${frame.name} ${colorName}`} 
+              loading="lazy"
               className="max-w-full max-h-full object-contain filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)] transform transition-transform duration-300"
               onError={(e) => {
                 // If image fails, hide it and standard SVG render will proceed as fallback
