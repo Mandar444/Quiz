@@ -55,9 +55,10 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [isCorrect, setIsCorrect] = useState<boolean>(false);
   const [incorrectSelections, setIncorrectSelections] = useState<string[]>([]);
   const [isMixedQuiz, setIsMixedQuiz] = useState<boolean>(false);
-  const [language, setLanguageState] = useState<LanguageCode>(
-    (localStorage.getItem('unscene_quiz_lang') as LanguageCode) || 'en'
-  );
+  const [language, setLanguageState] = useState<LanguageCode>(() => {
+    const stored = localStorage.getItem('unscene_quiz_lang');
+    return (stored === 'hi' || stored === 'mr') ? stored : 'en';
+  });
 
   const setLanguage = (lang: LanguageCode) => {
     localStorage.setItem('unscene_quiz_lang', lang);
@@ -165,7 +166,7 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
         (a: any) => a.name.toLowerCase() === userName.toLowerCase()
       ).length;
 
-      const langLabel = language === 'hi' ? 'हिन्दी' : language === 'mr' ? 'मराठी' : language === 'gu' ? 'ગુજરાતી' : 'English';
+      const langLabel = language === 'hi' ? 'हिन्दी' : language === 'mr' ? 'मराठी' : 'English';
       const quizTypeWithLang = isMixedQuiz 
         ? `General Mixed Quiz (${langLabel})` 
         : `Practice: ${questionFrame?.name || 'Frame'} (${langLabel})`;
