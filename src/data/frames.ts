@@ -542,8 +542,8 @@ export const FRAMES: Frame[] = [
       {
         "name": "Anthracite",
         "value": "#3F3F46",
-        "imageOpt": "1highline_anthracite_s.png",
-        "imageSun": "1highline_anthracite_s(1).png",
+        "imageOpt": "3highline_anthracite_o.png",
+        "imageSun": "3highline_anthracite_s.png",
         "lensColor": "Yellow lens"
       },
       {
@@ -775,8 +775,8 @@ export const FRAMES: Frame[] = [
       {
         "name": "Olive",
         "value": "#556B2F",
-        "imageOpt": "1runway_black_o.png",
-        "imageSun": "1runway_blacl_s.png",
+        "imageOpt": "3runway_matteolive_o.png",
+        "imageSun": "3runway_matteolive_s.png",
         "lensColor": "Green / smoke lens"
       }
     ],
@@ -847,8 +847,8 @@ export const FRAMES: Frame[] = [
       {
         "name": "Olive",
         "value": "#556B2F",
-        "imageOpt": "1slowburn_olive_o.png",
-        "imageSun": "1slowburn_olive_s.png",
+        "imageOpt": "3slowburn_olive_o.png",
+        "imageSun": "3slowburn_olive_s.png",
         "lensColor": "Purple / smoke gradient lens"
       }
     ],
