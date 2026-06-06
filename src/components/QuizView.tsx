@@ -17,10 +17,12 @@ export const QuizView: React.FC = () => {
     incorrectSelections,
     quizQuestions,
     isMixedQuiz,
+    isPriceQuiz,
     language,
     setLanguage,
     startQuiz,
     startMixedQuiz,
+    startPriceQuiz,
     submitAnswer,
     nextQuestion,
     exitToGallery,
@@ -79,7 +81,9 @@ export const QuizView: React.FC = () => {
             {translateUI('quizRegistration', language)}
           </h2>
           <p className="text-zinc-500 text-xs text-center mt-2 mb-6">
-            {isMixedQuiz 
+            {isPriceQuiz
+              ? translateUI('enterNamePricePrompt', language)
+              : isMixedQuiz 
               ? translateUI('enterNameMixedPrompt', language)
               : translateUI('enterNamePracticePrompt', language).replace('this frame', questionFrame?.name || 'this frame')
             }
@@ -165,7 +169,9 @@ export const QuizView: React.FC = () => {
             {translateUI('quizCompleted', language)}
           </h2>
           <p className="text-zinc-600 text-sm mt-3 max-w-sm leading-relaxed">
-            {isMixedQuiz 
+            {isPriceQuiz
+              ? translateUI('resultsPriceSubtitle', language)
+              : isMixedQuiz 
               ? translateUI('resultsMixedSubtitle', language)
               : translateUI('resultsPracticeSubtitle', language)
             }
@@ -189,7 +195,7 @@ export const QuizView: React.FC = () => {
           {/* Action buttons */}
           <div className="w-full max-w-xs mt-8 space-y-2.5">
             <button
-              onClick={isMixedQuiz ? startMixedQuiz : startQuiz}
+              onClick={isPriceQuiz ? startPriceQuiz : (isMixedQuiz ? startMixedQuiz : startQuiz)}
               className="w-full bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-lg transition-colors text-sm"
             >
               <RotateCcw className="w-4 h-4 stroke-[3]" />
@@ -234,7 +240,9 @@ export const QuizView: React.FC = () => {
       <div className="space-y-4 mb-6">
         <div className="flex justify-between items-center text-xs font-bold text-zinc-400">
           <span className="uppercase tracking-widest text-zinc-500">
-            {isMixedQuiz 
+            {isPriceQuiz
+              ? `Pricing Quiz (${langLabel})`
+              : isMixedQuiz 
               ? `Mixed Eyewear Quiz (${langLabel})` 
               : `Practice Quiz: ${questionFrame?.name} (${langLabel})`
             }

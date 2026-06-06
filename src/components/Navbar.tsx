@@ -3,7 +3,7 @@ import { useGame } from '../context/GameContext';
 import { Sparkles } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
-  const { view, setView, exitToGallery, startMixedQuiz } = useGame();
+  const { view, setView, exitToGallery, startMixedQuiz, startPriceQuiz } = useGame();
 
   return (
     <nav className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-zinc-200 px-6 py-4">
@@ -29,13 +29,21 @@ export const Navbar: React.FC = () => {
           </button>
 
           {view === 'gallery' ? (
-            <button
-              onClick={startMixedQuiz}
-              className="bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-xs md:text-sm px-4 py-2.5 rounded-xl flex items-center gap-1.5 shadow-lg shadow-yellow-500/5 transition-all duration-300"
-            >
-              <Sparkles className="w-3.5 h-3.5 fill-black/20" />
-              General mixed quiz
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={startMixedQuiz}
+                className="bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-xs md:text-sm px-4 py-2.5 rounded-xl flex items-center gap-1.5 shadow-lg shadow-yellow-500/5 transition-all duration-300"
+              >
+                <Sparkles className="w-3.5 h-3.5 fill-black/20" />
+                General mixed quiz
+              </button>
+              <button
+                onClick={startPriceQuiz}
+                className="bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs md:text-sm px-4 py-2.5 rounded-xl flex items-center gap-1.5 shadow-lg shadow-emerald-600/5 transition-all duration-300"
+              >
+                Pricing quiz
+              </button>
+            </div>
           ) : (
             view !== 'admin' && (
               <button

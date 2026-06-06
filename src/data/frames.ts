@@ -6,7 +6,7 @@ export const FRAMES: Frame[] = [
     "name": "Coastline",
     "type": "Both",
     "shape": "Wayfarer",
-    "material": "Both",
+    "material": "Acetate",
     "bestFor": [
       "Round",
       "Oval"
@@ -531,7 +531,7 @@ export const FRAMES: Frame[] = [
         "lensColor": "Orange lens"
       },
       {
-        "name": "Mattesmoke",
+        "name": "Ether",
         "value": "#555555",
         "imageOpt": "1prysm_mattesmoke_o.png",
         "imageSun": "1prysm_mattesmoke_s.png",
@@ -989,7 +989,7 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
         "Titanium",
         "Acetate"
       ],
-      "correctAnswer": "Both",
+      "correctAnswer": "Acetate",
       "frameId": "coastline",
       "silhouetteOnly": false
     },
@@ -3291,7 +3291,7 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "questionText": "What colorway of the Prysm is shown here?",
       "options": [
         "Emerald",
-        "Mattesmoke",
+        "Ether",
         "Black Core",
         "Matte Black"
       ],
@@ -3322,7 +3322,7 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "options": [
         "Emerald",
         "Matte Black",
-        "Mattesmoke",
+        "Ether",
         "Black Core"
       ],
       "correctAnswer": "Emerald",
@@ -3350,7 +3350,7 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "colour_recognition",
       "questionText": "What colorway of the Prysm is shown here?",
       "options": [
-        "Mattesmoke",
+        "Ether",
         "Emerald",
         "Black Core",
         "Matte Black"
@@ -3383,17 +3383,17 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
         "Black Core",
         "Matte Black",
         "Emerald",
-        "Mattesmoke"
+        "Ether"
       ],
-      "correctAnswer": "Mattesmoke",
+      "correctAnswer": "Ether",
       "frameId": "prysm",
-      "colorName": "Mattesmoke",
+      "colorName": "Ether",
       "silhouetteOnly": false
     },
     {
       "id": "prysm_lens_3",
       "type": "lens_color_match",
-      "questionText": "What lens color does the Prysm in Mattesmoke feature?",
+      "questionText": "What lens color does the Prysm in Ether feature?",
       "options": [
         "Black / smoke lens",
         "Yellow lens",
@@ -3402,7 +3402,7 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       ],
       "correctAnswer": "Blue / purple gradient",
       "frameId": "prysm",
-      "colorName": "Mattesmoke",
+      "colorName": "Ether",
       "silhouetteOnly": false
     },
     {
@@ -4666,7 +4666,7 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "questionText": "What colorway of the Runway is shown here?",
       "options": [
         "Matte Gunmetal",
-        "Mattesmoke",
+        "Ether",
         "Gold",
         "Olive"
       ],

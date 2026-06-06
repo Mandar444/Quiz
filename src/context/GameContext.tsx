@@ -20,11 +20,13 @@ interface GameContextType {
   incorrectSelections: string[];
   quizQuestions: QuizQuestion[];
   isMixedQuiz: boolean;
+  isPriceQuiz: boolean;
   language: LanguageCode;
   setLanguage: (lang: LanguageCode) => void;
   selectFrame: (frameId: string) => void;
   startQuiz: () => void;
   startMixedQuiz: () => void;
+  startPriceQuiz: () => void;
   submitAnswer: (option: string) => void;
   nextQuestion: () => void;
   exitToGallery: () => void;
@@ -68,6 +70,7 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [isCorrect, setIsCorrect] = useState<boolean>(savedState ? savedState.isCorrect : false);
   const [incorrectSelections, setIncorrectSelections] = useState<string[]>(savedState ? savedState.incorrectSelections : []);
   const [isMixedQuiz, setIsMixedQuiz] = useState<boolean>(savedState ? savedState.isMixedQuiz : false);
+  const [isPriceQuiz, setIsPriceQuiz] = useState<boolean>(savedState ? savedState.isPriceQuiz : false);
   const [hasConfirmedName, setHasConfirmedName] = useState<boolean>(savedState ? savedState.hasConfirmedName : false);
   const [language, setLanguageState] = useState<LanguageCode>(() => {
     const stored = localStorage.getItem('unscene_quiz_lang');
@@ -92,6 +95,7 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
         isCorrect,
         incorrectSelections,
         isMixedQuiz,
+        isPriceQuiz,
         hasConfirmedName
       };
       localStorage.setItem('unscene_active_quiz', JSON.stringify(stateToSave));
@@ -109,12 +113,14 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     isCorrect,
     incorrectSelections,
     isMixedQuiz,
+    isPriceQuiz,
     hasConfirmedName
   ]);
 
   const selectFrame = (frameId: string) => {
     setActiveFrameId(frameId);
     setIsMixedQuiz(false);
+    setIsPriceQuiz(false);
     setView('details');
   };
 
@@ -143,6 +149,7 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setIsCorrect(false);
     setIncorrectSelections([]);
     setIsMixedQuiz(false);
+    setIsPriceQuiz(false);
     setHasConfirmedName(false);
     setView('quiz');
   };
@@ -168,6 +175,33 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setIsCorrect(false);
     setIncorrectSelections([]);
     setIsMixedQuiz(true);
+    setIsPriceQuiz(false);
+    setHasConfirmedName(false);
+    setView('quiz');
+  };
+
+  const startPriceQuiz = () => {
+    const allQuestions = Object.values(FRAME_QUESTIONS).flat().filter(
+      q => q.type === 'price_match'
+    );
+    if (allQuestions.length === 0) {
+      console.warn('No price questions found in database.');
+      return;
+    }
+
+    const shuffledQuestions = shuffleArray(allQuestions);
+    const selectedQuestions = shuffledQuestions.slice(0, 10);
+
+    setQuizQuestions(selectedQuestions);
+    setActiveFrameId(null);
+    setActiveQuestionIndex(0);
+    setScore(0);
+    setSelectedOption(null);
+    setIsAnswered(false);
+    setIsCorrect(false);
+    setIncorrectSelections([]);
+    setIsMixedQuiz(false);
+    setIsPriceQuiz(true);
     setHasConfirmedName(false);
     setView('quiz');
   };
@@ -220,9 +254,14 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
       ).length;
 
       const langLabel = language === 'hi' ? 'हिन्दी' : 'English';
-      const quizTypeWithLang = isMixedQuiz 
-        ? `General Mixed Quiz (${langLabel})` 
-        : `Practice: ${questionFrame?.name || 'Frame'} (${langLabel})`;
+      let quizTypeWithLang = '';
+      if (isPriceQuiz) {
+        quizTypeWithLang = `Price Quiz (${langLabel})`;
+      } else if (isMixedQuiz) {
+        quizTypeWithLang = `General Mixed Quiz (${langLabel})`;
+      } else {
+        quizTypeWithLang = `Practice: ${questionFrame?.name || 'Frame'} (${langLabel})`;
+      }
 
       const newAttempt = {
         id: Math.random().toString(36).substring(2, 9),
@@ -265,6 +304,7 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setQuizQuestions([]);
     setView('gallery');
     setIsMixedQuiz(false);
+    setIsPriceQuiz(false);
     setHasConfirmedName(false);
     localStorage.removeItem('unscene_active_quiz');
   };
@@ -287,11 +327,13 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
       incorrectSelections,
       quizQuestions,
       isMixedQuiz,
+      isPriceQuiz,
       language,
       setLanguage,
       selectFrame,
       startQuiz,
       startMixedQuiz,
+      startPriceQuiz,
       submitAnswer,
       nextQuestion,
       exitToGallery,

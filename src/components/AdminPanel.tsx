@@ -29,7 +29,7 @@ export const AdminPanel: React.FC = () => {
   const { setView } = useGame();
   const [attempts, setAttempts] = useState<QuizAttempt[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const [filterType, setFilterType] = useState<'All' | 'Mixed' | 'Practice'>('All');
+  const [filterType, setFilterType] = useState<'All' | 'Mixed' | 'Price' | 'Practice'>('All');
   const [showClearConfirm, setShowClearConfirm] = useState(false);
 
   // Authorization states
@@ -117,6 +117,8 @@ export const AdminPanel: React.FC = () => {
     let matchesType = true;
     if (filterType === 'Mixed') {
       matchesType = attempt.quizType.includes('Mixed');
+    } else if (filterType === 'Price') {
+      matchesType = attempt.quizType.includes('Price');
     } else if (filterType === 'Practice') {
       matchesType = attempt.quizType.includes('Practice');
     }
@@ -364,7 +366,7 @@ export const AdminPanel: React.FC = () => {
 
         {/* Tab Filters */}
         <div className="flex bg-zinc-100 p-1 rounded-xl border border-zinc-200 w-full md:w-auto justify-center">
-          {(['All', 'Mixed', 'Practice'] as const).map(type => (
+          {(['All', 'Mixed', 'Price', 'Practice'] as const).map(type => (
             <button
               key={type}
               onClick={() => setFilterType(type)}
@@ -374,7 +376,13 @@ export const AdminPanel: React.FC = () => {
                   : 'text-zinc-500 hover:text-zinc-800'
               }`}
             >
-              {type === 'All' ? 'All Formats' : type === 'Mixed' ? 'Mixed Quiz Only' : 'Practice Only'}
+              {type === 'All' 
+                ? 'All Formats' 
+                : type === 'Mixed' 
+                ? 'Mixed Quiz Only' 
+                : type === 'Price' 
+                ? 'Price Quiz Only' 
+                : 'Practice Only'}
             </button>
           ))}
         </div>

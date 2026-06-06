@@ -74,6 +74,7 @@ const COLOR_TRANSLATIONS: Record<string, Record<LanguageCode, string>> = {
   'Anthracite': { en: 'Anthracite', hi: 'एंथ्रेसाइट (Anthracite)' },
   'Silver': { en: 'Silver', hi: 'सिल्वर (Silver)' },
   'Mattesmoke': { en: 'Matte Smoke (Mattesmoke)', hi: 'मैट स्मोक (Mattesmoke)' },
+  'Ether': { en: 'Ether', hi: 'ईथर (Ether)' },
   'Gunmetal': { en: 'Gunmetal', hi: 'गनमेटल (Gunmetal)' },
   'Bronze': { en: 'Bronze', hi: 'ब्रॉन्ज (Bronze)' },
   'Matte Anthracite': { en: 'Matte Anthracite', hi: 'मैट एंथ्रेसाइट (Matte Anthracite)' },
@@ -316,6 +317,10 @@ export const UI_TRANSLATIONS: Record<string, Record<LanguageCode, string>> = {
     en: 'Enter your name to begin the General Mixed Quiz.',
     hi: 'सामान्य मिश्रित क्विज़ शुरू करने के लिए अपना नाम दर्ज करें।'
   },
+  enterNamePricePrompt: {
+    en: 'Enter your name to begin the Pricing Quiz.',
+    hi: 'मूल्य निर्धारण क्विज़ शुरू करने के लिए अपना नाम दर्ज करें।'
+  },
   enterNamePracticePrompt: {
     en: 'Enter your name to begin the practice quiz for this frame.',
     hi: 'इस फ्रेम के लिए अभ्यास क्विज़ शुरू करने के लिए अपना नाम दर्ज करें।'
@@ -323,6 +328,10 @@ export const UI_TRANSLATIONS: Record<string, Record<LanguageCode, string>> = {
   resultsMixedSubtitle: {
     en: 'You finished the General Mixed Quiz. You successfully recognized and recalled the properties of Unscene Eyewear frames.',
     hi: 'आपने सामान्य मिश्रित क्विज़ पूरा कर लिया है। आपने अनसीन आईवियर फ्रेम के गुणों को सफलतापूर्वक पहचाना और याद किया।'
+  },
+  resultsPriceSubtitle: {
+    en: 'You finished the Pricing Quiz. You successfully matched the pricing of Unscene Eyewear frames.',
+    hi: 'आपने मूल्य निर्धारण क्विज़ पूरा कर लिया है। आपने अनसीन आईवियर फ्रेम की कीमतों का सफलतापूर्वक मिलान किया।'
   },
   resultsPracticeSubtitle: {
     en: 'Nice work! You practiced identifying details for the frame model.',
