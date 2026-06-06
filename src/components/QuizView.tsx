@@ -312,6 +312,7 @@ export const QuizView: React.FC = () => {
                     key={option}
                     disabled={isAnswered && !isChosen}
                     onClick={() => submitAnswer(option)}
+                    style={!isAnswered && isCorrectOption ? { padding: '16.8px' } : undefined}
                     className={`p-4 rounded-2xl border flex flex-col items-center justify-center transition-all duration-200 cursor-pointer min-h-[160px] md:min-h-[200px] relative ${
                       isChosen
                         ? isCorrect 
@@ -361,6 +362,7 @@ export const QuizView: React.FC = () => {
                     key={option}
                     disabled={isAnswered && !isChosen}
                     onClick={() => submitAnswer(option)}
+                    style={!isAnswered && isCorrectOption ? { paddingTop: '14.8px', paddingBottom: '14.8px' } : undefined}
                     className={`w-full text-left p-3.5 rounded-xl border flex items-center justify-between transition-all duration-200 ${
                       isChosen
                         ? isCorrect 
