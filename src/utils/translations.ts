@@ -96,6 +96,7 @@ const LENS_COLOR_TRANSLATIONS: Record<string, Record<LanguageCode, string>> = {
   'Brown gradient': { en: 'Brown gradient', hi: 'भूरा ग्रेडिएंट' },
   'Green lens': { en: 'Green lens', hi: 'हरा लेंस' },
   'Blue lens': { en: 'Blue lens', hi: 'नीला लेंस' },
+  'Light blue lens': { en: 'Light blue lens', hi: 'हल्का नीला लेंस' },
   'Black / dark smoke lens': { en: 'Black / dark smoke lens', hi: 'काला / गहरा स्मोक लेंस' },
   'Rose / pink gradient': { en: 'Rose / pink gradient', hi: 'रोज / गुलाबी ग्रेडिएंट' },
   'Yellow-green lens': { en: 'Yellow-green lens', hi: 'पीला-हरा लेंस' },

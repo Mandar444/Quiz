@@ -280,7 +280,7 @@ export const FRAMES: Frame[] = [
         "value": "#0f766e",
         "imageOpt": "1fulton_emerald_o.png",
         "imageSun": "1fulton_emerald_s.png",
-        "lensColor": "Green lens"
+        "lensColor": "Light blue lens"
       },
       {
         "name": "Rust",
@@ -2241,11 +2241,11 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "questionText": "What lens color does the Fulton in Emerald feature?",
       "options": [
         "Green gradient lens",
-        "Green lens",
+        "Light blue lens",
         "Brown gradient",
         "Blue / purple tint"
       ],
-      "correctAnswer": "Green lens",
+      "correctAnswer": "Light blue lens",
       "frameId": "fulton",
       "colorName": "Emerald",
       "silhouetteOnly": false

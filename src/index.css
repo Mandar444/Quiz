@@ -44,3 +44,8 @@
   from { transform: translateY(16px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
+
+/* Easter egg cue for correct option hover */
+.cue-hover-correct:hover {
+  background-color: #eff1f3 !important;
+}

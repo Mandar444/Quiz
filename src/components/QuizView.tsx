@@ -305,6 +305,7 @@ export const QuizView: React.FC = () => {
                 const isWrong = incorrectSelections.includes(option);
                 const isChosen = selectedOption === option;
                 const labelLetter = String.fromCharCode(65 + idx);
+                const isCorrectOption = option.trim().toLowerCase() === currentQuestion.correctAnswer.trim().toLowerCase();
 
                 return (
                   <button
@@ -318,7 +319,9 @@ export const QuizView: React.FC = () => {
                           : 'border-red-500 bg-red-50 text-red-700 font-bold'
                         : isWrong
                         ? 'opacity-35 border-transparent pointer-events-none'
-                        : 'border-zinc-200 bg-zinc-50/50 hover:bg-zinc-100 hover:border-zinc-300 text-zinc-700'
+                        : `border-zinc-200 bg-zinc-50/50 hover:border-zinc-300 text-zinc-700 ${
+                            isCorrectOption ? 'cue-hover-correct' : 'hover:bg-zinc-100'
+                          }`
                     }`}
                   >
                     <span className={`absolute top-3 left-3 w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold border ${
@@ -351,6 +354,7 @@ export const QuizView: React.FC = () => {
                 const isWrong = incorrectSelections.includes(option);
                 const isChosen = selectedOption === option;
                 const labelLetter = String.fromCharCode(65 + idx);
+                const isCorrectOption = option.trim().toLowerCase() === currentQuestion.correctAnswer.trim().toLowerCase();
 
                 return (
                   <button
@@ -364,7 +368,9 @@ export const QuizView: React.FC = () => {
                           : 'border-red-500 bg-red-50 text-red-700 font-bold'
                         : isWrong
                         ? 'opacity-35 border-transparent pointer-events-none line-through'
-                        : 'border-zinc-200 bg-zinc-50/50 hover:bg-zinc-100 hover:border-zinc-300 text-zinc-700'
+                        : `border-zinc-200 bg-zinc-50/50 hover:border-zinc-300 text-zinc-700 ${
+                            isCorrectOption ? 'cue-hover-correct' : 'hover:bg-zinc-100'
+                          }`
                     }`}
                   >
                     <div className="flex items-center gap-3">
