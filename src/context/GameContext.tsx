@@ -52,7 +52,16 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const saved = localStorage.getItem('unscene_active_quiz');
     if (saved) {
       try {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        // If any question in the saved quiz has options containing a slash, discard it
+        const hasOldFormat = parsed.quizQuestions?.some((q: any) =>
+          q.options?.some((opt: string) => opt.includes('/') && !opt.includes('http'))
+        );
+        if (!hasOldFormat) {
+          return parsed;
+        } else {
+          localStorage.removeItem('unscene_active_quiz');
+        }
       } catch (e) {}
     }
     return null;

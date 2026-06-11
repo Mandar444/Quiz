@@ -17,21 +17,21 @@ export const FRAMES: Frame[] = [
         "value": "#1e293b",
         "imageOpt": "1coastline_blackcore_o.png",
         "imageSun": "1Coastline_BlackCore_S.png",
-        "lensColor": "Blue / purple tint"
+        "lensColor": "Purple"
       },
       {
         "name": "Black Shell",
         "value": "#222222",
         "imageOpt": "1coastline_blackshell_o.png",
         "imageSun": "1Coastline_BlackShell_Sun.png",
-        "lensColor": "Black / dark smoke"
+        "lensColor": "Black"
       },
       {
         "name": "Champagne",
         "value": "#E8DCC4",
         "imageOpt": "1coastline_champagne_o.png",
         "imageSun": "1Coastline_Champagne_S.png",
-        "lensColor": "Orange / peach lens"
+        "lensColor": "Orange"
       },
       {
         "name": "Havana",
@@ -39,14 +39,14 @@ export const FRAMES: Frame[] = [
         "imageOpt": "1coastline_havana_o.png",
         "imageSun": "1Coastline_Havana_S.png",
         "isTortoise": true,
-        "lensColor": "Blue gradient"
+        "lensColor": "SkyBlue"
       },
       {
         "name": "Matte Black",
         "value": "#2D2D2D",
         "imageOpt": "1coastline_matteblack_o.png",
         "imageSun": "1Coastline_MatteBlack_S.png",
-        "lensColor": "Yellow lens"
+        "lensColor": "Yellow"
       }
     ],
     "character": "Clean wayfarer energy. Versatile enough for anything.",
@@ -70,21 +70,21 @@ export const FRAMES: Frame[] = [
         "value": "#111111",
         "imageOpt": "1vondel_black_o.png",
         "imageSun": "1vondel_black_s.png",
-        "lensColor": "Black / smoke lens"
+        "lensColor": "Black"
       },
       {
         "name": "Black Shell",
         "value": "#222222",
         "imageOpt": "1vondel_blackshell_o.png",
         "imageSun": "1vondel_blackshell_s.png",
-        "lensColor": "Orange / coral lens"
+        "lensColor": "Rose"
       },
       {
         "name": "Champagne",
         "value": "#E8DCC4",
         "imageOpt": "1vondel_champagne_o.png",
         "imageSun": "1vondel_champagne_s.png",
-        "lensColor": "Brown gradient"
+        "lensColor": "Brown"
       },
       {
         "name": "Havana",
@@ -92,14 +92,14 @@ export const FRAMES: Frame[] = [
         "imageOpt": "1vondel_havana_o.png",
         "imageSun": "1vondel_havana_s.png",
         "isTortoise": true,
-        "lensColor": "Green lens"
+        "lensColor": "Green"
       },
       {
         "name": "Teal",
         "value": "#005f73",
         "imageOpt": "1vondel_teal_o.png",
         "imageSun": "1vondel_teal_s.png",
-        "lensColor": "Blue lens"
+        "lensColor": "SkyBlue"
       }
     ],
     "character": "Soft panto-shaped frame with relaxed proportions, inspired by Amsterdam's Vondelpark.",
@@ -123,14 +123,14 @@ export const FRAMES: Frame[] = [
         "value": "#111111",
         "imageOpt": "1strand_black_o.png",
         "imageSun": "1strand_black_s.png",
-        "lensColor": "Black / dark smoke lens"
+        "lensColor": "Black"
       },
       {
         "name": "Blackx",
         "value": "#555555",
         "imageOpt": "1strand_blackG_o.png",
         "imageSun": "1strand_blackG_s.png",
-        "lensColor": "Green lens"
+        "lensColor": "Green"
       },
       {
         "name": "Havana",
@@ -138,21 +138,21 @@ export const FRAMES: Frame[] = [
         "imageOpt": "1strand_havana_o.png",
         "imageSun": "1strand_havana_s.png",
         "isTortoise": true,
-        "lensColor": "Rose / pink gradient"
+        "lensColor": "Peach"
       },
       {
         "name": "Olive",
         "value": "#556B2F",
         "imageOpt": "1strand_olive_o.png",
         "imageSun": "1strand_olive_s.png",
-        "lensColor": "Brown gradient"
+        "lensColor": "Brown"
       },
       {
         "name": "Wine",
         "value": "#555555",
         "imageOpt": "1strand_wine_o.png",
         "imageSun": "1strand_wine_s.png",
-        "lensColor": "Black / dark smoke lens"
+        "lensColor": "Black"
       }
     ],
     "character": "Balancing softness and structure, inspired by New York's Strand Bookstore.",
@@ -176,35 +176,35 @@ export const FRAMES: Frame[] = [
         "value": "#222222",
         "imageOpt": "1Vapour_blackshell_o.png",
         "imageSun": "1Vapour_blackshell_s.png",
-        "lensColor": "Blue lens"
+        "lensColor": "Blue"
       },
       {
         "name": "Blackshellx",
         "value": "#555555",
         "imageOpt": "1Vapour_blackshellG_o.png",
         "imageSun": "1Vapour_blackshellg_s.png",
-        "lensColor": "Black / smoke lens"
+        "lensColor": "Black"
       },
       {
         "name": "Emerald",
         "value": "#0f766e",
         "imageOpt": "1Vapour_emerald_o.png",
         "imageSun": "1Vapour_emerald_s.png",
-        "lensColor": "Yellow-green lens"
+        "lensColor": "Olive"
       },
       {
         "name": "Glass",
         "value": "#7b958c",
         "imageOpt": "1Vapour_glass_o.png",
         "imageSun": "1Vapour_glass_s.png",
-        "lensColor": "Green / grey lens"
+        "lensColor": "GreenFade"
       },
       {
         "name": "Rust",
         "value": "#a16207",
         "imageOpt": "1Vapour_RUST_o.png",
         "imageSun": "1Vapour_rust_s.png",
-        "lensColor": "Brown gradient"
+        "lensColor": "BrownFade"
       }
     ],
     "character": "A versatile frame designed to be full across the top and subtly flattened at the sides.",
@@ -228,21 +228,21 @@ export const FRAMES: Frame[] = [
         "value": "#D4AF37",
         "imageOpt": "1split_gold_o.png",
         "imageSun": "1split_gold_s.png",
-        "lensColor": "Coral / orange lens"
+        "lensColor": "Rose"
       },
       {
         "name": "Matte Black",
         "value": "#2D2D2D",
         "imageOpt": "1split_matteblack_o.png",
         "imageSun": "1split_matteblack_s.png",
-        "lensColor": "Yellow lens"
+        "lensColor": "Yellow"
       },
       {
         "name": "Matte Silver",
         "value": "#B2BEB5",
         "imageOpt": "1split_mattesilver_o.png",
         "imageSun": "1split_mattesilver_s.png",
-        "lensColor": "Blue lens"
+        "lensColor": "Blue"
       }
     ],
     "character": "A ultra-lightweight Japanese titanium aviator frame featuring a striking split-bridge design.",
@@ -266,35 +266,35 @@ export const FRAMES: Frame[] = [
         "value": "#111111",
         "imageOpt": "1fulton_black_o.png",
         "imageSun": "1fulton_black_s.png",
-        "lensColor": "Orange / brown gradient"
+        "lensColor": "Orange"
       },
       {
         "name": "Black Shell",
         "value": "#222222",
         "imageOpt": "1fulton_blackshell_o.png",
         "imageSun": "1fulton_blackshell_s.png",
-        "lensColor": "Black / dark smoke"
+        "lensColor": "Black"
       },
       {
         "name": "Emerald",
         "value": "#0f766e",
         "imageOpt": "1fulton_emerald_o.png",
         "imageSun": "1fulton_emerald_s.png",
-        "lensColor": "Light blue lens"
+        "lensColor": "SkyBlue"
       },
       {
         "name": "Rust",
         "value": "#a16207",
         "imageOpt": "1fulton_rust_o.png",
         "imageSun": "1fulton_rust_s.png",
-        "lensColor": "Brown gradient"
+        "lensColor": "Brown"
       },
       {
         "name": "Smoke",
         "value": "#6b7280",
         "imageOpt": "1fulton_smoke_o.png",
         "imageSun": "1fulton_smoke_s.png",
-        "lensColor": "Yellow / green tint"
+        "lensColor": "Olive"
       }
     ],
     "character": "Unapologetic, solid, and authoritative chunky acetate frame.",
@@ -318,35 +318,35 @@ export const FRAMES: Frame[] = [
         "value": "#111111",
         "imageOpt": "1Overture_Black_O.png",
         "imageSun": "1Overture_Black_Sun.png",
-        "lensColor": "Black / smoke lens"
+        "lensColor": "Black"
       },
       {
         "name": "Black Core",
         "value": "#1e293b",
         "imageOpt": "1overture_blackcore_o.png",
         "imageSun": "1Overture_BlackCore_Sun.png",
-        "lensColor": "Green lens"
+        "lensColor": "Green"
       },
       {
         "name": "Champagne",
         "value": "#E8DCC4",
         "imageOpt": "1overture_champagne_o.png",
         "imageSun": "1Overture_Champagne_S.png",
-        "lensColor": "Brown gradient"
+        "lensColor": "Brown"
       },
       {
         "name": "Navy",
         "value": "#1E3A8A",
         "imageOpt": "1overture_navy_o.png",
         "imageSun": "1Overture_Navy_S.png",
-        "lensColor": "Black / smoke lens"
+        "lensColor": "Black"
       },
       {
         "name": "Sage",
         "value": "#4D7C0F",
         "imageOpt": "1overture_sage_o.png",
         "imageSun": "1Overture_Sage_S.png",
-        "lensColor": "Brown / rose gradient"
+        "lensColor": "BrownFade"
       }
     ],
     "character": "A bold, grounded, and sturdy frame designed to provide a minimalist aesthetic with depth.",
@@ -370,14 +370,14 @@ export const FRAMES: Frame[] = [
         "value": "#111111",
         "imageOpt": "1downtime_black_o.png",
         "imageSun": "1downtime_black_s.png",
-        "lensColor": "Blue / grey lens"
+        "lensColor": "Black"
       },
       {
         "name": "Black Shell",
         "value": "#222222",
         "imageOpt": "1downtime_blackshell_o.png",
         "imageSun": "1downtime_blackshell_s.png",
-        "lensColor": "Black / dark smoke"
+        "lensColor": "BlackFade"
       },
       {
         "name": "Havana",
@@ -385,21 +385,21 @@ export const FRAMES: Frame[] = [
         "imageOpt": "1downtime_havana_o.png",
         "imageSun": "1downtime_havana_s(1).png",
         "isTortoise": true,
-        "lensColor": "Green / grey gradient"
+        "lensColor": "GreenFade"
       },
       {
         "name": "Navy",
         "value": "#1E3A8A",
         "imageOpt": "1downtime_navy_o.png",
         "imageSun": "1downtime_navy_s.png",
-        "lensColor": "Brown / orange gradient"
+        "lensColor": "Brown"
       },
       {
         "name": "Smoke",
         "value": "#6b7280",
         "imageOpt": "1downtime_smoke_o.png",
         "imageSun": "1downtime_smoke_s.png",
-        "lensColor": "Orange / red gradient"
+        "lensColor": "Rose"
       }
     ],
     "character": "A fuller-shaped frame designed for a quiet presence and relaxed afternoon vibes.",
@@ -423,21 +423,21 @@ export const FRAMES: Frame[] = [
         "value": "#111111",
         "imageOpt": "1Portola_black_o.png",
         "imageSun": "1Portola_black_s.png",
-        "lensColor": "Blue / purple lens"
+        "lensColor": "Purple"
       },
       {
         "name": "Black Core",
         "value": "#1e293b",
         "imageOpt": "1Portola_blackcore_o.png",
         "imageSun": "1Portola_blackcore_s.png",
-        "lensColor": "Black / smoke lens"
+        "lensColor": "Black"
       },
       {
         "name": "Concrete",
         "value": "#71717A",
         "imageOpt": "1Portola_concrete_o.png",
         "imageSun": "1Portola_concrete_s.png",
-        "lensColor": "Rose / pink gradient"
+        "lensColor": "Peach"
       },
       {
         "name": "Havana",
@@ -445,14 +445,14 @@ export const FRAMES: Frame[] = [
         "imageOpt": "1Portola_havana_o.png",
         "imageSun": "1Portola_havana_s.png",
         "isTortoise": true,
-        "lensColor": "Brown / orange gradient"
+        "lensColor": "Brown"
       },
       {
         "name": "Olive",
         "value": "#556B2F",
         "imageOpt": "1Portola_olive_o.png",
         "imageSun": "1Portola_olive_s.png",
-        "lensColor": "Olive / yellow-green lens"
+        "lensColor": "Olive"
       }
     ],
     "character": "An oval-shaped frame made from premium Italian Mazzucchelli acetate, exuding effortless coastal style.",
@@ -476,21 +476,21 @@ export const FRAMES: Frame[] = [
         "value": "#3F3F46",
         "imageOpt": "1undertone_anthracite_o.png",
         "imageSun": "1undertone_anthracite_s.png",
-        "lensColor": "Coral / orange lens"
+        "lensColor": "Rose"
       },
       {
         "name": "Gold",
         "value": "#D4AF37",
         "imageOpt": "1undertone_gold_o.png",
         "imageSun": "1undertone_gold_s.png",
-        "lensColor": "Purple / smoke lens"
+        "lensColor": "Black"
       },
       {
         "name": "Silver",
         "value": "#C0C0C0",
         "imageOpt": "1undertone_silver_o.png",
         "imageSun": "1undertone_silver_s.png",
-        "lensColor": "Green / smoke lens"
+        "lensColor": "Green"
       }
     ],
     "character": "A seamless blend of acetate and metal featuring a balanced hexagonal-round shape.",
@@ -514,35 +514,35 @@ export const FRAMES: Frame[] = [
         "value": "#1e293b",
         "imageOpt": "1prysm_blackcore_o.png",
         "imageSun": "1prysm_blackcore_s.png",
-        "lensColor": "Black / smoke lens"
+        "lensColor": "Black"
       },
       {
         "name": "Emerald",
         "value": "#0f766e",
         "imageOpt": "1prysm_emerald_o.png",
         "imageSun": "1prysm_emerald_s.png",
-        "lensColor": "Green lens"
+        "lensColor": "Black"
       },
       {
         "name": "Matte Black",
         "value": "#2D2D2D",
         "imageOpt": "1prysm_matteblack_o.png",
         "imageSun": "1prysm_matteblack_s.png",
-        "lensColor": "Orange lens"
+        "lensColor": "Orange"
       },
       {
         "name": "Ether",
         "value": "#555555",
         "imageOpt": "1prysm_mattesmoke_o.png",
         "imageSun": "1prysm_mattesmoke_s.png",
-        "lensColor": "Blue / purple gradient"
+        "lensColor": "Purple"
       },
       {
         "name": "Rust",
         "value": "#a16207",
         "imageOpt": "1prysm_rust_o.png",
         "imageSun": "1prysm_rust_s.png",
-        "lensColor": "Brown / orange gradient"
+        "lensColor": "Brown"
       }
     ],
     "character": "A sharp, rectangular frame crafted from Italian Mazzucchelli acetate with strong geometric edges.",
@@ -566,21 +566,21 @@ export const FRAMES: Frame[] = [
         "value": "#3F3F46",
         "imageOpt": "3highline_anthracite_o.png",
         "imageSun": "3highline_anthracite_s.png",
-        "lensColor": "Yellow lens"
+        "lensColor": "Olive"
       },
       {
         "name": "Gold",
         "value": "#D4AF37",
         "imageOpt": "1highline_gold_o.png",
         "imageSun": "1highline_gold_s.png",
-        "lensColor": "Brown / rose gradient lens"
+        "lensColor": "BrownFade"
       },
       {
         "name": "Silver",
         "value": "#C0C0C0",
         "imageOpt": "1highline_silver_o.png",
         "imageSun": "1highline_silver_s.png",
-        "lensColor": "Light blue / lavender lens"
+        "lensColor": "Purple"
       }
     ],
     "character": "Lightweight, oval-shaped Japanese titanium frame built for ultimate strength and comfort.",
@@ -604,21 +604,21 @@ export const FRAMES: Frame[] = [
         "value": "#D4AF37",
         "imageOpt": "1borderline_gold_o.png",
         "imageSun": "1borderline_gold_s.png",
-        "lensColor": "Green / olive gradient lens"
+        "lensColor": "Green"
       },
       {
         "name": "Gunmetal",
         "value": "#555555",
         "imageOpt": "1borderline_gunmetal_o.png",
         "imageSun": "1borderline_gunmetal_s.png",
-        "lensColor": "Blue lens"
+        "lensColor": "Blue"
       },
       {
         "name": "Matte Black",
         "value": "#2D2D2D",
         "imageOpt": "1borderline_matteblack_o.png",
         "imageSun": "1borderline_matteblack_s.png",
-        "lensColor": "Purple / smoke lens"
+        "lensColor": "BlackFade"
       }
     ],
     "character": "Minimalist rectangular metallic-rimmed titanium frame defining structural simplicity.",
@@ -642,21 +642,21 @@ export const FRAMES: Frame[] = [
         "value": "#3F3F46",
         "imageOpt": "1crossfire_anthracite_o.png",
         "imageSun": "1Crossfire_Anthracite_S.png",
-        "lensColor": "Purple / smoke lens"
+        "lensColor": "BlackFade"
       },
       {
         "name": "Bronze",
         "value": "#CD7F32",
         "imageOpt": "1crossfire_bronze_o.png",
         "imageSun": "1Crossfire_Bronze_S.png",
-        "lensColor": "Green gradient lens"
+        "lensColor": "GreenFade"
       },
       {
         "name": "Gold",
         "value": "#D4AF37",
         "imageOpt": "1crossfire_gold_o.png",
         "imageSun": "1Crossfire_Gold_S.png",
-        "lensColor": "Brown gradient lens"
+        "lensColor": "Brown"
       }
     ],
     "character": "Bold double-bridge metal aviator featuring structural reinforcement and lightweight comfort.",
@@ -680,21 +680,21 @@ export const FRAMES: Frame[] = [
         "value": "#3F3F46",
         "imageOpt": "1strangelove_anthracite_o.png",
         "imageSun": "1Strangelove_Anthracite_S.png",
-        "lensColor": "Orange lens"
+        "lensColor": "Orange"
       },
       {
         "name": "Gold",
         "value": "#D4AF37",
         "imageOpt": "1strangelove_gold_o.png",
         "imageSun": "1Strangelove_Gold_S.png",
-        "lensColor": "Brown / smoke lens"
+        "lensColor": "Black"
       },
       {
         "name": "Silver",
         "value": "#C0C0C0",
         "imageOpt": "1strangelove_silver_o.png",
         "imageSun": "1Strangelove_Silver_S.png",
-        "lensColor": "Yellow lens"
+        "lensColor": "Olive"
       }
     ],
     "character": "Delicate oval frame suspended in Japanese titanium, projecting structural lightness.",
@@ -717,25 +717,25 @@ export const FRAMES: Frame[] = [
         "name": "Bronze",
         "value": "#CD7F32",
         "imageSun": "1Wireframe_Bronze_S.png",
-        "lensColor": "Blue lens"
+        "lensColor": "Blue"
       },
       {
         "name": "Gold",
         "value": "#D4AF37",
         "imageSun": "1Wireframe_Gold_S.png",
-        "lensColor": "Orange lens"
+        "lensColor": "Orange"
       },
       {
         "name": "Matte Black",
         "value": "#2D2D2D",
         "imageSun": "1Wireframe_Black _S.png",
-        "lensColor": "Black / smoke lens"
+        "lensColor": "BlackFade"
       },
       {
         "name": "Silver",
         "value": "#C0C0C0",
         "imageSun": "1Wireframe_Silver_S.png",
-        "lensColor": "Blue / lavender lens"
+        "lensColor": "Purple"
       }
     ],
     "character": "Uncompromised geometric expression. Minimalist hexagonal rim detailing.",
@@ -758,21 +758,21 @@ export const FRAMES: Frame[] = [
         "value": "#D4AF37",
         "imageOpt": "1paradox_gold_o.png",
         "imageSun": "1paradox_gold_s.png",
-        "lensColor": "Green / olive gradient lens"
+        "lensColor": "Green"
       },
       {
         "name": "Matte Anthracite",
         "value": "#4b5563",
         "imageOpt": "1paradox_matteanthracite_o.png",
         "imageSun": "1paradox_matteanthracite_s.png",
-        "lensColor": "Blue / lavender lens"
+        "lensColor": "Purple"
       },
       {
         "name": "Matte Olive",
         "value": "#6b705c",
         "imageOpt": "1paradox_matteolive_o.png",
         "imageSun": "1paradox_matteolive_s.png",
-        "lensColor": "Brown / orange gradient lens"
+        "lensColor": "Brown"
       }
     ],
     "character": "A balanced contradiction. Subtle geometric lines merging with flat acetate borders.",
@@ -796,21 +796,21 @@ export const FRAMES: Frame[] = [
         "value": "#D4AF37",
         "imageOpt": "1runway_gold_o.png",
         "imageSun": "1runway_gold_s.png",
-        "lensColor": "Brown / smoke gradient lens"
+        "lensColor": "Black"
       },
       {
         "name": "Matte Gunmetal",
         "value": "#4b5563",
         "imageOpt": "1runway_mattegunmetal_o.png",
         "imageSun": "1runway_mattegunmetal_s.png",
-        "lensColor": "Blue lens"
+        "lensColor": "SkyBlue"
       },
       {
         "name": "Olive",
         "value": "#556B2F",
         "imageOpt": "3runway_matteolive_o.png",
         "imageSun": "3runway_matteolive_s.png",
-        "lensColor": "Green / smoke lens"
+        "lensColor": "Green"
       }
     ],
     "character": "Speedway heritage. A thin titanium frame styled with athletic curves.",
@@ -834,21 +834,21 @@ export const FRAMES: Frame[] = [
         "value": "#D4AF37",
         "imageOpt": "1sheer_gold_o.png",
         "imageSun": "1sheer_gold_s.png",
-        "lensColor": "Yellow lens"
+        "lensColor": "Olive"
       },
       {
         "name": "Matte Black",
         "value": "#2D2D2D",
         "imageOpt": "1sheer_matteblack_o.png",
         "imageSun": "1sheer_matteblack_s.png",
-        "lensColor": "Pink / coral lens"
+        "lensColor": "Rose"
       },
       {
         "name": "Matte Silver",
         "value": "#B2BEB5",
         "imageOpt": "1sheer_silver_o.png",
         "imageSun": "1sheer_silver_s.png",
-        "lensColor": "Purple / smoke lens"
+        "lensColor": "Black"
       }
     ],
     "character": "A gossamer-light presence. Round wire detailing that feels completely weightless.",
@@ -872,79 +872,27 @@ export const FRAMES: Frame[] = [
         "value": "#D4AF37",
         "imageOpt": "1slowburn_gold_o.png",
         "imageSun": "1slowburn_gold_s.png",
-        "lensColor": "Brown gradient lens"
+        "lensColor": "BrownFade"
       },
       {
         "name": "Gunmetal",
         "value": "#555555",
         "imageOpt": "1slowburn_gunmetal_o.png",
         "imageSun": "1slowburn_gunmetal_s.png",
-        "lensColor": "Green gradient lens"
+        "lensColor": "GreenFade"
       },
       {
         "name": "Olive",
         "value": "#556B2F",
         "imageOpt": "3slowburn_olive_o.png",
         "imageSun": "3slowburn_olive_s.png",
-        "lensColor": "Purple / smoke gradient lens"
+        "lensColor": "BlackFade"
       }
     ],
     "character": "A slow-releasing design assertion. Thin metallic rims with polished acetate details.",
     "shopUrl": "https://unscenenow.com/products/slowburn?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card",
     "priceSun": 8900,
     "priceRx": 8200
-  },
-  {
-    "id": "velo",
-    "name": "Velo",
-    "type": "Sun",
-    "shape": "Rectangle",
-    "material": "Acetate",
-    "bestFor": [
-      "Round",
-      "Oval"
-    ],
-    "colors": [
-      {
-        "name": "Black B",
-        "value": "#111111",
-        "imageSun": "1velo_blackB.png",
-        "lensColor": "Blue lens"
-      },
-      {
-        "name": "Black P",
-        "value": "#1C1C1C",
-        "imageSun": "1velo_blackP.png",
-        "lensColor": "Purple / smoke lens"
-      },
-      {
-        "name": "Black Shell",
-        "value": "#222222",
-        "imageSun": "1velo_blackshell.png",
-        "lensColor": "Black / dark smoke lens"
-      },
-      {
-        "name": "Cobalt",
-        "value": "#0f4c81",
-        "imageSun": "1velo_cobalt.png",
-        "lensColor": "Blue / grey lens"
-      },
-      {
-        "name": "Ember",
-        "value": "#b33939",
-        "imageSun": "1velo_ember.png",
-        "lensColor": "Orange / red gradient"
-      },
-      {
-        "name": "Matte Black",
-        "value": "#2D2D2D",
-        "imageSun": "1velo_matteblack.png",
-        "lensColor": "Black / smoke lens"
-      }
-    ],
-    "character": "Narrow, wrapping rectangle sunglasses built for sleek athletic style.",
-    "shopUrl": "https://unscenenow.com/products/velo?utm_source=unscene-academy&utm_medium=referral&utm_campaign=lesson-card",
-    "priceSun": 7300
   }
 ];
 
@@ -1055,12 +1003,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Coastline in Black Core feature?",
       "options": [
-        "Black / dark smoke",
-        "Black / smoke lens",
-        "Blue / purple gradient",
-        "Blue / purple tint"
+        "Purple",
+        "Rose",
+        "Green",
+        "Brown"
       ],
-      "correctAnswer": "Blue / purple tint",
+      "correctAnswer": "Purple",
       "frameId": "coastline",
       "colorName": "Black Core",
       "silhouetteOnly": false
@@ -1085,12 +1033,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Coastline in Black Shell feature?",
       "options": [
-        "Green / smoke lens",
-        "Black / dark smoke",
-        "Green lens",
-        "Blue / purple lens"
+        "Green Fade",
+        "Blue",
+        "Purple",
+        "Black"
       ],
-      "correctAnswer": "Black / dark smoke",
+      "correctAnswer": "Black",
       "frameId": "coastline",
       "colorName": "Black Shell",
       "silhouetteOnly": false
@@ -1115,12 +1063,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Coastline in Champagne feature?",
       "options": [
-        "Rose / pink gradient",
-        "Orange / peach lens",
-        "Yellow lens",
-        "Blue / purple gradient"
+        "Olive",
+        "Orange",
+        "GreenFade",
+        "Brown"
       ],
-      "correctAnswer": "Orange / peach lens",
+      "correctAnswer": "Orange",
       "frameId": "coastline",
       "colorName": "Champagne",
       "silhouetteOnly": false
@@ -1145,12 +1093,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Coastline in Havana feature?",
       "options": [
-        "Yellow lens",
-        "Brown gradient",
-        "Brown / orange gradient lens",
-        "Blue gradient"
+        "Rose",
+        "SkyBlue",
+        "Peach",
+        "Green"
       ],
-      "correctAnswer": "Blue gradient",
+      "correctAnswer": "SkyBlue",
       "frameId": "coastline",
       "colorName": "Havana",
       "silhouetteOnly": false
@@ -1175,12 +1123,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Coastline in Matte Black feature?",
       "options": [
-        "Yellow lens",
-        "Yellow / green tint",
-        "Black / smoke lens",
-        "Coral / orange lens"
+        "Yellow",
+        "Green",
+        "Black",
+        "Brown"
       ],
-      "correctAnswer": "Yellow lens",
+      "correctAnswer": "Yellow",
       "frameId": "coastline",
       "colorName": "Matte Black",
       "silhouetteOnly": false
@@ -1292,12 +1240,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Vondel in Black feature?",
       "options": [
-        "Yellow / green tint",
-        "Black / smoke lens",
-        "Blue lens",
-        "Black / dark smoke lens"
+        "Green",
+        "Black",
+        "Purple",
+        "Brown"
       ],
-      "correctAnswer": "Black / smoke lens",
+      "correctAnswer": "Black",
       "frameId": "vondel",
       "colorName": "Black",
       "silhouetteOnly": false
@@ -1322,12 +1270,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Vondel in Black Shell feature?",
       "options": [
-        "Orange / coral lens",
-        "Black / dark smoke lens",
-        "Purple / smoke gradient lens",
-        "Orange lens"
+        "Green",
+        "Brown",
+        "Blue",
+        "Rose"
       ],
-      "correctAnswer": "Orange / coral lens",
+      "correctAnswer": "Rose",
       "frameId": "vondel",
       "colorName": "Black Shell",
       "silhouetteOnly": false
@@ -1352,12 +1300,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Vondel in Champagne feature?",
       "options": [
-        "Orange / red gradient",
-        "Brown / smoke lens",
-        "Black / dark smoke",
-        "Brown gradient"
+        "Brown",
+        "Green",
+        "BlackFade",
+        "Green Fade"
       ],
-      "correctAnswer": "Brown gradient",
+      "correctAnswer": "Brown",
       "frameId": "vondel",
       "colorName": "Champagne",
       "silhouetteOnly": false
@@ -1382,12 +1330,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Vondel in Havana feature?",
       "options": [
-        "Black / dark smoke lens",
-        "Purple / smoke lens",
-        "Green gradient lens",
-        "Green lens"
+        "Green",
+        "Black",
+        "Purple",
+        "Orange"
       ],
-      "correctAnswer": "Green lens",
+      "correctAnswer": "Green",
       "frameId": "vondel",
       "colorName": "Havana",
       "silhouetteOnly": false
@@ -1412,12 +1360,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Vondel in Teal feature?",
       "options": [
-        "Green / olive gradient lens",
-        "Blue lens",
-        "Brown / orange gradient",
-        "Orange lens"
+        "Brown",
+        "GreenFade",
+        "Olive",
+        "SkyBlue"
       ],
-      "correctAnswer": "Blue lens",
+      "correctAnswer": "SkyBlue",
       "frameId": "vondel",
       "colorName": "Teal",
       "silhouetteOnly": false
@@ -1529,12 +1477,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Strand in Black feature?",
       "options": [
-        "Black / dark smoke lens",
-        "Brown gradient",
-        "Rose / pink gradient",
-        "Brown / orange gradient"
+        "Black",
+        "BlackFade",
+        "Blue",
+        "Orange"
       ],
-      "correctAnswer": "Black / dark smoke lens",
+      "correctAnswer": "Black",
       "frameId": "strand",
       "colorName": "Black",
       "silhouetteOnly": false
@@ -1559,12 +1507,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Strand in Blackx feature?",
       "options": [
-        "Black / smoke lens",
-        "Yellow lens",
-        "Green lens",
-        "Brown / orange gradient lens"
+        "Green",
+        "Black",
+        "Blue",
+        "Green Fade"
       ],
-      "correctAnswer": "Green lens",
+      "correctAnswer": "Green",
       "frameId": "strand",
       "colorName": "Blackx",
       "silhouetteOnly": false
@@ -1589,12 +1537,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Strand in Havana feature?",
       "options": [
-        "Rose / pink gradient",
-        "Blue / lavender lens",
-        "Black / dark smoke lens",
-        "Yellow lens"
+        "Peach",
+        "Yellow",
+        "Green",
+        "Blue"
       ],
-      "correctAnswer": "Rose / pink gradient",
+      "correctAnswer": "Peach",
       "frameId": "strand",
       "colorName": "Havana",
       "silhouetteOnly": false
@@ -1619,12 +1567,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Strand in Olive feature?",
       "options": [
-        "Black / dark smoke",
-        "Blue / grey lens",
-        "Brown gradient",
-        "Pink / coral lens"
+        "Brown",
+        "SkyBlue",
+        "Peach",
+        "Green Fade"
       ],
-      "correctAnswer": "Brown gradient",
+      "correctAnswer": "Brown",
       "frameId": "strand",
       "colorName": "Olive",
       "silhouetteOnly": false
@@ -1649,12 +1597,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Strand in Wine feature?",
       "options": [
-        "Brown / rose gradient",
-        "Blue / purple gradient",
-        "Black / dark smoke lens",
-        "Black / smoke lens"
+        "Rose",
+        "Black",
+        "SkyBlue",
+        "GreenFade"
       ],
-      "correctAnswer": "Black / dark smoke lens",
+      "correctAnswer": "Black",
       "frameId": "strand",
       "colorName": "Wine",
       "silhouetteOnly": false
@@ -1668,7 +1616,7 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "options": [
         "Vapour",
         "Borderline",
-        "Velo",
+        "Vondel",
         "Fulton"
       ],
       "correctAnswer": "Vapour",
@@ -1766,12 +1714,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Vapour in Black Shell feature?",
       "options": [
-        "Blue lens",
-        "Black / dark smoke",
-        "Black / dark smoke lens",
-        "Green / olive gradient lens"
+        "Green Fade",
+        "Rose",
+        "SkyBlue",
+        "Blue"
       ],
-      "correctAnswer": "Blue lens",
+      "correctAnswer": "Blue",
       "frameId": "vapour",
       "colorName": "Black Shell",
       "silhouetteOnly": false
@@ -1796,12 +1744,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Vapour in Blackshellx feature?",
       "options": [
-        "Blue lens",
-        "Blue / lavender lens",
-        "Green lens",
-        "Black / smoke lens"
+        "Rose",
+        "Black",
+        "Orange",
+        "Peach"
       ],
-      "correctAnswer": "Black / smoke lens",
+      "correctAnswer": "Black",
       "frameId": "vapour",
       "colorName": "Blackshellx",
       "silhouetteOnly": false
@@ -1826,12 +1774,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Vapour in Emerald feature?",
       "options": [
-        "Green lens",
-        "Brown / orange gradient lens",
-        "Blue lens",
-        "Yellow-green lens"
+        "Green Fade",
+        "SkyBlue",
+        "Green",
+        "Olive"
       ],
-      "correctAnswer": "Yellow-green lens",
+      "correctAnswer": "Olive",
       "frameId": "vapour",
       "colorName": "Emerald",
       "silhouetteOnly": false
@@ -1856,12 +1804,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Vapour in Glass feature?",
       "options": [
-        "Green / smoke lens",
-        "Yellow lens",
-        "Rose / pink gradient",
-        "Green / grey lens"
+        "GreenFade",
+        "Rose",
+        "Orange",
+        "Green"
       ],
-      "correctAnswer": "Green / grey lens",
+      "correctAnswer": "GreenFade",
       "frameId": "vapour",
       "colorName": "Glass",
       "silhouetteOnly": false
@@ -1886,12 +1834,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Vapour in Rust feature?",
       "options": [
-        "Green lens",
-        "Rose / pink gradient",
-        "Light blue / lavender lens",
-        "Brown gradient"
+        "BrownFade",
+        "BlackFade",
+        "Purple",
+        "GreenFade"
       ],
-      "correctAnswer": "Brown gradient",
+      "correctAnswer": "BrownFade",
       "frameId": "vapour",
       "colorName": "Rust",
       "silhouetteOnly": false
@@ -2003,12 +1951,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Split in Gold feature?",
       "options": [
-        "Purple / smoke lens",
-        "Brown gradient",
-        "Brown / smoke gradient lens",
-        "Coral / orange lens"
+        "Brown",
+        "Orange",
+        "Rose",
+        "GreenFade"
       ],
-      "correctAnswer": "Coral / orange lens",
+      "correctAnswer": "Rose",
       "frameId": "split",
       "colorName": "Gold",
       "silhouetteOnly": false
@@ -2033,12 +1981,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Split in Matte Black feature?",
       "options": [
-        "Orange / peach lens",
-        "Rose / pink gradient",
-        "Black / smoke lens",
-        "Yellow lens"
+        "Black",
+        "Yellow",
+        "Brown",
+        "Purple"
       ],
-      "correctAnswer": "Yellow lens",
+      "correctAnswer": "Yellow",
       "frameId": "split",
       "colorName": "Matte Black",
       "silhouetteOnly": false
@@ -2063,12 +2011,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Split in Matte Silver feature?",
       "options": [
-        "Green / grey gradient",
-        "Blue lens",
-        "Brown / rose gradient lens",
-        "Light blue / lavender lens"
+        "Blue",
+        "Orange",
+        "Black",
+        "SkyBlue"
       ],
-      "correctAnswer": "Blue lens",
+      "correctAnswer": "Blue",
       "frameId": "split",
       "colorName": "Matte Silver",
       "silhouetteOnly": false
@@ -2081,7 +2029,7 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "questionText": "Identify this Unscene frame model from its unique styling.",
       "options": [
         "Borderline",
-        "Velo",
+        "Vondel",
         "Vapour",
         "Fulton"
       ],
@@ -2180,12 +2128,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Fulton in Black feature?",
       "options": [
-        "Brown / orange gradient lens",
-        "Blue / lavender lens",
-        "Orange / brown gradient",
-        "Blue lens"
+        "BrownFade",
+        "Black",
+        "Green",
+        "Orange"
       ],
-      "correctAnswer": "Orange / brown gradient",
+      "correctAnswer": "Orange",
       "frameId": "fulton",
       "colorName": "Black",
       "silhouetteOnly": false
@@ -2210,12 +2158,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Fulton in Black Shell feature?",
       "options": [
-        "Black / dark smoke",
-        "Black / smoke lens",
-        "Purple / smoke lens",
-        "Brown / orange gradient lens"
+        "Black",
+        "Orange",
+        "Blue",
+        "Green Fade"
       ],
-      "correctAnswer": "Black / dark smoke",
+      "correctAnswer": "Black",
       "frameId": "fulton",
       "colorName": "Black Shell",
       "silhouetteOnly": false
@@ -2240,12 +2188,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Fulton in Emerald feature?",
       "options": [
-        "Green gradient lens",
-        "Light blue lens",
-        "Brown gradient",
-        "Blue / purple tint"
+        "Brown",
+        "Purple",
+        "SkyBlue",
+        "Rose"
       ],
-      "correctAnswer": "Light blue lens",
+      "correctAnswer": "SkyBlue",
       "frameId": "fulton",
       "colorName": "Emerald",
       "silhouetteOnly": false
@@ -2270,12 +2218,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Fulton in Rust feature?",
       "options": [
-        "Brown gradient",
-        "Brown / smoke gradient lens",
-        "Black / smoke lens",
-        "Blue lens"
+        "Brown",
+        "Green",
+        "Rose",
+        "BrownFade"
       ],
-      "correctAnswer": "Brown gradient",
+      "correctAnswer": "Brown",
       "frameId": "fulton",
       "colorName": "Rust",
       "silhouetteOnly": false
@@ -2300,12 +2248,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Fulton in Smoke feature?",
       "options": [
-        "Yellow / green tint",
-        "Purple / smoke lens",
-        "Green / olive gradient lens",
-        "Orange lens"
+        "GreenFade",
+        "Peach",
+        "Orange",
+        "Olive"
       ],
-      "correctAnswer": "Yellow / green tint",
+      "correctAnswer": "Olive",
       "frameId": "fulton",
       "colorName": "Smoke",
       "silhouetteOnly": false
@@ -2417,12 +2365,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Overture in Black feature?",
       "options": [
-        "Black / smoke lens",
-        "Brown / rose gradient",
-        "Orange / coral lens",
-        "Green / smoke lens"
+        "Green Fade",
+        "Rose",
+        "Black",
+        "Purple"
       ],
-      "correctAnswer": "Black / smoke lens",
+      "correctAnswer": "Black",
       "frameId": "overture",
       "colorName": "Black",
       "silhouetteOnly": false
@@ -2447,12 +2395,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Overture in Black Core feature?",
       "options": [
-        "Green lens",
-        "Blue lens",
-        "Black / dark smoke",
-        "Orange / red gradient"
+        "Olive",
+        "Brown",
+        "Rose",
+        "Green"
       ],
-      "correctAnswer": "Green lens",
+      "correctAnswer": "Green",
       "frameId": "overture",
       "colorName": "Black Core",
       "silhouetteOnly": false
@@ -2477,12 +2425,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Overture in Champagne feature?",
       "options": [
-        "Blue / purple tint",
-        "Green / grey lens",
-        "Blue lens",
-        "Brown gradient"
+        "SkyBlue",
+        "Rose",
+        "Brown",
+        "BrownFade"
       ],
-      "correctAnswer": "Brown gradient",
+      "correctAnswer": "Brown",
       "frameId": "overture",
       "colorName": "Champagne",
       "silhouetteOnly": false
@@ -2507,12 +2455,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Overture in Navy feature?",
       "options": [
-        "Black / smoke lens",
-        "Orange / coral lens",
-        "Brown gradient",
-        "Brown / orange gradient"
+        "Black",
+        "Brown",
+        "Orange",
+        "Olive"
       ],
-      "correctAnswer": "Black / smoke lens",
+      "correctAnswer": "Black",
       "frameId": "overture",
       "colorName": "Navy",
       "silhouetteOnly": false
@@ -2537,12 +2485,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Overture in Sage feature?",
       "options": [
-        "Brown / rose gradient",
-        "Green gradient lens",
-        "Black / dark smoke lens",
-        "Blue lens"
+        "BrownFade",
+        "Black",
+        "Yellow",
+        "GreenFade"
       ],
-      "correctAnswer": "Brown / rose gradient",
+      "correctAnswer": "BrownFade",
       "frameId": "overture",
       "colorName": "Sage",
       "silhouetteOnly": false
@@ -2654,12 +2602,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Downtime in Black feature?",
       "options": [
-        "Black / smoke lens",
-        "Blue / grey lens",
-        "Orange lens",
-        "Blue lens"
+        "Black",
+        "Peach",
+        "Brown",
+        "SkyBlue"
       ],
-      "correctAnswer": "Blue / grey lens",
+      "correctAnswer": "Black",
       "frameId": "downtime",
       "colorName": "Black",
       "silhouetteOnly": false
@@ -2684,12 +2632,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Downtime in Black Shell feature?",
       "options": [
-        "Green lens",
-        "Black / dark smoke",
-        "Purple / smoke lens",
-        "Black / dark smoke lens"
+        "Purple",
+        "Orange",
+        "SkyBlue",
+        "BlackFade"
       ],
-      "correctAnswer": "Black / dark smoke",
+      "correctAnswer": "BlackFade",
       "frameId": "downtime",
       "colorName": "Black Shell",
       "silhouetteOnly": false
@@ -2714,12 +2662,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Downtime in Havana feature?",
       "options": [
-        "Green / grey gradient",
-        "Coral / orange lens",
-        "Black / smoke lens",
-        "Black / dark smoke"
+        "GreenFade",
+        "Rose",
+        "Blue",
+        "BrownFade"
       ],
-      "correctAnswer": "Green / grey gradient",
+      "correctAnswer": "GreenFade",
       "frameId": "downtime",
       "colorName": "Havana",
       "silhouetteOnly": false
@@ -2744,12 +2692,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Downtime in Navy feature?",
       "options": [
-        "Black / dark smoke lens",
-        "Blue / lavender lens",
-        "Black / smoke lens",
-        "Brown / orange gradient"
+        "Green",
+        "BlackFade",
+        "Brown",
+        "Purple"
       ],
-      "correctAnswer": "Brown / orange gradient",
+      "correctAnswer": "Brown",
       "frameId": "downtime",
       "colorName": "Navy",
       "silhouetteOnly": false
@@ -2774,12 +2722,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Downtime in Smoke feature?",
       "options": [
-        "Green lens",
-        "Blue lens",
-        "Orange / red gradient",
-        "Blue / grey lens"
+        "Rose",
+        "Green",
+        "Blue",
+        "Black"
       ],
-      "correctAnswer": "Orange / red gradient",
+      "correctAnswer": "Rose",
       "frameId": "downtime",
       "colorName": "Smoke",
       "silhouetteOnly": false
@@ -2891,12 +2839,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Portola in Black feature?",
       "options": [
-        "Blue / purple lens",
-        "Brown / smoke lens",
-        "Brown / orange gradient lens",
-        "Yellow / green tint"
+        "Black",
+        "Olive",
+        "Brown",
+        "Purple"
       ],
-      "correctAnswer": "Blue / purple lens",
+      "correctAnswer": "Purple",
       "frameId": "portola",
       "colorName": "Black",
       "silhouetteOnly": false
@@ -2921,12 +2869,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Portola in Black Core feature?",
       "options": [
-        "Black / smoke lens",
-        "Yellow lens",
-        "Blue lens",
-        "Brown / orange gradient"
+        "Rose",
+        "Black",
+        "SkyBlue",
+        "Orange"
       ],
-      "correctAnswer": "Black / smoke lens",
+      "correctAnswer": "Black",
       "frameId": "portola",
       "colorName": "Black Core",
       "silhouetteOnly": false
@@ -2951,12 +2899,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Portola in Concrete feature?",
       "options": [
-        "Pink / coral lens",
-        "Green lens",
-        "Rose / pink gradient",
-        "Green / smoke lens"
+        "Peach",
+        "Green Fade",
+        "Brown",
+        "SkyBlue"
       ],
-      "correctAnswer": "Rose / pink gradient",
+      "correctAnswer": "Peach",
       "frameId": "portola",
       "colorName": "Concrete",
       "silhouetteOnly": false
@@ -2981,12 +2929,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Portola in Havana feature?",
       "options": [
-        "Blue lens",
-        "Brown / orange gradient",
-        "Black / smoke lens",
-        "Green / smoke lens"
+        "Brown",
+        "Black",
+        "Orange",
+        "BrownFade"
       ],
-      "correctAnswer": "Brown / orange gradient",
+      "correctAnswer": "Brown",
       "frameId": "portola",
       "colorName": "Havana",
       "silhouetteOnly": false
@@ -3011,12 +2959,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Portola in Olive feature?",
       "options": [
-        "Blue lens",
-        "Yellow lens",
-        "Green / grey lens",
-        "Olive / yellow-green lens"
+        "Black",
+        "SkyBlue",
+        "GreenFade",
+        "Olive"
       ],
-      "correctAnswer": "Olive / yellow-green lens",
+      "correctAnswer": "Olive",
       "frameId": "portola",
       "colorName": "Olive",
       "silhouetteOnly": false
@@ -3072,7 +3020,7 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "questionText": "Which frame matches this description: \"A seamless blend of acetate and metal featuring a balanced hexagonal-round shape.\"?",
       "options": [
         "Undertone",
-        "Velo",
+        "Vondel",
         "Strand",
         "Prysm"
       ],
@@ -3128,12 +3076,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Undertone in Anthracite feature?",
       "options": [
-        "Purple / smoke lens",
-        "Coral / orange lens",
-        "Blue lens",
-        "Brown gradient lens"
+        "GreenFade",
+        "Brown",
+        "Rose",
+        "Olive"
       ],
-      "correctAnswer": "Coral / orange lens",
+      "correctAnswer": "Rose",
       "frameId": "undertone",
       "colorName": "Anthracite",
       "silhouetteOnly": false
@@ -3158,12 +3106,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Undertone in Gold feature?",
       "options": [
-        "Brown gradient",
-        "Brown / rose gradient",
-        "Green / smoke lens",
-        "Purple / smoke lens"
+        "Black",
+        "Green",
+        "Peach",
+        "BlackFade"
       ],
-      "correctAnswer": "Purple / smoke lens",
+      "correctAnswer": "Black",
       "frameId": "undertone",
       "colorName": "Gold",
       "silhouetteOnly": false
@@ -3188,12 +3136,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Undertone in Silver feature?",
       "options": [
-        "Purple / smoke lens",
-        "Black / smoke lens",
-        "Green / smoke lens",
-        "Green lens"
+        "Green",
+        "BrownFade",
+        "Brown",
+        "Purple"
       ],
-      "correctAnswer": "Green / smoke lens",
+      "correctAnswer": "Green",
       "frameId": "undertone",
       "colorName": "Silver",
       "silhouetteOnly": false
@@ -3305,12 +3253,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Prysm in Black Core feature?",
       "options": [
-        "Black / smoke lens",
-        "Yellow lens",
-        "Blue / purple gradient",
-        "Brown gradient lens"
+        "Peach",
+        "BlackFade",
+        "Blue",
+        "Black"
       ],
-      "correctAnswer": "Black / smoke lens",
+      "correctAnswer": "Black",
       "frameId": "prysm",
       "colorName": "Black Core",
       "silhouetteOnly": false
@@ -3335,12 +3283,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Prysm in Emerald feature?",
       "options": [
-        "Blue / purple tint",
-        "Green lens",
-        "Yellow lens",
-        "Brown / rose gradient"
+        "Black",
+        "Purple",
+        "Green",
+        "Rose"
       ],
-      "correctAnswer": "Green lens",
+      "correctAnswer": "Black",
       "frameId": "prysm",
       "colorName": "Emerald",
       "silhouetteOnly": false
@@ -3365,12 +3313,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Prysm in Matte Black feature?",
       "options": [
-        "Brown gradient",
-        "Orange lens",
-        "Yellow lens",
-        "Purple / smoke lens"
+        "Orange",
+        "Brown",
+        "Green",
+        "BrownFade"
       ],
-      "correctAnswer": "Orange lens",
+      "correctAnswer": "Orange",
       "frameId": "prysm",
       "colorName": "Matte Black",
       "silhouetteOnly": false
@@ -3395,12 +3343,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Prysm in Ether feature?",
       "options": [
-        "Black / smoke lens",
-        "Yellow lens",
-        "Blue / purple tint",
-        "Blue / purple gradient"
+        "Purple",
+        "GreenFade",
+        "Blue",
+        "Green Fade"
       ],
-      "correctAnswer": "Blue / purple gradient",
+      "correctAnswer": "Purple",
       "frameId": "prysm",
       "colorName": "Ether",
       "silhouetteOnly": false
@@ -3425,12 +3373,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Prysm in Rust feature?",
       "options": [
-        "Yellow lens",
-        "Brown / orange gradient",
-        "Black / smoke lens",
-        "Brown gradient lens"
+        "Brown",
+        "Green",
+        "Black",
+        "SkyBlue"
       ],
-      "correctAnswer": "Brown / orange gradient",
+      "correctAnswer": "Brown",
       "frameId": "prysm",
       "colorName": "Rust",
       "silhouetteOnly": false
@@ -3542,12 +3490,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Highline in Anthracite feature?",
       "options": [
-        "Black / dark smoke",
-        "Purple / smoke lens",
-        "Yellow lens",
-        "Green lens"
+        "Purple",
+        "Brown",
+        "Olive",
+        "Blue"
       ],
-      "correctAnswer": "Yellow lens",
+      "correctAnswer": "Olive",
       "frameId": "highline",
       "colorName": "Anthracite",
       "silhouetteOnly": false
@@ -3572,12 +3520,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Highline in Gold feature?",
       "options": [
-        "Brown / rose gradient lens",
-        "Black / smoke lens",
-        "Green lens",
-        "Blue / purple lens"
+        "BrownFade",
+        "Black",
+        "Orange",
+        "Purple"
       ],
-      "correctAnswer": "Brown / rose gradient lens",
+      "correctAnswer": "BrownFade",
       "frameId": "highline",
       "colorName": "Gold",
       "silhouetteOnly": false
@@ -3602,12 +3550,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Highline in Silver feature?",
       "options": [
-        "Light blue / lavender lens",
-        "Blue lens",
-        "Brown / orange gradient",
-        "Black / dark smoke lens"
+        "Purple",
+        "SkyBlue",
+        "Green",
+        "Rose"
       ],
-      "correctAnswer": "Light blue / lavender lens",
+      "correctAnswer": "Purple",
       "frameId": "highline",
       "colorName": "Silver",
       "silhouetteOnly": false
@@ -3719,12 +3667,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Borderline in Gold feature?",
       "options": [
-        "Black / smoke lens",
-        "Brown / orange gradient lens",
-        "Green / olive gradient lens",
-        "Green lens"
+        "Brown",
+        "Orange",
+        "Green Fade",
+        "Green"
       ],
-      "correctAnswer": "Green / olive gradient lens",
+      "correctAnswer": "Green",
       "frameId": "borderline",
       "colorName": "Gold",
       "silhouetteOnly": false
@@ -3749,12 +3697,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Borderline in Gunmetal feature?",
       "options": [
-        "Black / smoke lens",
-        "Blue lens",
-        "Brown gradient lens",
-        "Blue / grey lens"
+        "Peach",
+        "SkyBlue",
+        "Blue",
+        "Green"
       ],
-      "correctAnswer": "Blue lens",
+      "correctAnswer": "Blue",
       "frameId": "borderline",
       "colorName": "Gunmetal",
       "silhouetteOnly": false
@@ -3779,12 +3727,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Borderline in Matte Black feature?",
       "options": [
-        "Purple / smoke lens",
-        "Yellow-green lens",
-        "Green lens",
-        "Yellow lens"
+        "GreenFade",
+        "Yellow",
+        "Black",
+        "BlackFade"
       ],
-      "correctAnswer": "Purple / smoke lens",
+      "correctAnswer": "BlackFade",
       "frameId": "borderline",
       "colorName": "Matte Black",
       "silhouetteOnly": false
@@ -3896,12 +3844,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Crossfire in Anthracite feature?",
       "options": [
-        "Blue / purple tint",
-        "Black / dark smoke",
-        "Brown gradient",
-        "Purple / smoke lens"
+        "BlackFade",
+        "SkyBlue",
+        "GreenFade",
+        "Rose"
       ],
-      "correctAnswer": "Purple / smoke lens",
+      "correctAnswer": "BlackFade",
       "frameId": "crossfire",
       "colorName": "Anthracite",
       "silhouetteOnly": false
@@ -3926,12 +3874,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Crossfire in Bronze feature?",
       "options": [
-        "Green gradient lens",
-        "Green lens",
-        "Orange / red gradient",
-        "Blue / grey lens"
+        "Orange",
+        "Brown",
+        "Olive",
+        "GreenFade"
       ],
-      "correctAnswer": "Green gradient lens",
+      "correctAnswer": "GreenFade",
       "frameId": "crossfire",
       "colorName": "Bronze",
       "silhouetteOnly": false
@@ -3956,12 +3904,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Crossfire in Gold feature?",
       "options": [
-        "Brown gradient lens",
-        "Black / dark smoke",
-        "Orange lens",
-        "Brown / rose gradient lens"
+        "Brown",
+        "Black",
+        "Orange",
+        "Blue"
       ],
-      "correctAnswer": "Brown gradient lens",
+      "correctAnswer": "Brown",
       "frameId": "crossfire",
       "colorName": "Gold",
       "silhouetteOnly": false
@@ -4073,12 +4021,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Strangelove in Anthracite feature?",
       "options": [
-        "Yellow-green lens",
-        "Green / smoke lens",
-        "Brown / rose gradient lens",
-        "Orange lens"
+        "Rose",
+        "SkyBlue",
+        "Blue",
+        "Orange"
       ],
-      "correctAnswer": "Orange lens",
+      "correctAnswer": "Orange",
       "frameId": "strangelove",
       "colorName": "Anthracite",
       "silhouetteOnly": false
@@ -4103,12 +4051,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Strangelove in Gold feature?",
       "options": [
-        "Green lens",
-        "Brown / smoke lens",
-        "Green gradient lens",
-        "Blue / purple lens"
+        "Rose",
+        "Green",
+        "Peach",
+        "Black"
       ],
-      "correctAnswer": "Brown / smoke lens",
+      "correctAnswer": "Black",
       "frameId": "strangelove",
       "colorName": "Gold",
       "silhouetteOnly": false
@@ -4133,12 +4081,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Strangelove in Silver feature?",
       "options": [
-        "Blue gradient",
-        "Black / dark smoke lens",
-        "Green lens",
-        "Yellow lens"
+        "Yellow",
+        "SkyBlue",
+        "Olive",
+        "Purple"
       ],
-      "correctAnswer": "Yellow lens",
+      "correctAnswer": "Olive",
       "frameId": "strangelove",
       "colorName": "Silver",
       "silhouetteOnly": false
@@ -4236,12 +4184,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Wireframe in Bronze feature?",
       "options": [
-        "Brown / orange gradient",
-        "Blue lens",
-        "Blue / purple lens",
-        "Orange lens"
+        "SkyBlue",
+        "Black",
+        "Rose",
+        "Blue"
       ],
-      "correctAnswer": "Blue lens",
+      "correctAnswer": "Blue",
       "frameId": "wireframe",
       "colorName": "Bronze",
       "silhouetteOnly": false
@@ -4266,12 +4214,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Wireframe in Gold feature?",
       "options": [
-        "Green gradient lens",
-        "Brown / rose gradient lens",
-        "Orange lens",
-        "Black / smoke lens"
+        "Olive",
+        "Purple",
+        "Green",
+        "Orange"
       ],
-      "correctAnswer": "Orange lens",
+      "correctAnswer": "Orange",
       "frameId": "wireframe",
       "colorName": "Gold",
       "silhouetteOnly": false
@@ -4296,12 +4244,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Wireframe in Matte Black feature?",
       "options": [
-        "Green lens",
-        "Black / smoke lens",
-        "Coral / orange lens",
-        "Purple / smoke lens"
+        "Olive",
+        "BrownFade",
+        "Blue",
+        "BlackFade"
       ],
-      "correctAnswer": "Black / smoke lens",
+      "correctAnswer": "BlackFade",
       "frameId": "wireframe",
       "colorName": "Matte Black",
       "silhouetteOnly": false
@@ -4326,12 +4274,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Wireframe in Silver feature?",
       "options": [
-        "Orange lens",
-        "Black / smoke lens",
-        "Blue / lavender lens",
-        "Brown / rose gradient lens"
+        "SkyBlue",
+        "GreenFade",
+        "Green",
+        "Purple"
       ],
-      "correctAnswer": "Blue / lavender lens",
+      "correctAnswer": "Purple",
       "frameId": "wireframe",
       "colorName": "Silver",
       "silhouetteOnly": false
@@ -4443,12 +4391,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Paradox in Gold feature?",
       "options": [
-        "Green / olive gradient lens",
-        "Blue gradient",
-        "Blue lens",
-        "Brown / orange gradient"
+        "Brown",
+        "Orange",
+        "Rose",
+        "Green"
       ],
-      "correctAnswer": "Green / olive gradient lens",
+      "correctAnswer": "Green",
       "frameId": "paradox",
       "colorName": "Gold",
       "silhouetteOnly": false
@@ -4473,12 +4421,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Paradox in Matte Anthracite feature?",
       "options": [
-        "Rose / pink gradient",
-        "Black / dark smoke lens",
-        "Blue / lavender lens",
-        "Green / smoke lens"
+        "BrownFade",
+        "Purple",
+        "Blue",
+        "SkyBlue"
       ],
-      "correctAnswer": "Blue / lavender lens",
+      "correctAnswer": "Purple",
       "frameId": "paradox",
       "colorName": "Matte Anthracite",
       "silhouetteOnly": false
@@ -4503,12 +4451,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Paradox in Matte Olive feature?",
       "options": [
-        "Blue / lavender lens",
-        "Brown / orange gradient lens",
-        "Green lens",
-        "Orange lens"
+        "Peach",
+        "BlackFade",
+        "Purple",
+        "Brown"
       ],
-      "correctAnswer": "Brown / orange gradient lens",
+      "correctAnswer": "Brown",
       "frameId": "paradox",
       "colorName": "Matte Olive",
       "silhouetteOnly": false
@@ -4620,12 +4568,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Runway in Gold feature?",
       "options": [
-        "Blue / purple tint",
-        "Green gradient lens",
-        "Green lens",
-        "Brown / smoke gradient lens"
+        "Rose",
+        "Brown",
+        "Black",
+        "Green"
       ],
-      "correctAnswer": "Brown / smoke gradient lens",
+      "correctAnswer": "Black",
       "frameId": "runway",
       "colorName": "Gold",
       "silhouetteOnly": false
@@ -4650,12 +4598,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Runway in Matte Gunmetal feature?",
       "options": [
-        "Blue / purple lens",
-        "Black / smoke lens",
-        "Blue lens",
-        "Blue / purple tint"
+        "Rose",
+        "Green",
+        "SkyBlue",
+        "Blue"
       ],
-      "correctAnswer": "Blue lens",
+      "correctAnswer": "SkyBlue",
       "frameId": "runway",
       "colorName": "Matte Gunmetal",
       "silhouetteOnly": false
@@ -4680,12 +4628,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Runway in Olive feature?",
       "options": [
-        "Yellow / green tint",
-        "Green / smoke lens",
-        "Black / smoke lens",
-        "Rose / pink gradient"
+        "Green Fade",
+        "Yellow",
+        "Green",
+        "BlackFade"
       ],
-      "correctAnswer": "Green / smoke lens",
+      "correctAnswer": "Green",
       "frameId": "runway",
       "colorName": "Olive",
       "silhouetteOnly": false
@@ -4797,12 +4745,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Sheer in Gold feature?",
       "options": [
-        "Yellow lens",
-        "Green / smoke lens",
-        "Black / dark smoke",
-        "Blue lens"
+        "Olive",
+        "BrownFade",
+        "SkyBlue",
+        "Blue"
       ],
-      "correctAnswer": "Yellow lens",
+      "correctAnswer": "Olive",
       "frameId": "sheer",
       "colorName": "Gold",
       "silhouetteOnly": false
@@ -4827,12 +4775,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Sheer in Matte Black feature?",
       "options": [
-        "Black / dark smoke lens",
-        "Pink / coral lens",
-        "Black / dark smoke",
-        "Brown / rose gradient"
+        "Peach",
+        "BlackFade",
+        "Yellow",
+        "Rose"
       ],
-      "correctAnswer": "Pink / coral lens",
+      "correctAnswer": "Rose",
       "frameId": "sheer",
       "colorName": "Matte Black",
       "silhouetteOnly": false
@@ -4857,12 +4805,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Sheer in Matte Silver feature?",
       "options": [
-        "Black / smoke lens",
-        "Brown gradient lens",
-        "Purple / smoke lens",
-        "Light blue / lavender lens"
+        "Rose",
+        "SkyBlue",
+        "Blue",
+        "Black"
       ],
-      "correctAnswer": "Purple / smoke lens",
+      "correctAnswer": "Black",
       "frameId": "sheer",
       "colorName": "Matte Silver",
       "silhouetteOnly": false
@@ -4919,7 +4867,7 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "options": [
         "Sheer",
         "Overture",
-        "Velo",
+        "Vondel",
         "Slowburn"
       ],
       "correctAnswer": "Slowburn",
@@ -4974,12 +4922,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Slowburn in Gold feature?",
       "options": [
-        "Purple / smoke gradient lens",
-        "Brown gradient",
-        "Green lens",
-        "Brown gradient lens"
+        "BrownFade",
+        "Green Fade",
+        "Rose",
+        "GreenFade"
       ],
-      "correctAnswer": "Brown gradient lens",
+      "correctAnswer": "BrownFade",
       "frameId": "slowburn",
       "colorName": "Gold",
       "silhouetteOnly": false
@@ -5004,12 +4952,12 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Slowburn in Gunmetal feature?",
       "options": [
-        "Brown gradient lens",
-        "Brown gradient",
-        "Blue lens",
-        "Green gradient lens"
+        "Orange",
+        "Peach",
+        "Purple",
+        "GreenFade"
       ],
-      "correctAnswer": "Green gradient lens",
+      "correctAnswer": "GreenFade",
       "frameId": "slowburn",
       "colorName": "Gunmetal",
       "silhouetteOnly": false
@@ -5034,267 +4982,14 @@ export const FRAME_QUESTIONS: Record<string, QuizQuestion[]> = {
       "type": "lens_color_match",
       "questionText": "What lens color does the Slowburn in Olive feature?",
       "options": [
-        "Orange lens",
-        "Purple / smoke gradient lens",
-        "Blue / purple lens",
-        "Pink / coral lens"
+        "BlackFade",
+        "Blue",
+        "Green Fade",
+        "BrownFade"
       ],
-      "correctAnswer": "Purple / smoke gradient lens",
+      "correctAnswer": "BlackFade",
       "frameId": "slowburn",
       "colorName": "Olive",
-      "silhouetteOnly": false
-    }
-  ],
-  "velo": [
-    {
-      "id": "velo_name",
-      "type": "name_the_frame",
-      "questionText": "Identify this Unscene frame model from its unique styling.",
-      "options": [
-        "Vapour",
-        "Borderline",
-        "Velo",
-        "Fulton"
-      ],
-      "correctAnswer": "Velo",
-      "frameId": "velo",
-      "colorName": "Black B",
-      "silhouetteOnly": false
-    },
-    {
-      "id": "velo_shape",
-      "type": "shape_identification",
-      "questionText": "What is the signature shape profile of the Velo frame?",
-      "options": [
-        "Oval",
-        "Rectangle",
-        "Hexagon",
-        "Aviator"
-      ],
-      "correctAnswer": "Rectangle",
-      "frameId": "velo",
-      "silhouetteOnly": true
-    },
-    {
-      "id": "velo_material",
-      "type": "material_match",
-      "questionText": "What material is the Velo frame primarily crafted from?",
-      "options": [
-        "Carbon Fiber",
-        "Stainless Steel",
-        "Acetate",
-        "Titanium"
-      ],
-      "correctAnswer": "Acetate",
-      "frameId": "velo",
-      "silhouetteOnly": false
-    },
-    {
-      "id": "velo_description",
-      "type": "collection_recall",
-      "questionText": "Which frame matches this description: \"Narrow, wrapping rectangle sunglasses built for sleek athletic style.\"?",
-      "options": [
-        "Velo",
-        "Sheer",
-        "Highline",
-        "Paradox"
-      ],
-      "correctAnswer": "Velo",
-      "frameId": "velo",
-      "silhouetteOnly": false
-    },
-    {
-      "id": "velo_price_sun",
-      "type": "price_match",
-      "questionText": "What is the price of the Velo Sunglasses (SUN)?",
-      "options": [
-        "₹8,800",
-        "₹8,500",
-        "₹7,700",
-        "₹7,300"
-      ],
-      "correctAnswer": "₹7,300",
-      "frameId": "velo",
-      "silhouetteOnly": false
-    },
-    {
-      "id": "velo_color_0",
-      "type": "colour_recognition",
-      "questionText": "What colorway of the Velo is shown here?",
-      "options": [
-        "Cobalt",
-        "Black B",
-        "Black P",
-        "Black Shell"
-      ],
-      "correctAnswer": "Black B",
-      "frameId": "velo",
-      "colorName": "Black B",
-      "silhouetteOnly": false
-    },
-    {
-      "id": "velo_lens_0",
-      "type": "lens_color_match",
-      "questionText": "What lens color does the Velo in Black B feature?",
-      "options": [
-        "Green lens",
-        "Blue lens",
-        "Brown / orange gradient",
-        "Purple / smoke lens"
-      ],
-      "correctAnswer": "Blue lens",
-      "frameId": "velo",
-      "colorName": "Black B",
-      "silhouetteOnly": false
-    },
-    {
-      "id": "velo_color_1",
-      "type": "colour_recognition",
-      "questionText": "What colorway of the Velo is shown here?",
-      "options": [
-        "Black Shell",
-        "Black B",
-        "Black P",
-        "Cobalt"
-      ],
-      "correctAnswer": "Black P",
-      "frameId": "velo",
-      "colorName": "Black P",
-      "silhouetteOnly": false
-    },
-    {
-      "id": "velo_lens_1",
-      "type": "lens_color_match",
-      "questionText": "What lens color does the Velo in Black P feature?",
-      "options": [
-        "Black / smoke lens",
-        "Blue lens",
-        "Purple / smoke lens",
-        "Green / olive gradient lens"
-      ],
-      "correctAnswer": "Purple / smoke lens",
-      "frameId": "velo",
-      "colorName": "Black P",
-      "silhouetteOnly": false
-    },
-    {
-      "id": "velo_color_2",
-      "type": "colour_recognition",
-      "questionText": "What colorway of the Velo is shown here?",
-      "options": [
-        "Black Shell",
-        "Black B",
-        "Black P",
-        "Cobalt"
-      ],
-      "correctAnswer": "Black Shell",
-      "frameId": "velo",
-      "colorName": "Black Shell",
-      "silhouetteOnly": false
-    },
-    {
-      "id": "velo_lens_2",
-      "type": "lens_color_match",
-      "questionText": "What lens color does the Velo in Black Shell feature?",
-      "options": [
-        "Black / dark smoke lens",
-        "Brown / orange gradient",
-        "Olive / yellow-green lens",
-        "Black / smoke lens"
-      ],
-      "correctAnswer": "Black / dark smoke lens",
-      "frameId": "velo",
-      "colorName": "Black Shell",
-      "silhouetteOnly": false
-    },
-    {
-      "id": "velo_color_3",
-      "type": "colour_recognition",
-      "questionText": "What colorway of the Velo is shown here?",
-      "options": [
-        "Black Shell",
-        "Cobalt",
-        "Black P",
-        "Black B"
-      ],
-      "correctAnswer": "Cobalt",
-      "frameId": "velo",
-      "colorName": "Cobalt",
-      "silhouetteOnly": false
-    },
-    {
-      "id": "velo_lens_3",
-      "type": "lens_color_match",
-      "questionText": "What lens color does the Velo in Cobalt feature?",
-      "options": [
-        "Green / grey lens",
-        "Blue / grey lens",
-        "Brown gradient",
-        "Green / grey gradient"
-      ],
-      "correctAnswer": "Blue / grey lens",
-      "frameId": "velo",
-      "colorName": "Cobalt",
-      "silhouetteOnly": false
-    },
-    {
-      "id": "velo_color_4",
-      "type": "colour_recognition",
-      "questionText": "What colorway of the Velo is shown here?",
-      "options": [
-        "Black P",
-        "Black Shell",
-        "Ember",
-        "Black B"
-      ],
-      "correctAnswer": "Ember",
-      "frameId": "velo",
-      "colorName": "Ember",
-      "silhouetteOnly": false
-    },
-    {
-      "id": "velo_lens_4",
-      "type": "lens_color_match",
-      "questionText": "What lens color does the Velo in Ember feature?",
-      "options": [
-        "Blue lens",
-        "Blue / grey lens",
-        "Orange / red gradient",
-        "Yellow lens"
-      ],
-      "correctAnswer": "Orange / red gradient",
-      "frameId": "velo",
-      "colorName": "Ember",
-      "silhouetteOnly": false
-    },
-    {
-      "id": "velo_color_5",
-      "type": "colour_recognition",
-      "questionText": "What colorway of the Velo is shown here?",
-      "options": [
-        "Black Shell",
-        "Black B",
-        "Black P",
-        "Matte Black"
-      ],
-      "correctAnswer": "Matte Black",
-      "frameId": "velo",
-      "colorName": "Matte Black",
-      "silhouetteOnly": false
-    },
-    {
-      "id": "velo_lens_5",
-      "type": "lens_color_match",
-      "questionText": "What lens color does the Velo in Matte Black feature?",
-      "options": [
-        "Brown gradient lens",
-        "Olive / yellow-green lens",
-        "Black / smoke lens",
-        "Brown gradient"
-      ],
-      "correctAnswer": "Black / smoke lens",
-      "frameId": "velo",
-      "colorName": "Matte Black",
       "silhouetteOnly": false
     }
   ]

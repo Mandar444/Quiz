@@ -87,46 +87,21 @@ const COLOR_TRANSLATIONS: Record<string, Record<LanguageCode, string>> = {
 };
 
 const LENS_COLOR_TRANSLATIONS: Record<string, Record<LanguageCode, string>> = {
-  'Blue / purple tint': { en: 'Blue / purple tint', hi: 'नीला / बैंगनी टिंट' },
-  'Black / dark smoke': { en: 'Black / dark smoke', hi: 'काला / गहरा स्मोक' },
-  'Orange / peach lens': { en: 'Orange / peach lens', hi: 'नारंगी / पीच लेंस' },
-  'Blue gradient': { en: 'Blue gradient', hi: 'नीला ग्रेडिएंट' },
-  'Yellow lens': { en: 'Yellow lens', hi: 'पीला लेंस' },
-  'Black / smoke lens': { en: 'Black / smoke lens', hi: 'काला / स्मोक लेंस' },
-  'Orange / coral lens': { en: 'Orange / coral lens', hi: 'नारंगी / कोरल लेंस' },
-  'Brown gradient': { en: 'Brown gradient', hi: 'भूरा ग्रेडिएंट' },
-  'Green lens': { en: 'Green lens', hi: 'हरा लेंस' },
-  'Blue lens': { en: 'Blue lens', hi: 'नीला लेंस' },
-  'Light blue lens': { en: 'Light blue lens', hi: 'हल्का नीला लेंस' },
-  'Black / dark smoke lens': { en: 'Black / dark smoke lens', hi: 'काला / गहरा स्मोक लेंस' },
-  'Rose / pink gradient': { en: 'Rose / pink gradient', hi: 'रोज / गुलाबी ग्रेडिएंट' },
-  'Yellow-green lens': { en: 'Yellow-green lens', hi: 'पीला-हरा लेंस' },
-  'Green / grey lens': { en: 'Green / grey lens', hi: 'हरा / ग्रे लेंस' },
-  'Coral / orange lens': { en: 'Coral / orange lens', hi: 'कोरल / नारंगी लेंस' },
-  'Orange / brown gradient': { en: 'Orange / brown gradient', hi: 'नारंगी / भूरा ग्रेडिएंट' },
-  'Yellow / green tint': { en: 'Yellow / green tint', hi: 'पीला / हरा टिंट' },
-  'Brown / rose gradient': { en: 'Brown / rose gradient', hi: 'भूरा / रोज ग्रेडिएंट' },
-  'Blue / grey lens': { en: 'Blue / grey lens', hi: 'नीला / ग्रे लेंस' },
-  'Green / grey gradient': { en: 'Green / grey gradient', hi: 'हरा / ग्रे ग्रेडिएंट' },
-  'Brown / orange gradient': { en: 'Brown / orange gradient', hi: 'भूरा / नारंगी ग्रेडिएंट' },
-  'Orange / red gradient': { en: 'Orange / red gradient', hi: 'नारंगी / लाल ग्रेडिएंट' },
-  'Blue / purple lens': { en: 'Blue / purple lens', hi: 'नीला / बैंगनी लेंस' },
-  'Olive / yellow-green lens': { en: 'Olive / yellow-green lens', hi: 'ऑलिव / पीला-हरा लेंस' },
-  'Purple / smoke lens': { en: 'Purple / smoke lens', hi: 'बैंगनी / स्मोक लेंस' },
-  'Green / smoke lens': { en: 'Green / smoke lens', hi: 'हरा / स्मोक लेंस' },
-  'Orange lens': { en: 'Orange lens', hi: 'नारंगी लेंस' },
-  'Blue / purple gradient': { en: 'Blue / purple gradient', hi: 'नीला / बैंगनी ग्रेडिएंट' },
-  'Brown / rose gradient lens': { en: 'Brown / rose gradient lens', hi: 'भूरा / रोज ग्रेडिएंट लेंस' },
-  'Light blue / lavender lens': { en: 'Light blue / lavender lens', hi: 'हल्का नीला / लैवेंडर लेंस' },
-  'Green / olive gradient lens': { en: 'Green / olive gradient lens', hi: 'हरा / ऑलिव ग्रेडिएंट लेंस' },
-  'Green gradient lens': { en: 'Green gradient lens', hi: 'हरा ग्रेडिएंट लेंस' },
-  'Brown gradient lens': { en: 'Brown gradient lens', hi: 'भूरा ग्रेडिएंट लेंस' },
-  'Brown / smoke lens': { en: 'Brown / smoke lens', hi: 'भूरा / स्मोक लेंस' },
-  'Blue / lavender lens': { en: 'Blue / lavender lens', hi: 'नीला / लैवेंडर लेंस' },
-  'Brown / orange gradient lens': { en: 'Brown / orange gradient lens', hi: 'भूरा / नारंगी ग्रेडिएंट लेंस' },
-  'Brown / smoke gradient lens': { en: 'Brown / smoke gradient lens', hi: 'भूरा / स्मोक ग्रेडिएंट लेंस' },
-  'Pink / coral lens': { en: 'Pink / coral lens', hi: 'गुलाबी / कोरल लेंस' },
-  'Purple / smoke gradient lens': { en: 'Purple / smoke gradient lens', hi: 'बैंगनी / स्मोक ग्रेडिएंट लेंस' }
+  'Green': { en: 'Green', hi: 'हरा (Green)' },
+  'Rose': { en: 'Rose', hi: 'गुलाबी (Rose)' },
+  'Blue': { en: 'Blue', hi: 'नीला (Blue)' },
+  'Purple': { en: 'Purple', hi: 'बैंगनी (Purple)' },
+  'BlackFade': { en: 'Black Fade', hi: 'ब्लैक फेड (Black Fade)' },
+  'Olive': { en: 'Olive', hi: 'ऑलिव (Olive)' },
+  'Black': { en: 'Black', hi: 'ब्लैक (Black)' },
+  'Orange': { en: 'Orange', hi: 'नारंगी (Orange)' },
+  'SkyBlue': { en: 'Sky Blue', hi: 'आसमानी नीला (Sky Blue)' },
+  'Yellow': { en: 'Yellow', hi: 'पीला (Yellow)' },
+  'GreenFade': { en: 'Green Fade', hi: 'हरा फेड (Green Fade)' },
+  'Brown': { en: 'Brown', hi: 'भूरा (Brown)' },
+  'BrownFade': { en: 'Brown Fade', hi: 'भूरा फेड (Brown Fade)' },
+  'Peach': { en: 'Peach', hi: 'पीच (Peach)' },
+  'Green Fade': { en: 'Green Fade', hi: 'हरा फेड (Green Fade)' }
 };
 
 const CHARACTER_TRANSLATIONS: Record<string, Record<LanguageCode, string>> = {
@@ -209,10 +184,6 @@ const CHARACTER_TRANSLATIONS: Record<string, Record<LanguageCode, string>> = {
   'slowburn': {
     en: 'A slow-releasing design assertion. Thin metallic rims with polished acetate details.',
     hi: 'एक धीमा-रिलीज़ डिज़ाइन दावा। पॉलिश किए गए एसीटेट विवरण के साथ पतली धातु की रिम्स।'
-  },
-  'velo': {
-    en: 'Narrow, wrapping rectangle sunglasses built for sleek athletic style.',
-    hi: 'सलीक एथलेटिक शैली के लिए बनाए गए संकीर्ण, रैपिंग आयताकार सनग्लासेस।'
   }
 };
 
