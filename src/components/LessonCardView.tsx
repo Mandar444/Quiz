@@ -52,13 +52,14 @@ export const LessonCardView: React.FC = () => {
           
           <div className="w-full flex-1 flex flex-col justify-center items-center">
             {/* Visual Vector Silhouette */}
-            <div className="w-full max-w-[380px] py-8 filter drop-shadow-[0_10px_15px_rgba(0,0,0,0.15)]">
+            <div className="w-full max-w-[380px] bg-white rounded-2xl border border-zinc-150 shadow-md p-4">
               <FrameSilhouette 
                 shape={frame.shape} 
                 colorName={selectedColor.name} 
                 viewMode="full"
                 isSun={frame.type === 'Sun' || frame.type === 'Both'}
                 frameId={frame.id}
+                className="w-full h-full"
               />
             </div>
           </div>

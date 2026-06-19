@@ -286,7 +286,9 @@ export const QuizView: React.FC = () => {
           {/* SVG Frame Rendering */}
           {questionFrame && currentQuestion.type !== 'visual_choice' && currentQuestion.type !== 'lens_color_match' && (
             <div className="flex justify-center items-center py-6 flex-1 select-none">
-              <div className="w-full max-w-2xl h-56 md:h-72 flex items-center justify-center relative">
+              <div className={`w-full max-w-2xl h-56 md:h-72 flex items-center justify-center relative ${
+                currentQuestion.silhouetteOnly ? '' : 'bg-white rounded-2xl border border-zinc-150 shadow-sm p-2'
+              }`}>
                 <FrameSilhouette 
                   shape={questionFrame.shape} 
                   colorName={
@@ -343,7 +345,7 @@ export const QuizView: React.FC = () => {
                       {labelLetter}
                     </span>
                     
-                    <div className="w-full h-24 md:h-32 flex items-center justify-center select-none py-2">
+                    <div className="w-full h-24 md:h-32 flex items-center justify-center select-none p-1 bg-white rounded-xl border border-zinc-150/80 shadow-sm overflow-hidden">
                       <FrameSilhouette 
                         shape={optionFrame.shape} 
                         colorName={optionFrame.colors[0].name}
